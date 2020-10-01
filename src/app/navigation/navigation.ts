@@ -149,15 +149,7 @@ export const navigation: FuseNavigation[] = [
                 url  : '/generic/JobCategory'
         
             },
-            {
-                id       : 'Language',
-                title    : 'Language',
-                translate: 'NAV.Language',
-                type     : 'item',
-                icon     : 'queue_play_next',
-                url  : '/generic/Language'
-        
-            },
+           
             {
                 id       : 'CareerInterest',
                 title    : 'CareerInterest',
@@ -194,6 +186,15 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'Country',
                 url  : '/generic/Country'
+        
+            },
+            {
+                id       : 'Language',
+                title    : 'Language',
+                translate: 'NAV.Language',
+                type     : 'item',
+                icon     : 'queue_play_next',
+                url  : '/generic/Language'
         
             },
             {

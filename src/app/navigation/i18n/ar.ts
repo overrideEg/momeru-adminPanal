@@ -39,6 +39,15 @@ export const locale = {
             'UserAnswer': 'إجابة الطالب',
             'Faq': 'Faq',
             'SpecializationData': 'بيانات التخصص',
+            'Job' : 'الوظيفة',
+            'JobTitle': 'المسمى الوظيفي',
+            'JobCategory': 'تصنيف الوظيفة',
+            'Language': 'اللغة',
+            'CareerInterest': 'الاهتمام الوظيفي',
+            'placeData': 'بيانات الموقع',
+            'Currency': 'العملة',
+            
+
          
             
             

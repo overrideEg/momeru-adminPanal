@@ -34,7 +34,16 @@ export const locale = {
             'Faq': 'Faq',
             'SpecializationData': 'Specialization Data',
             'Specialization': 'Specialization',
-            'Company': 'Company'
+            'Company': 'Company',
+            'Job': 'Job',
+            'JobTitle': 'Job Title',
+            'JobCategory': 'Job Category',
+            'Language': 'Language',
+            'CareerInterest': 'Career Interest',
+            'placeData': 'Places Data',
+            'Currency': 'Currency',
+            'Country': 'Country',
+            'City': 'City'
             
 
         }

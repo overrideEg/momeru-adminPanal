@@ -513,8 +513,28 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+[this.utils.currentLang],
-                        headerName: this._translateService.instant('name'),
+                        field: 'label.'+[this.utils.currentLang],
+                        headerName: this._translateService.instant('label'),
+                    },
+                    {
+                        field: 'type',
+                        headerName: this._translateService.instant('type'),
+                    },
+                    {
+                        field: 'required',
+                        headerName: this._translateService.instant('required'),
+                    },
+                    {
+                        field: 'multiline',
+                        headerName: this._translateService.instant('multiline'),
+                    },
+                    {
+                        field: 'multipleAnswers',
+                        headerName: this._translateService.instant('multipleAnswers'),
+                    },
+                    {
+                        field: 'category.name.'+this.utils.currentLang,
+                        headerName: this._translateService.instant('category'),
                     },
                 
                 ]

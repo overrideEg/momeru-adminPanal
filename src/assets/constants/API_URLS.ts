@@ -35,7 +35,7 @@ export const API_URLS = {
 //   },
   Question: {
     post: uri + '/Question',
-    get: uri + '/Question',
+    get: uri + '/Question/all',
     getOne: uri + '/Question/{entityId}',
     put: uri + '/Question/{entityId}',
     delete: uri + '/Question/{entityId}',
