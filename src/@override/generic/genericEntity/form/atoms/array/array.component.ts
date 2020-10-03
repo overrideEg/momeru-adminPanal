@@ -92,8 +92,8 @@ export class ArrayComponent implements DoCheck, OnInit {
   removeRow(i) {
       if (confirm(this.translate.instant('Are You Sure ?'))){
         this.Forms.removeAt(i);
-        if (this.Forms.length === 0)
-        this.addRow()
+        // if (this.Forms.length === 0)
+        // this.addRow()
       }
  
 

@@ -14,7 +14,7 @@ export const fuseConfig: FuseConfig = {
     colorTheme      : 'theme-yellow-light',
     customScrollbars: false,
     layout          : {
-        style    : 'vertical-layout-1',
+        style    : 'horizontal-layout-1',
         width    : 'fullwidth',
         navbar   : {
             primaryBackground  : 'fuse-navy-900',
