@@ -2,7 +2,6 @@
 
 <mat-grid-list [cols]="12" rowHeight="4rem">
     <mat-grid-tile *ngFor="let f of field.children" [colspan]="f.cols" [rowspan]="f.rows" [style.background]="f.color" [formGroup]="form">
-        <!-- {{f | json}} -->
-        <field-builder style="width: 90%" [field]="f" [form]="form"></field-builder>
+        <field-builder style="width: 90%" [field]="f" [form]="outputForm"></field-builder>
     </mat-grid-tile>
 </mat-grid-list>

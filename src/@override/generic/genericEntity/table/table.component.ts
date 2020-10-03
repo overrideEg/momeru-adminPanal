@@ -33,7 +33,7 @@ export class TableComponent {
       if (val instanceof ActivationEnd) {
         nav = ActivationEnd
         let route = val.snapshot.params.route
-        let entity = this.entities.allEntities.find(entity => entity.route.includes(route))
+        let entity = this.entities.allEntities.find(entity => entity.route.substr(entity.route.indexOf('/',2)+1) === route)
         this.entityData = entity;
       }
     });

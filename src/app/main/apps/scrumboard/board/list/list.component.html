@@ -9,14 +9,14 @@
             (listNameChanged)="onListNameChanged($event)">
         </scrumboard-board-edit-list-name>
 
-        <div fxFlex="0 1 auto">
+        <!-- <div fxFlex="0 1 auto">
             <button mat-icon-button class="list-header-option-button" [matMenuTriggerFor]="listMenu">
                 <mat-icon>more_vert</mat-icon>
             </button>
             <mat-menu #listMenu="matMenu">
                 <button mat-menu-item (click)="removeList(list.id)">Remove List</button>
             </mat-menu>
-        </div>
+        </div> -->
 
     </div>
     <!-- / LIST HEADER -->
@@ -39,8 +39,9 @@
     <!-- / LIST CONTENT -->
 
     <!-- NEW CARD BUTTON-->
-    <div class="list-footer">
-        <scrumboard-board-add-card (cardAdded)="onCardAdd($event)"></scrumboard-board-add-card>
+    <div  class="list-footer" style="text-align: center;">
+        <h4>{{'Momeru' |translate}}</h4>
+        <!-- <scrumboard-board-add-card (cardAdded)="onCardAdd($event)"></scrumboard-board-add-card> -->
     </div>
     <!-- / NEW CARD BUTTON-->
 

@@ -58,33 +58,45 @@ export class EntitiesService {
       case FieldType.textLocalized || FieldType.editorLocalized: {
 
         let ctrl = {};
-        if (this.entityData.form.localizedAllFields === true) {
-          // tslint:disable-next-line: forin
-          // for (const lang in Lang) {
-
-          // }
-
-          ctrl['ar'] = this.fb.control(
-            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
-          ctrl['en'] = this.fb.control(
-            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
-          ctrl['ms'] = this.fb.control(
-            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
-
-
-
+        // console.log(this.isEdit);
+        
+        if (this.isEdit){
+          
+                ctrl['ar'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
+                ctrl['en'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+                ctrl['ms'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+      
+      
+      
+           
+      
+              
         } else {
-
-          ctrl[this.translate.currentLang] = this.fb.control(
-            {
-              value: f.initialValue ? f.initialValue : '' || '',
-              disabled: f.disabled,
-            },
-            f.validators ? f.validators : []
-          );
-
-
+            if (this.entityData.form.localizedAllFields === true ) {
+                
+      
+                ctrl['ar'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
+                ctrl['en'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+                ctrl['ms'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+      
+      
+      
+              } else {
+      
+                  ctrl['ar'] = this.fb.control(
+                      { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
+      
+      
+              }
         }
+       
+        // console.log(ctrl,"ASdf");
         
         return this.fb.group(ctrl);
       }
