@@ -18,7 +18,7 @@ import { ColDef, GridApi } from 'ag-grid-community';
 })
 export class SelectEntityComponent implements OnInit {
 
-  @Input() field: AbstractField;
+@Input() field: AbstractField;
   @Input() form: FormGroup;
   @Input() isArray: boolean;
   i = 0;
@@ -31,28 +31,30 @@ export class SelectEntityComponent implements OnInit {
     this.entityData = entity;
   }
 
-  // ngDoCheck(): void {
-  //   if (this.form.get(this.field.name) != undefined && this.entities.isEditMode) {
-  //     if (!this.field.multiple) {
-  //       if (this.form.value)
-  //         if (this.form.value[this.field.name][this.field.selectOptions.optionName]) {
-  //           this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang];
-  //         }
-  //     }
-  //     else {
-  //       let value = this.form.value[this.field.name];
-  //       let optionValue = [];
-  //       if (value)
-  //         value.forEach((val) => {
-  //           optionValue.push(
-  //             val[this.field.selectOptions.optionName][this.translate.currentLang],
-  //           );
-  //         });
-  //       this.fieldVal = optionValue.toString();
-  //     }
-  //   }
-  //   this.i++;
-  // }
+  ngDoCheck(): void {
+    if (this.form.get(this.field.name) != undefined && this.entities.isEditMode) {
+      if (!this.field.multiple) {
+        if (this.form.value)
+          if (this.form.value[this.field.name][this.field.selectOptions.optionName]) {
+             console.log('lkk',  this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang])
+            this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang];
+          }
+      }
+      else {
+        let value = this.form.value[this.field.name];
+   
+        let optionValue = [];
+        if (value)
+          value.forEach((val) => {
+            optionValue.push(
+              val[this.field.selectOptions.optionName][this.translate.currentLang],
+            );
+          });
+        this.fieldVal = optionValue.toString();
+      }
+    }
+    this.i++;
+  }
   date = Date.now()
 
   matcher = new MyErrorStateMatcher();
@@ -71,6 +73,7 @@ export class SelectEntityComponent implements OnInit {
 
 
       btmRef.afterDismissed().subscribe((data) => {
+        //   console.log('data', data)
         this.form = data.form;
         this.fieldVal = data.fieldVal[this.translate.currentLang];
         

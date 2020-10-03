@@ -1,17 +1,47 @@
 import { FuseNavigation } from '@fuse/types';
 
 export const navigation: FuseNavigation[] = [
+    
+    {
+        id       : 'homePage',
+        title    : 'Home Page',
+        translate: 'homePage',
+        type     : 'group',
+        icon     : 'Home',
+        children : [
+            {
+                id       : 'homePage',
+                title    : 'homePage',
+                translate: 'homePage',
+                type     : 'item',
+                icon     : 'Home Page',
+                url  : '/apps/dashboards/analytics'
+        
+            },
+            {
+                id       : 'scrumboard',
+                title    : 'Applications',
+                translate: 'Applications',
+                type     : 'item',
+                icon     : 'Home',
+                url  : '/apps/scrumboard'
+        
+            },
+          
+        ]
+    },
+    
     {
         id       : 'basicData',
         title    : 'Basic Data',
-        translate: 'NAV.basicData',
+        translate: 'basicData',
         type     : 'group',
         icon     : 'tab_unselected',
         children : [
             {
                 id       : 'users',
                 title    : 'Users',
-                translate: 'NAV.users',
+                translate: 'users',
                 type     : 'item',
                 icon     : 'person_outline',
                 url  : '/generic/User'
@@ -20,7 +50,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'UserAnswer',
                 title    : 'UserAnswer',
-                translate: 'NAV.UserAnswer',
+                translate: 'UserAnswer',
                 type     : 'item',
                 icon     : 'question_answer',
                 url  : '/generic/UserAnswer'
@@ -29,7 +59,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Faq',
                 title    : 'Faq',
-                translate: 'NAV.Faq',
+                translate: 'Faq',
                 type     : 'item',
                 icon     : 'Faq',
                 url  : '/generic/Faq'
@@ -42,7 +72,7 @@ export const navigation: FuseNavigation[] = [
     {
         id       : 'controlData',
         title    : 'Control Data',
-        translate: 'NAV.controlData',
+        translate: 'controlData',
         type     : 'group',
         icon     : 'tab_unselected',
         children : [
@@ -51,7 +81,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'category',
                 title    : 'Category',
-                translate: 'NAV.Category',
+                translate: 'Category',
                 type     : 'item',
                 icon     : 'category',
                 url  : '/generic/Category'
@@ -60,7 +90,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'form',
                 title    : 'Form',
-                translate: 'NAV.Form',
+                translate: 'Form',
                 type     : 'item',
                 icon     : 'forum',
                 url  : '/generic/Form'
@@ -69,7 +99,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Page',
                 title    : 'Page',
-                translate: 'NAV.Page',
+                translate: 'Page',
                 type     : 'item',
                 icon     : 'pages',
                 url  : '/generic/Page'
@@ -78,7 +108,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Section',
                 title    : 'Section',
-                translate: 'NAV.Section',
+                translate: 'Section',
                 type     : 'item',
                 icon     : 'view_carousel',
                 url  : '/generic/Section'
@@ -87,7 +117,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Question',
                 title    : 'Question',
-                translate: 'NAV.Question',
+                translate: 'Question',
                 type     : 'item',
                 icon     : 'Question',
                 url  : '/generic/Question'
@@ -98,7 +128,7 @@ export const navigation: FuseNavigation[] = [
     {
         id       : 'SpecializationData',
         title    : 'Specialization Data',
-        translate: 'NAV.SpecializationData',
+        translate: 'SpecializationData',
         type     : 'group',
         icon     : 'tab_unselected',
         children : [
@@ -107,7 +137,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Specialization',
                 title    : 'Specialization',
-                translate: 'NAV.Specialization',
+                translate: 'Specialization',
                 type     : 'item',
                 icon     : 'Specialization',
                 url  : '/generic/Specialization'
@@ -116,7 +146,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'company',
                 title    : 'Company',
-                translate: 'NAV.Company',
+                translate: 'Company',
                 type     : 'item',
                 icon     : 'Company',
                 url  : '/generic/Company'
@@ -125,7 +155,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'Job',
                 title    : 'Job',
-                translate: 'NAV.Job',
+                translate: 'Job',
                 type     : 'item',
                 icon     : 'Job',
                 url  : '/generic/Job'
@@ -134,7 +164,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'JobTitle',
                 title    : 'JobTitle',
-                translate: 'NAV.JobTitle',
+                translate: 'JobTitle',
                 type     : 'item',
                 icon     : 'JobTitle',
                 url  : '/generic/JobTitle'
@@ -143,25 +173,17 @@ export const navigation: FuseNavigation[] = [
             {
                 id       : 'JobCategory',
                 title    : 'JobCategory',
-                translate: 'NAV.JobCategory',
+                translate: 'JobCategory',
                 type     : 'item',
                 icon     : 'view_carousel',
                 url  : '/generic/JobCategory'
         
             },
-            {
-                id       : 'Language',
-                title    : 'Language',
-                translate: 'NAV.Language',
-                type     : 'item',
-                icon     : 'queue_play_next',
-                url  : '/generic/Language'
-        
-            },
+           
             {
                 id       : 'CareerInterest',
                 title    : 'CareerInterest',
-                translate: 'NAV.CareerInterest',
+                translate: 'CareerInterest',
                 type     : 'item',
                 icon     : 'queue_play_next',
                 url  : '/generic/CareerInterest'
@@ -169,44 +191,6 @@ export const navigation: FuseNavigation[] = [
             },
         ]
     },
-    {
-        id       : 'placeData',
-        title    : 'Place Data',
-        translate: 'NAV.placeData',
-        type     : 'group',
-        icon     : 'tab_unselected',
-        children : [
-          
-
-            {
-                id       : 'Currency',
-                title    : 'Currency',
-                translate: 'NAV.Currency',
-                type     : 'item',
-                icon     : 'Currency',
-                url  : '/generic/Currency'
-        
-            },
-            {
-                id       : 'Country',
-                title    : 'Country',
-                translate: 'NAV.Country',
-                type     : 'item',
-                icon     : 'Country',
-                url  : '/generic/Country'
-        
-            },
-            {
-                id       : 'City',
-                title    : 'City',
-                translate: 'NAV.City',
-                type     : 'item',
-                icon     : 'City',
-                url  : '/generic/City'
-        
-            },
-         
-        ]
-    },
+  
 
 ];

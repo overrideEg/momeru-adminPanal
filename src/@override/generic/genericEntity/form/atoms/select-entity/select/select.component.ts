@@ -158,13 +158,14 @@ export class SelectComponent implements OnInit {
     else selectedRow = this.gridApi.getSelectedRows();
 
     // this.fieldVal=this.form.value[this.field.name][this.field.optionName][this.override.currentLang]
-
     var formVal = (this.form.value[this.field.name] = selectedRow);
     var contName = this.form.controls[this.field.name];
+
     contName.setValue(formVal);
     if (!this.field.multiple) {
       if (!this.field.selectOptions.options) {
         if (this.field.selectOptions.localized && this.field.selectOptions.localized.includes(this.field.selectOptions.optionName)) {
+           
           this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang];
         } else {
           this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName];

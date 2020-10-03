@@ -71,6 +71,7 @@ export class FuseSidebarService
             return;
         }
 
+        
         // Return the sidebar
         return this._registry[key];
     }

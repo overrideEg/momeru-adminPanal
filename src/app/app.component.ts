@@ -12,8 +12,8 @@ import { FuseSplashScreenService } from '@fuse/services/splash-screen.service';
 import { FuseTranslationLoaderService } from '@fuse/services/translation-loader.service';
 
 import { navigation } from 'app/navigation/navigation';
-import { locale as navigationEnglish } from 'app/navigation/i18n/en';
-import { locale as navigationArabic } from 'app/navigation/i18n/ar';
+// import { locale as navigationEnglish } from 'app/navigation/i18n/en';
+// import { locale as navigationArabic } from 'app/navigation/i18n/ar';
 
 import { Validators } from '@angular/forms';
 import { EntitiesService } from '@override/utils/entities.service';
@@ -77,19 +77,20 @@ export class AppComponent implements OnInit, OnDestroy {
         this._fuseNavigationService.setCurrentNavigation('main');
 
         // Add languages
-        this._translateService.addLangs(['en', 'ar']);
+        this._translateService.addLangs(['en', 'ar','ms']);
 
+        let lang = localStorage.getItem('language') ?localStorage.getItem('language') :  this._translateService.getBrowserLang()==='ar'||this._translateService.getBrowserLang() === 'en' || this._translateService.getBrowserLang() === 'ms' ? this._translateService.getBrowserLang() : 'ar'
         // Set the default language
-        this._translateService.setDefaultLang(localStorage.getItem('language') || 'en');
+        this._translateService.setDefaultLang(lang);
 
+        
 
-        this.override.switchLanguage(localStorage.getItem('language') || 'en')
+        this.override.switchLanguage(lang)
 
         // Set the navigation translations
-        this._fuseTranslationLoaderService.loadTranslations(navigationEnglish, navigationArabic);
+        // this._fuseTranslationLoaderService.loadTranslations(navigationEnglish, navigationArabic);
 
         // Use a language
-        this._translateService.use('en');
 
         /**
          * ----------------------------------------------------------------------------------------------------

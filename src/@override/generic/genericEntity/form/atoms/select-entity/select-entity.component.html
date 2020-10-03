@@ -7,7 +7,6 @@
         <input autocomplete="false" matInput [name]="field.name" readonly [attr.disabled]="field.disabled" fieldSize="large" shape="round" placeholder="{{ field.name | translate}}" [value]="fieldVal" (click)="openBottomSheet()">
 
 
-
         <mat-hint class="warn-color mat-subheading-1">{{field.details }}</mat-hint>
         <!-- 
         <mat-error *ngIf="!isValid">
@@ -17,4 +16,5 @@
             {{field.label |translate}} {{'is' |translate}} <strong>{{'required' |translate}}</strong>
         </mat-error> -->
     </mat-form-field>
+
 </div>

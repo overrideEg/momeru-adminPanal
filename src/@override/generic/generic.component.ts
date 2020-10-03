@@ -26,8 +26,9 @@ export class GenericComponent implements OnChanges {
       let nav: typeof ActivationEnd
       if (val instanceof ActivationEnd) {
         nav = ActivationEnd
-        let route = val.snapshot.params.route
-        let entity = this.entities.allEntities.find(entity => entity.route.includes(route))
+        let route = val.snapshot.params.route;
+     
+        let entity = this.entities.allEntities.find(entity =>entity.route.substr(entity.route.lastIndexOf('/')+1) === route)
         this.entityData = entity;        
       }
     });

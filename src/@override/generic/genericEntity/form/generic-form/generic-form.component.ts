@@ -28,8 +28,12 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
       if (val instanceof ActivationEnd) {
         nav = ActivationEnd
         let route = val.snapshot.params.route
-        let entity = this.entities.allEntities.find(entity => entity.route.includes(route))
+        
+        let entity = this.entities.allEntities.find(entity => 
+        entity.route.substr(entity.route.indexOf("/",2)+1) === route        )
+        
         this.entityData = entity;
+
 
       }
     });
@@ -43,9 +47,11 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
     this.entities.form = this.form
   }
   ngOnInit(): void {
+    this.createForm();   
+
     this.entities.saved = false;
     // create form group
-    this.createForm();
+
 
   }
 
@@ -61,16 +67,14 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
       this.entities.isEditMode = true;
       this.getFormData() ;
     }
-    console.log(this.form,'asdfadf');
     
   }
 
   async getFormData() {
-    if (this.entities.i !== 1) {
       let record = await this.dataService.getOne(this.entityData.apiSelector, this.entities.entityId)
       this.entities.i = 1
       this.form.patchValue(record);
-    }
+    
   }
 
 }

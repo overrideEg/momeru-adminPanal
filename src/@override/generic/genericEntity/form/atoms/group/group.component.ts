@@ -10,6 +10,7 @@ import { MyErrorStateMatcher } from '@override/utils/my-error-state-matcher';
   styleUrls: ['./group.component.scss']
 })
 export class GroupComponent implements OnInit {
+  outputForm: any;
 
   constructor(public entities: EntitiesService) { }
  
@@ -17,9 +18,12 @@ export class GroupComponent implements OnInit {
   @Input() form: FormGroup;
   @Input() isArray: boolean;
 
-  get isValid() { return this.form.get(this.field.name).valid && this.form.get(this.field.name).touched;  }
-  get isDirty() { return this.form.get(this.field.name).dirty && this.form.get(this.field.name).touched;  }
+//   get isValid() { return this.form.get(this.field.name).valid && this.form.get(this.field.name).touched;  }
+//   get isDirty() { return this.form.get(this.field.name).dirty && this.form.get(this.field.name).touched;  }
   ngOnInit(): void {
+    this.outputForm = this.form.controls[this.field.name]
+
+
   }
   date = Date.now()
   matcher = new MyErrorStateMatcher();

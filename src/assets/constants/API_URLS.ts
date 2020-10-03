@@ -1,6 +1,7 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
-const uri = 'http://server.overrideeg.net:3010/v1';
+// const uri = 'http://server.overrideeg.net:3010/v1';
+const uri = 'http://192.168.1.17:3010/v1';
 export const API_URLS = {
   auth: {
     auth: uri + '/auth/login',
@@ -35,7 +36,7 @@ export const API_URLS = {
 //   },
   Question: {
     post: uri + '/Question',
-    get: uri + '/Question',
+    get: uri + '/Question/all',
     getOne: uri + '/Question/{entityId}',
     put: uri + '/Question/{entityId}',
     delete: uri + '/Question/{entityId}',

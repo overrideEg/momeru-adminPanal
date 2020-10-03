@@ -60,6 +60,8 @@ export class ScrumboardService implements Resolve<any>
         return new Promise((resolve, reject) => {
             this._httpClient.get('api/scrumboard-boards')
                 .subscribe((response: any) => {
+                    console.log(response);
+                    
                     this.boards = response;
                     this.onBoardsChanged.next(this.boards);
                     resolve(this.boards);
