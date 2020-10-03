@@ -253,6 +253,7 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
+                        multiline:true,
                         cols: 12,
                         rows: 2
                     },
@@ -264,6 +265,7 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
+                        multiline:true,
                         cols: 12,
                         rows: 2
                     },
@@ -275,7 +277,8 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
-                        multiline: false,
+                        multiline:true,
+                        
                         cols: 12,
                         rows: 2
                     },
@@ -287,7 +290,7 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
-                        multiline: false,
+                        multiline: true,
                         cols: 12,
                         rows: 2
                     },
