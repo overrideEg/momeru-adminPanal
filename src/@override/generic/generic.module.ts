@@ -45,6 +45,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatListModule } from '@angular/material/list';
 import { AutoCompleteComponent } from './genericEntity/form/atoms/auto-complete/auto-complete.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
+import { ColorPickerComponent } from './genericEntity/form/atoms/color-picker/color-picker.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -64,7 +66,8 @@ const matModules = [
   MatExpansionModule,
   MatDatepickerModule,
    MatListModule,
-   MatAutocompleteModule
+   MatAutocompleteModule,
+   NgxMatColorPickerModule
 ]
 const fuseModules = [
   FuseSidebarModule,
@@ -90,7 +93,8 @@ const fuseModules = [
     SelectComponent,
     GroupComponent,
     DateComponent,
-    AutoCompleteComponent
+    AutoCompleteComponent,
+    ColorPickerComponent
 
   ],
   imports: [
@@ -108,7 +112,10 @@ const fuseModules = [
   ],
   exports: [GenericComponent],
   entryComponents: [SelectComponent],
-  providers: [DatePipe],
+  providers: [
+      DatePipe,
+      { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS }
+],
 
 })
 export class GenericModule { }

@@ -156,7 +156,7 @@ export class SelectComponent implements OnInit {
     // this.form.removeControl(this.field.name);
     if (!this.field.multiple) selectedRow = this.gridApi.getSelectedRows()[0];
     else selectedRow = this.gridApi.getSelectedRows();
-
+    
     // this.fieldVal=this.form.value[this.field.name][this.field.optionName][this.override.currentLang]
     var formVal = (this.form.value[this.field.name] = selectedRow);
     var contName = this.form.controls[this.field.name];
@@ -165,13 +165,15 @@ export class SelectComponent implements OnInit {
     if (!this.field.multiple) {
       if (!this.field.selectOptions.options) {
         if (this.field.selectOptions.localized && this.field.selectOptions.localized.includes(this.field.selectOptions.optionName)) {
-           
-          this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang];
+      
+          this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.override.currentLang];
         } else {
+
+        // console.log(this.form.value[this.field.name][this.field.selectOptions.optionName][this.override.currentLang])
           this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName];
         }
       }
-      else {
+      else {console.log('3')
         let options = this.field.selectOptions.options;
         let fieldVal = this.form.value[this.field.name];
         options.forEach(value => {

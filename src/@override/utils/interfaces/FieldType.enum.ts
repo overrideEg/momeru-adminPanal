@@ -18,4 +18,6 @@ export enum FieldType {
     group = 'group',
     array = 'array',
     autoComplete = 'autoComplete',
+    color = 'color',
+    colorPicker = 'colorPicker',
 }

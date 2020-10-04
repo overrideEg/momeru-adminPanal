@@ -7,14 +7,14 @@ export const navigation: FuseNavigation[] = [
         title    : 'Home Page',
         translate: 'homePage',
         type     : 'group',
-        icon     : 'Home',
+        icon     : 'home',
         children : [
             {
                 id       : 'homePage',
                 title    : 'homePage',
                 translate: 'homePage',
                 type     : 'item',
-                icon     : 'Home Page',
+                icon     : 'home',
                 url  : '/apps/dashboards/analytics'
         
             },
@@ -23,7 +23,7 @@ export const navigation: FuseNavigation[] = [
                 title    : 'Applications',
                 translate: 'Applications',
                 type     : 'item',
-                icon     : 'Home',
+                icon     : 'apps',
                 url  : '/apps/scrumboard'
         
             },
@@ -36,7 +36,7 @@ export const navigation: FuseNavigation[] = [
         title    : 'Basic Data',
         translate: 'basicData',
         type     : 'group',
-        icon     : 'tab_unselected',
+        icon     : 'data_usage',
         children : [
             {
                 id       : 'users',
@@ -57,6 +57,15 @@ export const navigation: FuseNavigation[] = [
         
             },
             {
+                id       : 'Label',
+                title    : 'Label',
+                translate: 'Label',
+                type     : 'item',
+                icon     : 'question_answer',
+                url  : '/generic/Label'
+        
+            },
+            {
                 id       : 'Faq',
                 title    : 'Faq',
                 translate: 'Faq',
@@ -74,7 +83,7 @@ export const navigation: FuseNavigation[] = [
         title    : 'Control Data',
         translate: 'controlData',
         type     : 'group',
-        icon     : 'tab_unselected',
+        icon     : 'control_point',
         children : [
           
 
@@ -130,7 +139,7 @@ export const navigation: FuseNavigation[] = [
         title    : 'Specialization Data',
         translate: 'SpecializationData',
         type     : 'group',
-        icon     : 'tab_unselected',
+        icon     : 'developer_board',
         children : [
           
 

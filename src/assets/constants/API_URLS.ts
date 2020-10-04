@@ -1,7 +1,7 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
 // const uri = 'http://server.overrideeg.net:3010/v1';
-const uri = 'http://localhost:3010/v1';
+const uri = 'http://192.168.1.17:3010/v1';
 export const API_URLS = {
   auth: {
     auth: uri + '/auth/login',
@@ -112,12 +112,12 @@ export const API_URLS = {
     put: uri + '/JobCategory/{entityId}',
     delete: uri + '/JobCategory/{entityId}',
   },
-  Language: {
-    post: uri + '/Language',
-    get: uri + '/Language/all',
-    getOne: uri + '/Language/{entityId}',
-    put: uri + '/Language/{entityId}',
-    delete: uri + '/Language/{entityId}',
+  Label: {
+    post: uri + '/Label',
+    get: uri + '/Label/all',
+    getOne: uri + '/Label/{entityId}',
+    put: uri + '/Label/{entityId}',
+    delete: uri + '/Label/{entityId}',
   },
   Currency: {
     post: uri + '/Currency',
