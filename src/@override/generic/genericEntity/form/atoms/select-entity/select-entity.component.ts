@@ -10,6 +10,7 @@ import { SelectComponent } from './select/select.component';
 import { SelectService } from './select.service';
 import { MyErrorStateMatcher } from '@override/utils/my-error-state-matcher';
 import { ColDef, GridApi } from 'ag-grid-community';
+import { OverrideService } from '../../../../../utils/override.service';
 
 @Component({
   selector: 'entity',
@@ -24,7 +25,7 @@ export class SelectEntityComponent implements OnInit {
   i = 0;
   entityData: EntityData;
   fieldVal = null;
-  constructor(public entities: EntitiesService, private router: Router, public translate: TranslateService, private _bottomSheet: MatBottomSheet) { }
+  constructor(public entities: EntitiesService, private router: Router, public translate: TranslateService,public override: OverrideService, private _bottomSheet: MatBottomSheet) { }
   ngOnInit(): void {
     const url = this.router.url;
     let entity = this.entities.allEntities.find(entity => url.startsWith(entity.route))
@@ -36,8 +37,8 @@ export class SelectEntityComponent implements OnInit {
       if (!this.field.multiple) {
         if (this.form.value)
           if (this.form.value[this.field.name][this.field.selectOptions.optionName]) {
-             console.log('lkk',  this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang])
-            this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang];
+            //  console.log('lkk',  this.form.value[this.field.name][this.field.selectOptions.optionName][this.translate.currentLang])
+            this.fieldVal = this.form.value[this.field.name][this.field.selectOptions.optionName][this.override.currentLang];
           }
       }
       else {
@@ -47,7 +48,7 @@ export class SelectEntityComponent implements OnInit {
         if (value)
           value.forEach((val) => {
             optionValue.push(
-              val[this.field.selectOptions.optionName][this.translate.currentLang],
+              val[this.field.selectOptions.optionName][this.override.currentLang],
             );
           });
         this.fieldVal = optionValue.toString();
@@ -66,7 +67,7 @@ export class SelectEntityComponent implements OnInit {
         {
           data:
             { entityData: this.entityData, form: this.form, field: this.field },
-          direction: this.translate.currentLang === 'ar' ? 'rtl' : 'ltr',
+          direction: this.override.currentLang === 'ar' ? 'rtl' : 'ltr',
       
 
         });
@@ -75,7 +76,7 @@ export class SelectEntityComponent implements OnInit {
       btmRef.afterDismissed().subscribe((data) => {
         //   console.log('data', data)
         this.form = data.form;
-        this.fieldVal = data.fieldVal[this.translate.currentLang];
+        this.fieldVal = data.fieldVal[this.override.currentLang];
         
         this.entities.form = data.form;
         // this.fieldVal = data[this.translate.currentLang];

@@ -42,11 +42,13 @@ export class GenericComponent implements OnChanges {
 
 
   submit() {
-    console.log(this.entities.form.value);
     
     this.entityData.form.fields.forEach((field) => {
       if (field.type === FieldType.number)
         this.entities.form.get(field.name).setValue(+this.entities.form.get(field.name).value);
+
+        if (field.type === FieldType.colorPicker)
+        this.entities.form.get(field.name).setValue('#'+this.entities.form.get(field.name).value.hex);
 
       // if (field.type === FieldType.entity && this.entities.form.get(field.name).value === '') {
       //   this.entities.form.get(field.name).setValue(null);

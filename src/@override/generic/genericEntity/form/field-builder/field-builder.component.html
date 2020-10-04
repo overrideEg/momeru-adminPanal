@@ -9,7 +9,8 @@
         <file id="file" *ngSwitchCase="'file'" [isArray]='isArray' [field]="field" [form]="form"></file>
         <textLocalized id="textLocalized" *ngSwitchCase="'textLocalized'" [isArray]='isArray' [field]="field" [form]="form"></textLocalized>
         <entity id="entity" *ngSwitchCase="'entity'" [isArray]='isArray' [field]="field" [form]="form"></entity>
+        <colorPicker id="colorPicker" *ngSwitchCase="'colorPicker'" [isArray]='isArray' [field]="field" [form]="form"></colorPicker>
         <textbox id="text" *ngSwitchDefault [isArray]='isArray' [field]="field" [form]="form"></textbox>
         <mat-hint class="warn-color mat-subheading-1">{{field.details }}</mat-hint>
-
+        
     </div>
