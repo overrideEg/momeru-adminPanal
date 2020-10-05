@@ -114,24 +114,7 @@ export const navigation: FuseNavigation[] = [
                 url  : '/generic/Form'
         
             },
-            {
-                id       : 'Page',
-                title    : 'Page',
-                translate: 'Page',
-                type     : 'item',
-                icon     : 'pages',
-                url  : '/generic/Page'
-        
-            },
-            {
-                id       : 'Section',
-                title    : 'Section',
-                translate: 'Section',
-                type     : 'item',
-                icon     : 'view_carousel',
-                url  : '/generic/Section'
-        
-            },
+           
             {
                 id       : 'Question',
                 title    : 'Question',
@@ -207,6 +190,62 @@ export const navigation: FuseNavigation[] = [
                 url  : '/generic/CareerInterest'
         
             },
+        ]
+    },
+    {
+        id       : 'website',
+        title    : 'website',
+        translate: 'website',
+        type     : 'group',
+        icon     : 'web',
+        children : [
+          
+            {
+                id       : 'home',
+                title    : 'home',
+                translate: 'home',
+                type     : 'item',
+                icon     : 'home',
+                url  : '/generic/home-page'
+        
+            },
+            {
+                id       : 'ContactUs',
+                title    : 'ContactUs',
+                translate: 'ContactUs',
+                type     : 'item',
+                icon     : 'contact_mail',
+                url  : '/generic/contact-us'
+        
+            },
+            {
+                id       : 'partners',
+                title    : 'partners',
+                translate: 'partners',
+                type     : 'item',
+                icon     : 'compare_arrows',
+                url  : '/generic/partnters-page'
+        
+            },
+            {
+                id       : 'About-us',
+                title    : 'About-us',
+                translate: 'About-us',
+                type     : 'item',
+                icon     : 'label_important',
+                url  : '/generic/about-us'
+        
+            },
+            {
+                id       : 'mission-vision',
+                title    : 'mission-vision',
+                translate: 'mission-vision',
+                type     : 'item',
+                icon     : 'label_important',
+                url  : '/generic/mission-vision'
+        
+            },
+            
         ]
     },
   
