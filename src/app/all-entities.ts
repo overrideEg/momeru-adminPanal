@@ -1700,13 +1700,14 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
+                        field: 'header.' + this.utils.currentLang,
+                        headerName: this._translateService.instant('header'),
+                    },
+                    {
                         field: 'title.' + this.utils.currentLang,
                         headerName: this._translateService.instant('title'),
                     },
-                    {
-                        field: 'color',
-                        headerName: this._translateService.instant('color'),
-                    },
+                   
 
 
 
@@ -2003,8 +2004,8 @@ export class AllEntities {
                 single: 'About-us',
                 plural: 'About-us',
             },
-            apiSelector: 'About-us',
-            route: '/generic/About-us',
+            apiSelector: 'about-us',
+            route: '/generic/about-us',
             add: true,
             edit: true,
             delete: true,
@@ -2126,7 +2127,140 @@ export class AllEntities {
         },
 
 
-       
+        {
+            name: {
+                single: 'UserForm',
+                plural: 'UserForms',
+            },
+            apiSelector: 'UserForm',
+            route: '/generic/UserForm',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this._translateService.instant('ID'),
+                    },
+                    {
+                        field: 'user.' + [this.utils.currentLang],
+                        headerName: this._translateService.instant('user'),
+                    },
+                    {
+                        field: 'assignedTo',
+                        headerName: this._translateService.instant('assignedTo'),
+                    },
+                    {
+                        field: 'valueDate',
+                        headerName: this._translateService.instant('valueDate'),
+                    },
+                    {
+                        field: 'status',
+                        headerName: this._translateService.instant('status'),
+                    },
+                   
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    {
+                        type: FieldType.entity,
+                        name: 'user',
+                        label: this._translateService.instant('user'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 6,
+                        rows: 2,
+                        selectOptions: {
+                            optionName: 'name',
+                            fromSelector: 'User',
+
+                            columns: [
+                                { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
+                                { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
+                            ]
+                        },
+                    },
+                    {
+                        type: FieldType.entity,
+                        name: 'assignedTo',
+                        label: this._translateService.instant('assignedTo'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 6,
+                        rows: 2,
+                        selectOptions: {
+                            optionName: 'name',
+                            fromSelector: 'User',
+
+                            columns: [
+                                { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
+                                { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
+                            ]
+                        },
+                    },
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'label',
+                        label: this._translateService.instant('label'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.dropdown,
+                        name: 'status',
+                        label: this._translateService.instant('status'),
+                        multiple: false,
+                        required: false,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 6,
+                        rows: 2,
+                        options: [
+                            {
+                                value: 'text',
+                                label: this._translateService.instant('text')
+                            },
+                            {
+                                value: 'checkbox',
+                                label: this._translateService.instant('checkbox')
+                            },
+                            {
+                                value: 'date',
+                                label: this._translateService.instant('date')
+                            },
+                            
+                        ]
+                    },
+
+                
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        },
 
     ];
 }
