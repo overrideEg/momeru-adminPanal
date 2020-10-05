@@ -10,6 +10,8 @@ import { FusePerfectScrollbarDirective } from '@fuse/directives/fuse-perfect-scr
 import { ScrumboardService } from 'app/main/apps/scrumboard/scrumboard.service';
 import { Card } from 'app/main/apps/scrumboard/card.model';
 import { ScrumboardCardDialogComponent } from 'app/main/apps/scrumboard/board/dialogs/card/card.component';
+import { EntityService } from '../../../../../../@override/utils/entity.service';
+import { API_URLS } from '../../../../../../assets/constants/API_URLS';
 
 @Component({
     selector     : 'scrumboard-board-list',
@@ -43,7 +45,8 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
     constructor(
         private _activatedRoute: ActivatedRoute,
         private _scrumboardService: ScrumboardService,
-        private _matDialog: MatDialog
+        private _matDialog: MatDialog,
+        private entity: EntityService
     )
     {
         // Set the private defaults
@@ -57,13 +60,16 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    ngOnInit(): void
+    async ngOnInit(): Promise<void>
     {
         this._scrumboardService.onBoardChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(board => {
                 this.board = board;
             });
+           let forms = await this.entity.getData(API_URLS.UserForm.get);
+           console.log(forms);
+           
     }
 
     /**
