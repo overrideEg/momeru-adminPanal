@@ -19,6 +19,15 @@ export const navigation: FuseNavigation[] = [
         
             },
             {
+                id       : 'websiteHomePage',
+                title    : 'Website Home Page',
+                translate: 'Website Home Page',
+                type     : 'item',
+                icon     : 'home',
+                url  : '/generic/HomePage'
+        
+            },
+            {
                 id       : 'scrumboard',
                 title    : 'Applications',
                 translate: 'Applications',

@@ -84,7 +84,7 @@ export class AllEntities {
                         cols: 4,
                         rows: 2
                     },
-             
+
                     {
                         type: FieldType.number,
                         name: 'userRate',
@@ -154,10 +154,10 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+[this.utils.currentLang],
+                        field: 'name.' + [this.utils.currentLang],
                         headerName: this._translateService.instant('name'),
                     },
-                
+
                 ]
 
             },
@@ -175,7 +175,84 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                   
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        }, {
+            name: {
+                single: 'HomePage',
+                plural: 'HomePage',
+            },
+            apiSelector: 'HomePage',
+            route: '/generic/HomePage',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this._translateService.instant('ID'),
+                    },
+                    {
+                        field: 'title.' + [this.utils.currentLang],
+                        headerName: this._translateService.instant('name'),
+                    },
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'title',
+                        label: this._translateService.instant('name'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+
+                        cols: 12,
+                        rows: 2
+                    }, {
+                        type: FieldType.textLocalized,
+                        name: 'body',
+                        label: this._translateService.instant('body'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+
+                        cols: 12,
+                        rows: 2
+                    },
+// {
+//                         type: FieldType.file,
+//                         name: 'image',
+//                         label: this._translateService.instant('image'),
+//                         required: true,
+//                         validators: [Validators.required, Validators.minLength(3)],
+//                         disabled: false,
+//                         readonly: false,
+//                         multiline: true,
+//                         view:'image',
+
+//                         cols: 12,
+//                         rows: 2
+//                     },
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -206,23 +283,23 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
                     {
-                        field: 'description.'+this.utils.currentLang,
+                        field: 'description.' + this.utils.currentLang,
                         headerName: this._translateService.instant('description'),
                     },
                     {
-                        field: 'instruction.'+this.utils.currentLang,
+                        field: 'instruction.' + this.utils.currentLang,
                         headerName: this._translateService.instant('instruction'),
                     },
                     {
-                        field: 'responsibility.'+this.utils.currentLang,
+                        field: 'responsibility.' + this.utils.currentLang,
                         headerName: this._translateService.instant('responsibility'),
                     },
                     {
-                        field: 'advice.'+this.utils.currentLang,
+                        field: 'advice.' + this.utils.currentLang,
                         headerName: this._translateService.instant('advice'),
                     },
                     {
@@ -234,6 +311,26 @@ export class AllEntities {
             },
             form: {
                 fields: [
+                    {
+                        type: FieldType.dropdown,
+                        name: 'type',
+                        label: this._translateService.instant('Form type'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        cols: 12,
+                        rows: 2,
+                        options: [
+                            {
+                                label: this._translateService.instant('Job'),
+                                value: 'job'
+                            }, {
+                                label: this._translateService.instant('Any Other'),
+                                value: 'other'
+                            }
+                        ]
+                    },
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -253,7 +350,7 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
-                        multiline:true,
+                        multiline: true,
                         cols: 12,
                         rows: 3
                     },
@@ -265,7 +362,7 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
-                        multiline:true,
+                        multiline: true,
                         cols: 12,
                         rows: 3
                     },
@@ -277,8 +374,8 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
-                        multiline:true,
-                        
+                        multiline: true,
+
                         cols: 12,
                         rows: 3
                     },
@@ -383,7 +480,7 @@ export class AllEntities {
                                     },
                                 ]
                             },
-                           
+
                             {
                                 type: FieldType.dropdown,
                                 name: 'required',
@@ -408,8 +505,8 @@ export class AllEntities {
                                         value: 'low',
                                         label: this._translateService.instant('low')
                                     },
-                                   
-                                   
+
+
                                 ]
                             },
                             {
@@ -463,7 +560,7 @@ export class AllEntities {
                                 readonly: false,
                                 cols: 12,
                                 rows: 10,
-                                children:[
+                                children: [
                                     {
                                         type: FieldType.textLocalized,
                                         name: 'text',
@@ -477,10 +574,10 @@ export class AllEntities {
                                     },
                                 ]
                             }
-                           
+
                         ]
                     },
-                   
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -511,7 +608,7 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'label.'+[this.utils.currentLang],
+                        field: 'label.' + [this.utils.currentLang],
                         headerName: this._translateService.instant('label'),
                     },
                     {
@@ -531,10 +628,10 @@ export class AllEntities {
                         headerName: this._translateService.instant('multipleAnswers'),
                     },
                     {
-                        field: 'category.name.'+this.utils.currentLang,
+                        field: 'category.name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('category'),
                     },
-                
+
                 ]
 
             },
@@ -606,7 +703,7 @@ export class AllEntities {
                             },
                         ]
                     },
-                   
+
                     {
                         type: FieldType.dropdown,
                         name: 'required',
@@ -631,8 +728,8 @@ export class AllEntities {
                                 value: 'low',
                                 label: this._translateService.instant('low')
                             },
-                           
-                           
+
+
                         ]
                     },
                     {
@@ -670,20 +767,20 @@ export class AllEntities {
                         selectOptions: {
                             optionName: 'name',
                             fromSelector: 'Category',
-                        
+
                             columns: [
                                 { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
                                 { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
                             ]
                         },
                     },
-                   
+
                 ],
                 cols: 12,
                 localizedAllFields: false
             }
         },
-      
+
         {
             name: {
                 single: 'UserAnswer',
@@ -713,15 +810,15 @@ export class AllEntities {
                         headerName: this._translateService.instant('name'),
                     },
                     {
-                        field: 'question.label.'+this.utils.currentLang,
+                        field: 'question.label.' + this.utils.currentLang,
                         headerName: this._translateService.instant('question'),
                     },
-                
+
                     {
                         field: 'answerValue',
                         headerName: this._translateService.instant('answerValue'),
                     },
-                
+
                 ]
 
             },
@@ -742,7 +839,7 @@ export class AllEntities {
                             fromSelector: 'User',
                             columns: [
                                 { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
-                                { field: 'name' , headerName: this._translateService.instant('Name'), checkboxSelection: false },
+                                { field: 'name', headerName: this._translateService.instant('Name'), checkboxSelection: false },
                             ]
                         },
                     },
@@ -765,7 +862,7 @@ export class AllEntities {
                             ]
                         },
                     },
-                   
+
                     {
                         type: FieldType.text,
                         name: 'answerValue',
@@ -778,7 +875,7 @@ export class AllEntities {
                         cols: 12,
                         rows: 3
                     },
-                   
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -809,17 +906,17 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
-                   
-                
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -832,7 +929,7 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                   
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -863,7 +960,7 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
                     {
@@ -875,14 +972,14 @@ export class AllEntities {
                     //     headerName: this._translateService.instant('specialization'),
                     // },
 
-                   
-                
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -926,8 +1023,8 @@ export class AllEntities {
                     //         ]
                     //     },
                     // },
-             
-                   
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -958,18 +1055,18 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
-                  
-                   
-                
+
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -982,9 +1079,9 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                  
-             
-                   
+
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -1015,18 +1112,18 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
-                  
-                   
-                
+
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -1039,9 +1136,9 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                  
-             
-                   
+
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -1072,18 +1169,18 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
-                  
-                   
-                
+
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -1096,9 +1193,9 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                  
-             
-                   
+
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -1129,39 +1226,39 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.'+this.utils.currentLang,
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
                     {
-                        field: 'description.'+this.utils.currentLang,
+                        field: 'description.' + this.utils.currentLang,
                         headerName: this._translateService.instant('description'),
                     },
-                  
+
                     {
-                        field: 'description.'+this.utils.currentLang,
+                        field: 'description.' + this.utils.currentLang,
                         headerName: this._translateService.instant('description'),
                     },
                     {
-                        field: 'jobTitle.name.'+this.utils.currentLang,
+                        field: 'jobTitle.name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('jobTitle'),
                     },
-                  
+
                     {
-                        field: 'company.name.'+this.utils.currentLang,
+                        field: 'company.name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('company'),
                     },
                     {
                         field: 'employmentType',
                         headerName: this._translateService.instant('employmentType'),
                     },
-                  
-                   
-                
+
+
+
                 ]
 
             },
             form: {
-                fields: [ 
+                fields: [
                     {
                         type: FieldType.textLocalized,
                         name: 'name',
@@ -1185,7 +1282,7 @@ export class AllEntities {
                         multiline: true,
                         cols: 12,
                         rows: 2
-                    },         
+                    },
                     {
                         type: FieldType.entity,
                         name: 'jobCategory',
@@ -1223,7 +1320,7 @@ export class AllEntities {
                                 { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
                             ]
                         },
-                    },         
+                    },
                     {
                         type: FieldType.entity,
                         name: 'company',
@@ -1271,16 +1368,16 @@ export class AllEntities {
                                 value: 'freelancer',
                                 label: this._translateService.instant('freelancer')
                             },
-                            
+
                         ]
                     },
-                   
-                   
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
             }
-        },     
+        },
         {
             name: {
                 single: 'Faq',
@@ -1306,23 +1403,23 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'question.'+this.utils.currentLang,
+                        field: 'question.' + this.utils.currentLang,
                         headerName: this._translateService.instant('question'),
                     },
                     {
-                        field: 'answer.'+this.utils.currentLang,
+                        field: 'answer.' + this.utils.currentLang,
                         headerName: this._translateService.instant('answer'),
                     },
-                   
-                  
-                   
-                
+
+
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'question',
@@ -1347,11 +1444,11 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                   
-                
-                   
-   
-                   
+
+
+
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -1382,23 +1479,23 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'title.'+this.utils.currentLang,
+                        field: 'title.' + this.utils.currentLang,
                         headerName: this._translateService.instant('title'),
                     },
                     {
                         field: 'color',
                         headerName: this._translateService.instant('color'),
                     },
-                   
-                  
-                   
-                
+
+
+
+
                 ]
 
             },
             form: {
                 fields: [
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'title',
@@ -1423,11 +1520,11 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                   
-                
-                   
-   
-                   
+
+
+
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -1464,7 +1561,7 @@ export class AllEntities {
         //                 headerName: this._translateService.instant('title'),
         //             },
 
-                
+
         //         ]
 
         //     },
@@ -1482,7 +1579,7 @@ export class AllEntities {
         //                 cols: 12,
         //                 rows: 2
         //             },
-                    
+
         //             {
         //                 type: FieldType.array,
         //                 name: 'sections',
@@ -1566,7 +1663,7 @@ export class AllEntities {
         //                         cols: 6,
         //                         rows: 2,
         //                     },
-                            
+
         //                     {
         //                         type: FieldType.array,
         //                         name: 'childs',
@@ -1648,19 +1745,19 @@ export class AllEntities {
         //                                 cols: 6,
         //                                 rows: 2
         //                             },
-                                   
+
 
         //                         ]
         //                     }
-                           
+
         //                 ]
         //             },
-                   
+
         //         ],
         //         cols: 12,
         //         localizedAllFields: false
         //     },
-            
+
         // },
         // {
         //     name: {
@@ -1707,13 +1804,13 @@ export class AllEntities {
         //                 headerName: this._translateService.instant('backgroundColor'),
         //             },
 
-                
+
         //         ]
 
         //     },
         //     form: {
         //         fields: [
-                 
+
         //             {
         //                 type: FieldType.textLocalized,
         //                 name: 'title',
@@ -1786,7 +1883,7 @@ export class AllEntities {
         //                 cols: 6,
         //                 rows: 2,
         //             },
-                    
+
         //             {
         //                 type: FieldType.array,
         //                 name: 'childs',
@@ -1835,7 +1932,7 @@ export class AllEntities {
 
         //                 ]
         //             }
-                   
+
         //         ],
         //         cols: 12,
         //         localizedAllFields: false
