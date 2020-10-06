@@ -18,15 +18,15 @@ export const navigation: FuseNavigation[] = [
                 url  : '/apps/dashboards/analytics'
         
             },
-            {
-                id       : 'websiteHomePage',
-                title    : 'Website Home Page',
-                translate: 'Website Home Page',
-                type     : 'item',
-                icon     : 'home',
-                url  : '/generic/HomePage'
+            // {
+            //     id       : 'UserForm',
+            //     title    : 'User Form',
+            //     translate: 'UserForm',
+            //     type     : 'item',
+            //     icon     : 'Form',
+            //     url  : '/generic/UserForm'
         
-            },
+            // },
             {
                 id       : 'scrumboard',
                 title    : 'Applications',
@@ -114,24 +114,7 @@ export const navigation: FuseNavigation[] = [
                 url  : '/generic/Form'
         
             },
-            {
-                id       : 'Page',
-                title    : 'Page',
-                translate: 'Page',
-                type     : 'item',
-                icon     : 'pages',
-                url  : '/generic/Page'
-        
-            },
-            {
-                id       : 'Section',
-                title    : 'Section',
-                translate: 'Section',
-                type     : 'item',
-                icon     : 'view_carousel',
-                url  : '/generic/Section'
-        
-            },
+           
             {
                 id       : 'Question',
                 title    : 'Question',
@@ -207,6 +190,27 @@ export const navigation: FuseNavigation[] = [
                 url  : '/generic/CareerInterest'
         
             },
+        ]
+    },
+    {
+        id       : 'website',
+        title    : 'website',
+        translate: 'website',
+        type     : 'group',
+        icon     : 'web',
+        children : [
+          
+            {
+                id       : 'Section',
+                title    : 'Section',
+                translate: 'Section',
+                type     : 'item',
+                icon     : 'Section',
+                url  : '/generic/Section'
+        
+            },
+           
+            
         ]
     },
   

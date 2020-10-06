@@ -67,65 +67,13 @@
                 </div>
                 <!-- / MEMBERS -->
 
-                <!-- ATTACHMENT -->
-                <button mat-icon-button aria-label="Attachment">
-                    <mat-icon>attachment</mat-icon>
-                </button>
-                <!-- / ATTACHMENT -->
+               
 
-                <!-- CHECKLIST -->
-                <div class="due-date " fxFlex="0 1 auto">
+                
 
-                    <button mat-icon-button class="" [matMenuTriggerFor]="checklistMenu"
-                            #checklistMenuTrigger="matMenuTrigger" (menuOpened)="onChecklistMenuOpen()">
-                        <mat-icon>check_box</mat-icon>
-                    </button>
-
-                    <mat-menu #checklistMenu="matMenu" [overlapTrigger]="false">
-
-                        <form class="px-16 py-8" #newChecklistForm="ngForm" (submit)="addChecklist(newChecklistForm)"
-                              (click)="$event.stopPropagation()"
-                              fxLayout="column" fxLayoutAlign="start end">
-
-                            <mat-form-field appearance="outline" (click)="$event.stopPropagation()" fxFlex>
-                                <mat-label>Checklist title</mat-label>
-                                <input #newCheckListTitleField matInput ngModel #checklistTitle="ngModel"
-                                       name="checklistTitle" required>
-                            </mat-form-field>
-
-                            <button mat-raised-button class="mat-accent" aria-label="Add Checklist"
-                                    [disabled]="!newChecklistForm.valid">Add Checklist
-                            </button>
-
-                        </form>
-
-                    </mat-menu>
-
-                </div>
-                <!-- / CHECKLIST -->
-
-                <!-- SUBSCRIBE -->
-                <div class="subscribe " fxFlex="0 1 auto">
-
-                    <button mat-icon-button [matMenuTriggerFor]="subscribeMenu">
-                        <mat-icon *ngIf="card.subscribed">visibility</mat-icon>
-                        <mat-icon *ngIf="!card.subscribed">visibility_off</mat-icon>
-                    </button>
-
-                    <mat-menu #subscribeMenu="matMenu" [overlapTrigger]="false">
-                        <button *ngIf="card.subscribed" mat-menu-item (click)="toggleSubscribe()">
-                            Unsubscribe
-                        </button>
-                        <button *ngIf="!card.subscribed" mat-menu-item (click)="toggleSubscribe()">
-                            Subscribe
-                        </button>
-                    </mat-menu>
-
-                </div>
-                <!-- / SUBSCRIBE -->
 
                 <!-- OPTIONS -->
-                <div class="options " fxFlex="0 1 auto">
+                <!-- <div class="options " fxFlex="0 1 auto">
 
                     <button mat-icon-button class="" [matMenuTriggerFor]="optionsMenu">
                         <mat-icon>more_horiz</mat-icon>
@@ -137,7 +85,7 @@
                         </button>
                     </mat-menu>
 
-                </div>
+                </div> -->
                 <!-- / OPTIONS -->
 
             </div>
@@ -245,182 +193,6 @@
             </div>
             <!-- / LABELS & MEMBERS SECTION -->
 
-            <!-- ATTACHMENTS SECTION -->
-            <div *ngIf="card.attachments[0]" class="section">
-
-                <div class="attachments">
-
-                    <div class="section-header" fxLayout="row" fxLayoutAlign="start">
-                        <mat-icon class="mr-8">attachment</mat-icon>
-                        <span class="section-title">Attachments</span>
-                    </div>
-
-                    <div class="section-content">
-
-                        <div fxLayout="column" fxLayoutAlign="start" fxLayoutWrap fxLayout.gt-sm="row">
-
-                            <div class="attachment" fxFlex="33" *ngFor="let item of card.attachments"
-                                 [ngSwitch]="item.type">
-
-                                <div fxLayout="column" fxLayoutAlign="start" *ngSwitchCase="'image'">
-
-                                    <div class="attachment-preview mat-elevation-z1">
-                                        <img [src]="item.src">
-                                    </div>
-
-                                    <div class="attachment-content mt-8" fxLayout="row"
-                                         fxLayoutAlign="start center">
-
-                                        <div fxFlex>
-
-                                            <div fxLayout="row" fxLayoutAlign="start start">
-                                                <span class="attachment-name">{{item.name}}</span>
-                                                <mat-icon *ngIf="card.idAttachmentCover === item.id"
-                                                          class="yellow-700-fg attachment-is-cover">
-                                                    star
-                                                </mat-icon>
-                                            </div>
-
-                                            <span class="attachment-time">{{item.time}}</span>
-
-                                        </div>
-
-                                        <button mat-icon-button class="attachment-actions-button"
-                                                [matMenuTriggerFor]="attachmentActionsMenu">
-                                            <mat-icon>more_vert</mat-icon>
-                                        </button>
-
-                                        <mat-menu #attachmentActionsMenu="matMenu">
-                                            <button mat-menu-item (click)="toggleCoverImage(item.id)">
-                                                <span *ngIf="card.idAttachmentCover !== item.id">Make Cover</span>
-                                                <span *ngIf="card.idAttachmentCover === item.id">Remove Cover</span>
-                                            </button>
-                                            <button mat-menu-item (click)="removeAttachment(item)">
-                                                Remove Attachment
-                                            </button>
-                                        </mat-menu>
-
-                                    </div>
-
-                                </div>
-
-                                <div *ngSwitchCase="'link'" fxLayout="row">
-                                    <div class="attachment-preview mat-elevation-z2" fxLayout="column"
-                                         fxLayoutAlign="center center">
-                                        <span>LINK</span>
-                                    </div>
-                                    <div class="attachment-content" fxLayout="column">
-                                        <span class="attachment-url">{{item.url}}</span>
-                                        <span class="attachment-time">{{item.time}}</span>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <button mat-stroked-button class="add-attachment-button" aria-label="add attachment">
-                            Add an attachment
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-            <!-- / ATTACHMENTS SECTION -->
-
-            <!-- CHECKLISTS SECTION -->
-            <div class="section" *ngFor="let checklist of card.checklists">
-
-                <div class="checklist">
-
-                    <div class="section-header" fxLayout="row" fxLayoutAlign="start center">
-
-                        <mat-icon class="mr-8">check_box</mat-icon>
-                        <span fxFlex class="section-title">{{checklist.name}}</span>
-
-                        <div>
-
-                            <button mat-icon-button class="checklist-actions-button"
-                                    [matMenuTriggerFor]="checklistActionsMenu">
-                                <mat-icon class="s-20">more_vert</mat-icon>
-                            </button>
-
-                            <mat-menu #checklistActionsMenu="matMenu">
-                                <button mat-menu-item (click)="removeChecklist(checklist)">
-                                    <mat-icon>delete</mat-icon>
-                                    <span>Remove Checklist</span>
-                                </button>
-                            </mat-menu>
-
-                        </div>
-
-                    </div>
-
-                    <div class="section-content">
-
-                        <div class="checklist-progress" fxLayout="row" fxLayoutAlign="start center">
-
-                            <span class="checklist-progress-value">
-                                {{checklist.checkItemsChecked}} / {{checklist.checkItems.length}}
-                            </span>
-
-                            <mat-progress-bar color="accent" class="checklist-progressbar" mode="determinate"
-                                              value="{{100 * checklist.checkItemsChecked / checklist.checkItems.length}}">
-                            </mat-progress-bar>
-
-                        </div>
-
-                        <div class="check-items">
-
-                            <div class="check-item" *ngFor="let checkItem of checklist.checkItems" fxLayout="row"
-                                 fxLayoutAlign="space-between center">
-
-                                <div fxFlex fxLayout="row" fxLayoutAlign="start center">
-
-                                    <mat-form-field appearance="outline" fxFlex>
-                                        <input matInput [(ngModel)]="checkItem.name">
-                                        <mat-checkbox matPrefix [(ngModel)]="checkItem.checked"
-                                                      (change)="updateCheckedCount(checklist)"
-                                                      aria-label="{{checkItem.name}}">
-                                        </mat-checkbox>
-                                        <button mat-icon-button matSuffix class="checklist-actions-button"
-                                                (click)="removeChecklistItem(checkItem, checklist)">
-                                            <mat-icon class="secondary-text">delete</mat-icon>
-                                        </button>
-                                    </mat-form-field>
-
-                                </div>
-
-                            </div>
-
-                        </div>
-
-                        <form #newCheckItemForm="ngForm" (submit)="addCheckItem(newCheckItemForm,checklist)"
-                              name="newCheckItemForm" class="new-check-item-form"
-                              fxLayout="row" fxLayoutAlign="start center">
-
-                            <div fxLayout="row" fxLayoutAlign="start center" fxFlex>
-
-                                <mat-form-field appearance="outline" class="no-errors-spacer mr-16" fxFlex>
-                                    <input matInput ngModel #checkItem="ngModel" name="checkItem" autocomplete="off"
-                                           placeholder="New checklist item">
-                                </mat-form-field>
-
-                            </div>
-
-                            <button mat-mini-fab color="accent"
-                                    [disabled]="!newCheckItemForm.valid || newCheckItemForm.pristine"
-                                    aria-label="Add">
-                                <mat-icon>add</mat-icon>
-                            </button>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-            <!-- / CHECKLISTS SECTION -->
 
             <!-- COMMENTS SECTION -->
             <div class="section">
@@ -480,7 +252,7 @@
             <!-- / COMMENTS SECTION -->
 
             <!-- ACTIVITIES SECTION -->
-            <div *ngIf="card.activities[0]" class="section">
+            <!-- <div *ngIf="card.activities[0]" class="section">
 
                 <div class="activities">
 
@@ -518,7 +290,7 @@
 
                 </div>
 
-            </div>
+            </div> -->
             <!-- / ACTIVITIES SECTION -->
 
         </div>

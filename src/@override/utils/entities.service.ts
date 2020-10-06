@@ -117,7 +117,7 @@ export class EntitiesService {
           f.validators ? f.validators : []
         );
         let fg = this.fb.group(childs);
-        return this.fb.array([fg]);
+        return f.arrayAddRow? this.fb.array([fg]):this.fb.array([]);
       }
       case FieldType.checkbox: {
         return this.fb.control(

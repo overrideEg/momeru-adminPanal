@@ -35,8 +35,8 @@ export class FileComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', file);
       let uploaded = await this.entity.save('File', formData, undefined, 'multipart/form-data')
-
-      this.form.get(this.field.name).setValue(uploaded.path)
+   
+      this.form.get(this.field.name).setValue(uploaded.body.path)
     } else {
       const files = event.target.files;
 
@@ -50,12 +50,13 @@ export class FileComponent implements OnInit {
 
 
 
-      let uploaded = await this.entity.save(environment.serverUrl + 'File/UploadMultiple', formData)
+      let uploaded = await this.entity.save(environment.serverUrl + '/File/UploadMultiple', formData);
+      
       if (uploaded) {
         this.entity.showSuccessToast(this.translate.instant('Uploaded'))
       }
       let vals = []
-      uploaded.forEach(elem => {
+      uploaded.body.forEach(elem => {
         vals.push(elem.path)
       })
       this.form.get(this.field.name).setValue(vals);

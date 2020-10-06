@@ -1,7 +1,9 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
 // const uri = 'http://server.overrideeg.net:3010/v1';
-const uri = 'https://server.momeru.com/v1';
+// const uri = 'https://server.momeru.com/v1';
+const uri = 'http://192.168.43.188:3010/v1';
+// const uri = 'http://192.168.1.17:3010/v1';
 export const API_URLS = {
   auth: {
     auth: uri + '/auth/login',
@@ -119,13 +121,7 @@ export const API_URLS = {
     put: uri + '/Label/{entityId}',
     delete: uri + '/Label/{entityId}',
   },
-  Currency: {
-    post: uri + '/Currency',
-    get: uri + '/Currency/all',
-    getOne: uri + '/Currency/{entityId}',
-    put: uri + '/Currency/{entityId}',
-    delete: uri + '/Currency/{entityId}',
-  },
+  
   Faq: {
     post: uri + '/Faq',
     get: uri + '/Faq/all',
@@ -133,20 +129,7 @@ export const API_URLS = {
     put: uri + '/Faq/{entityId}',
     delete: uri + '/Faq/{entityId}',
   },
-  City: {
-    post: uri + '/City',
-    get: uri + '/City/all',
-    getOne: uri + '/City/{entityId}',
-    put: uri + '/City/{entityId}',
-    delete: uri + '/City/{entityId}',
-  },
-  Country: {
-    post: uri + '/Country',
-    get: uri + '/Country/all',
-    getOne: uri + '/Country/{entityId}',
-    put: uri + '/Country/{entityId}',
-    delete: uri + '/Country/{entityId}',
-  }, HomePage: {
+   HomePage: {
     post: uri + '/HomePage',
     get: uri + '/HomePage/all',
     getOne: uri + '/HomePage/{entityId}',
@@ -160,5 +143,8 @@ export const API_URLS = {
     put: uri + '/UserForm/{entityId}',
     delete: uri + '/UserForm/{entityId}',
   },
+
+
+ 
 
 };
