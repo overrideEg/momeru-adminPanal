@@ -152,7 +152,7 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
         });
         this.dialogRef.afterClosed()
             .subscribe(response => {
-
+                console.log('dialog', response)
             });
     }
 

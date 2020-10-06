@@ -18,15 +18,15 @@ export const navigation: FuseNavigation[] = [
                 url  : '/apps/dashboards/analytics'
         
             },
-            {
-                id       : 'websiteHomePage',
-                title    : 'Website Home Page',
-                translate: 'Website Home Page',
-                type     : 'item',
-                icon     : 'home',
-                url  : '/generic/HomePage'
+            // {
+            //     id       : 'UserForm',
+            //     title    : 'User Form',
+            //     translate: 'UserForm',
+            //     type     : 'item',
+            //     icon     : 'Form',
+            //     url  : '/generic/UserForm'
         
-            },
+            // },
             {
                 id       : 'scrumboard',
                 title    : 'Applications',
@@ -201,50 +201,15 @@ export const navigation: FuseNavigation[] = [
         children : [
           
             {
-                id       : 'home',
-                title    : 'home',
-                translate: 'home',
+                id       : 'Section',
+                title    : 'Section',
+                translate: 'Section',
                 type     : 'item',
-                icon     : 'home',
-                url  : '/generic/home-page'
+                icon     : 'Section',
+                url  : '/generic/Section'
         
             },
-            {
-                id       : 'ContactUs',
-                title    : 'ContactUs',
-                translate: 'ContactUs',
-                type     : 'item',
-                icon     : 'contact_mail',
-                url  : '/generic/contact-us'
-        
-            },
-            {
-                id       : 'partners',
-                title    : 'partners',
-                translate: 'partners',
-                type     : 'item',
-                icon     : 'compare_arrows',
-                url  : '/generic/partnters-page'
-        
-            },
-            {
-                id       : 'About-us',
-                title    : 'About-us',
-                translate: 'About-us',
-                type     : 'item',
-                icon     : 'label_important',
-                url  : '/generic/about-us'
-        
-            },
-            {
-                id       : 'mission-vision',
-                title    : 'mission-vision',
-                translate: 'mission-vision',
-                type     : 'item',
-                icon     : 'label_important',
-                url  : '/generic/mission-vision'
-        
-            },
+           
             
         ]
     },

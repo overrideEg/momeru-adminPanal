@@ -35,4 +35,6 @@ export interface AbstractField {
     rows: number,
     color?: string
     accept?: string
+    arrayAddRow?:boolean
+
 }

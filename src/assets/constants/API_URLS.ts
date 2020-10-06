@@ -1,8 +1,9 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
-const uri = 'http://server.overrideeg.net:3010/v1';
+// const uri = 'http://server.overrideeg.net:3010/v1';
 // const uri = 'https://server.momeru.com/v1';
-// const uri = 'http://192.168.1.3:3010/v1';
+const uri = 'http://192.168.43.188:3010/v1';
+// const uri = 'http://192.168.1.17:3010/v1';
 export const API_URLS = {
   auth: {
     auth: uri + '/auth/login',
@@ -120,13 +121,7 @@ export const API_URLS = {
     put: uri + '/Label/{entityId}',
     delete: uri + '/Label/{entityId}',
   },
-  Currency: {
-    post: uri + '/Currency',
-    get: uri + '/Currency/all',
-    getOne: uri + '/Currency/{entityId}',
-    put: uri + '/Currency/{entityId}',
-    delete: uri + '/Currency/{entityId}',
-  },
+  
   Faq: {
     post: uri + '/Faq',
     get: uri + '/Faq/all',
@@ -148,47 +143,8 @@ export const API_URLS = {
     put: uri + '/UserForm/{entityId}',
     delete: uri + '/UserForm/{entityId}',
   },
-  MissionVision: {
-    post: uri + '/MissionVision',
-    get: uri + '/MissionVision/all',
-    getOne: uri + '/MissionVision/{entityId}',
-    put: uri + '/MissionVision/{entityId}',
-    delete: uri + '/MissionVision/{entityId}',
-  },
-  'home-page': {
-    post: uri + '/home-page',
-    get: uri + '/home-page/all',
-    getOne: uri + '/home-page/{entityId}',
-    put: uri + '/home-page/{entityId}',
-    delete: uri + '/home-page/{entityId}',
-  },
-  'mission-vision': {
-    post: uri + '/mission-vision',
-    get: uri + '/mission-vision/all',
-    getOne: uri + '/mission-vision/{entityId}',
-    put: uri + '/mission-vision/{entityId}',
-    delete: uri + '/mission-vision/{entityId}',
-  },
-  'partnters-page': {
-    post: uri + '/partnters-page',
-    get: uri + '/partnters-page/all',
-    getOne: uri + '/partnters-page/{entityId}',
-    put: uri + '/partnters-page/{entityId}',
-    delete: uri + '/partnters-page/{entityId}',
-  },
-  'contact-us': {
-    post: uri + '/contact-us',
-    get: uri + '/contact-us/all-admin',
-    getOne: uri + '/contact-us/admin/{entityId}',
-    put: uri + '/contact-us/{entityId}',
-    delete: uri + '/contact-us/{entityId}',
-  },
-  'about-us': {
-    post: uri + '/about-us',
-    get: uri + '/about-us/all',
-    getOne: uri + '/about-us/{entityId}',
-    put: uri + '/about-us/{entityId}',
-    delete: uri + '/about-us/{entityId}',
-  },
+
+
+ 
 
 };

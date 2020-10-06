@@ -25,7 +25,6 @@ export interface EntityData {
     fields: AbstractField[];
     localizedAllFields?:boolean,
     cols: number,
-    
   }
 
 }

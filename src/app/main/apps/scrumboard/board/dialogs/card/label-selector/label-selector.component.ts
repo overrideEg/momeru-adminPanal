@@ -29,6 +29,7 @@ export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy
     newLabel: any;
     toggleInArray: any;
 
+    checkedValueChange
     // Private
     private _unsubscribeAll: Subject<any>;
 
@@ -84,7 +85,10 @@ export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy
     // -----------------------------------------------------------------------------------------------------
     // @ Public methods
     // -----------------------------------------------------------------------------------------------------
-
+    public changeValueChecked (value){
+        this.checkedValueChange = value;
+        console.log('checkedValueChange', this.checkedValueChange)
+    }
     /**
      * Card labels changed
      */

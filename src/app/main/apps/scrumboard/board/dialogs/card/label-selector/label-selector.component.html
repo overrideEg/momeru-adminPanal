@@ -2,13 +2,13 @@
 
     <div class="view" *ngSwitchCase="'labels'" fxFlex fxLayout="column">
 
-        <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
+        <!-- <div class="header" fxLayout="row" fxLayoutAlign="space-between center">
             <div>Labels</div>
             <button mat-button (click)="labelsMenuView ='add'">
                 <mat-icon class="s-16">add</mat-icon>
                 <span>Add</span>
             </button>
-        </div>
+        </div> -->
 
         <div fxFlex fxLayout="column" fusePerfectScrollbar>
 
@@ -17,15 +17,19 @@
 
                 <div class="label-color" [ngClass]="label.color"></div>
 
-                <mat-checkbox fxFlex fxLayout="row" fxLayoutAlign="start center"
+                <mat-checkbox fxFlex fxLayout="row" fxLayoutAlign="start center" 
                               [checked]="card.idLabels.indexOf(label.id) > -1"
-                              (change)="toggleInArray(label.id, card.idLabels);onCardLabelsChanged()">
+                              (change)="toggleInArray(label.id, card.idLabels);onCardLabelsChanged();changeValueChecked(label.id)" >
                     {{label.name}}
                 </mat-checkbox>
-
-                <button mat-icon-button>
+          
+                    <!-- <mat-radio-button  fxFlex fxLayout="row" fxLayoutAlign="start center"
+                    [checked]="card.idLabels.indexOf(label.id) > -1"
+                    (change)="toggleInArray(label.id, card.idLabels);onCardLabelsChanged()"> {{label.name}}</mat-radio-button> -->
+                 
+                <!-- <button mat-icon-button>
                     <mat-icon class="s-16" (click)="labelsMenuView ='edit';selectedLabel = label">mode_edit</mat-icon>
-                </button>
+                </button> -->
 
             </div>
 

@@ -1531,348 +1531,7 @@ export class AllEntities {
                 localizedAllFields: false
             }
         },
-        {
-            name: {
-                single: 'Home',
-                plural: 'Homes',
-            },
-            apiSelector: 'home-page',
-            route: '/generic/home-page',
-            add: true,
-            edit: true,
-            delete: true,
-            view: false,
-            upload: true,
-            export: true,
-            table: {
-                paginated: true,
-                paginationPageSize: 15,
-                pivotMode: false,
-                columnDefs: [
-                    {
-                        checkboxSelection: true,
-                        headerCheckboxSelection: true,
-                        field: 'id',
-                        headerName: this._translateService.instant('ID'),
-                    },
-                    {
-                        field: 'title.' + this.utils.currentLang,
-                        headerName: this._translateService.instant('title'),
-                    },
-                    {
-                        field: 'body.' + this.utils.currentLang,
-                        headerName: this._translateService.instant('body'),
-                    },
-                    {
-                        field: 'sectionNo',
-                        headerName: this._translateService.instant('sectionNo'),
-                    },
-
-
-
-
-                ]
-
-            },
-            form: {
-                fields: [
-
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'title',
-                        label: this._translateService.instant('title'),
-                        required: false,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'body',
-                        label: this._translateService.instant('body'),
-                        required: false,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        multiline: true,
-                        cols: 12,
-                        rows: 3
-                    },
-                    {
-                        type: FieldType.file,
-                        name: 'images',
-                        label: this._translateService.instant('images'),
-                        required: false,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        multiple: true,
-                        cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.number,
-                        name: 'sectionNo',
-                        label: this._translateService.instant('sectionNo'),
-                        required: false,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.array,
-                        name: 'projects',
-                        label: this._translateService.instant('projects'),
-                        required: false,
-                        // validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 7,
-                        children:[
-                            {
-                                type: FieldType.textLocalized,
-                                name: 'title',
-                                label: this._translateService.instant('title'),
-                                required: false,
-                                validators: [Validators.required, Validators.minLength(3)],
-                                disabled: false,
-                                readonly: false,
-                                multiline: false,
-                                cols: 12,
-                                rows: 2
-                            },
-                            {
-                                type: FieldType.file,
-                                name: 'images',
-                                label: this._translateService.instant('images'),
-                                required: false,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                multiline: false,
-                                multiple: true,
-                                cols: 12,
-                                rows: 2
-                            },
-                        ]
-                    },
-
-
-
-
-
-                ],
-                cols: 12,
-                localizedAllFields: false
-            }
-        },
-        {
-            name: {
-                single: 'mission-vision',
-                plural: 'mission-visions',
-            },
-            apiSelector: 'mission-vision',
-            route: '/generic/mission-vision',
-            add: true,
-            edit: true,
-            delete: true,
-            view: false,
-            upload: true,
-            export: true,
-            table: {
-                paginated: true,
-                paginationPageSize: 15,
-                pivotMode: false,
-                columnDefs: [
-                    {
-                        checkboxSelection: true,
-                        headerCheckboxSelection: true,
-                        field: 'id',
-                        headerName: this._translateService.instant('ID'),
-                    },
-                    {
-                        field: 'header.' + this.utils.currentLang,
-                        headerName: this._translateService.instant('header'),
-                    },
-                    {
-                        field: 'title.' + this.utils.currentLang,
-                        headerName: this._translateService.instant('title'),
-                    },
-                   
-
-
-
-
-                ]
-
-            },
-            form: {
-                fields: [
-
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'header',
-                        label: this._translateService.instant('header'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'title',
-                        label: this._translateService.instant('title'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'body',
-                        label: this._translateService.instant('body'),
-                        required: true,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        multiline: true,
-                        cols: 12,
-                        rows: 3
-                    },
-                    {
-                        type: FieldType.file,
-                        name: 'image',
-                        label: this._translateService.instant('image'),
-                        required: false,
-                        // validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                
-                ],
-                cols: 12,
-                localizedAllFields: false
-            }
-        },
-        {
-            name: {
-                single: 'partner',
-                plural: 'partners',
-            },
-            apiSelector: 'partnters-page',
-            route: '/generic/partnters-page',
-            add: true,
-            edit: true,
-            delete: true,
-            view: false,
-            upload: true,
-            export: true,
-            table: {
-                paginated: true,
-                paginationPageSize: 15,
-                pivotMode: false,
-                columnDefs: [
-                    {
-                        checkboxSelection: true,
-                        headerCheckboxSelection: true,
-                        field: 'id',
-                        headerName: this._translateService.instant('ID'),
-                    },
-                    {
-                        field: 'header.' + this.utils.currentLang,
-                        headerName: this._translateService.instant('header'),
-                    },
-                   
-
-
-
-
-                ]
-
-            },
-            form: {
-                fields: [
-
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'header',
-                        label: this._translateService.instant('header'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                    
-                    {
-                        type: FieldType.array,
-                        name: 'imagelist',
-                        label: this._translateService.instant('imagelist'),
-                        required: true,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        cols: 12,
-                        rows: 12,
-                        children: [
-                            {
-                                type: FieldType.textLocalized,
-                                name: 'title',
-                                label: this._translateService.instant('title'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                multiline: true,
-                                cols: 12,
-                                rows: 3
-                            },
-                            {
-                                type: FieldType.file,
-                                name: 'images',
-                                label: this._translateService.instant('images'),
-                                required: false,
-                                // validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                multiline: false,
-                                multiple: true,
-                                cols: 12,
-                                rows: 2
-                            },
-
-                        ]
-                    },
-
-
-
-
-
-                ],
-                cols: 12,
-                localizedAllFields: false
-            }
-        },
+      
         {
             name: {
                 single: 'ContactUs',
@@ -1999,13 +1658,14 @@ export class AllEntities {
                 localizedAllFields: false
             }
         },
+       
         {
             name: {
-                single: 'About-us',
-                plural: 'About-us',
+                single: 'Section',
+                plural: 'Sections',
             },
-            apiSelector: 'about-us',
-            route: '/generic/about-us',
+            apiSelector: 'Section',
+            route: '/generic/Section',
             add: true,
             edit: true,
             delete: true,
@@ -2024,8 +1684,12 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'header.' + this.utils.currentLang,
-                        headerName: this._translateService.instant('header'),
+                        field: 'pageType' ,
+                        headerName: this._translateService.instant('pageType'),
+                    },
+                    {
+                        field: 'title.' + this.utils.currentLang,
+                        headerName: this._translateService.instant('title'),
                     },
                     {
                         field: 'body.' + this.utils.currentLang,
@@ -2044,8 +1708,8 @@ export class AllEntities {
 
                     {
                         type: FieldType.textLocalized,
-                        name: 'header',
-                        label: this._translateService.instant('header'),
+                        name: 'title',
+                        label: this._translateService.instant('title'),
                         required: true,
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
@@ -2064,44 +1728,103 @@ export class AllEntities {
                         readonly: false,
                         multiline: true,
                         cols: 12,
-                        rows: 3
+                        rows: 4
                     },
                     {
-                        type: FieldType.textLocalized,
-                        name: 'header2',
-                        label: this._translateService.instant('header2'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
+                        type: FieldType.dropdown,
+                        name: 'pageType',
+                        label: this._translateService.instant('pageType'),
+                        multiple: false,
+                        required: false,
+                        validators: [Validators.required],
                         disabled: false,
                         readonly: false,
-                        multiline: false,
                         cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.file,
-                        name: 'image',
-                        label: this._translateService.instant('image'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
+                        rows: 2,
+                        options: [
+                            {
+                                value: 'homePage',
+                                label: this._translateService.instant('homePage')
+                            },
+                            {
+                                value: 'about',
+                                label: this._translateService.instant('about')
+                            },
+                            {
+                                value: 'partners',
+                                label: this._translateService.instant('partners')
+                            },
+                            {
+                                value: 'missionVision',
+                                label: this._translateService.instant('missionVision')
+                            },
+
+                        ]
                     },
                     {
                         type: FieldType.array,
-                        name: 'bodyList',
-                        label: this._translateService.instant('bodyList'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
+                        name: 'images',
+                        label: this._translateService.instant('images'),
+                        required: false,
+                        // validators: [Validators.required],
                         disabled: false,
                         readonly: false,
-                        multiline: false,
+                        arrayAddRow: false,
                         cols: 12,
-                        rows: 5,
-                        children:[
+                        rows: 6,
+                        children: [
+                            {
+                                type: FieldType.textLocalized,
+                                name: 'title',
+                                label: this._translateService.instant('title'),
+                                required: false,
+                                // validators: [Validators.required],
+                                disabled: false,
+                                readonly: false,
+                                multiline: false,
+                                cols: 12,
+                                rows: 2
+                            },
+                            {
+                                type: FieldType.file,
+                                name: 'imagePath',
+                                label: this._translateService.instant('imagePath'),
+                                required: false,
+                                // validators: [Validators.required],
+                                disabled: false,
+                                readonly: false,
+                                multiline: false,
+                                multiple: false,
+                                cols: 12,
+                                rows: 2
+                            },
+
+                        ]
+                    },
+                    {
+                        type: FieldType.array,
+                        name: 'childs',
+                        label: this._translateService.instant('childs'),
+                        required: false,
+                        // validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        arrayAddRow:false,
+                        cols: 12,
+                        rows: 20,
+                        children: [
+                            {
+                                type: FieldType.textLocalized,
+                                name: 'title',
+                                label: this._translateService.instant('title'),
+                                required: true,
+                                validators: [Validators.required, Validators.minLength(3)],
+                                disabled: false,
+                                readonly: false,
+                                multiline: false,
+                                cols: 12,
+                                rows: 2
+                            },
                             {
                                 type: FieldType.textLocalized,
                                 name: 'body',
@@ -2114,153 +1837,228 @@ export class AllEntities {
                                 cols: 12,
                                 rows: 3
                             },
+                            {
+                                type: FieldType.dropdown,
+                                name: 'pageType',
+                                label: this._translateService.instant('pageType'),
+                                multiple: false,
+                                required: true,
+                                validators: [Validators.required],
+                                disabled: false,
+                                readonly: false,
+                                cols: 6,
+                                rows: 2,
+                                options: [
+                                    {
+                                        value: 'homePage',
+                                        label: this._translateService.instant('homePage')
+                                    },
+                                    {
+                                        value: 'about',
+                                        label: this._translateService.instant('about')
+                                    },
+                                    {
+                                        value: 'partenrs',
+                                        label: this._translateService.instant('partenrs')
+                                    },
+                                    {
+                                        value: 'missionVision',
+                                        label: this._translateService.instant('missionVision')
+                                    },
+        
+                                ]
+                            },
+                            {
+                                type: FieldType.array,
+                                name: 'images',
+                                label: this._translateService.instant('images'),
+                                required: false,
+                                // validators: [Validators.required],
+                                disabled: false,
+                                readonly: false,
+                                cols: 12,
+                                rows: 12,
+                                children: [
+                                    {
+                                        type: FieldType.textLocalized,
+                                        name: 'title',
+                                        label: this._translateService.instant('title'),
+                                        required: false,
+                                        // validators: [Validators.required],
+                                        disabled: false,
+                                        readonly: false,
+                                        multiline: false,
+                                        cols: 12,
+                                        rows: 2
+                                    },
+                                    {
+                                        type: FieldType.file,
+                                        name: 'imagePath',
+                                        label: this._translateService.instant('imagePath'),
+                                        required: false,
+                                        // validators: [Validators.required],
+                                        disabled: false,
+                                        readonly: false,
+                                        multiline: false,
+                                        multiple: false,
+                                        cols: 12,
+                                        rows: 2
+                                    },
+        
+                                ]
+                            },
+
                         ]
                     },
-                    
 
-                  
-                    
+
+
+
+
                 ],
                 cols: 12,
                 localizedAllFields: false
             }
         },
 
-
-        {
-            name: {
-                single: 'UserForm',
-                plural: 'UserForms',
-            },
-            apiSelector: 'UserForm',
-            route: '/generic/UserForm',
-            add: true,
-            edit: true,
-            delete: true,
-            view: false,
-            upload: true,
-            export: true,
-            table: {
-                paginated: true,
-                paginationPageSize: 15,
-                pivotMode: false,
-                columnDefs: [
-                    {
-                        checkboxSelection: true,
-                        headerCheckboxSelection: true,
-                        field: 'id',
-                        headerName: this._translateService.instant('ID'),
-                    },
-                    {
-                        field: 'user.' + [this.utils.currentLang],
-                        headerName: this._translateService.instant('user'),
-                    },
-                    {
-                        field: 'assignedTo',
-                        headerName: this._translateService.instant('assignedTo'),
-                    },
-                    {
-                        field: 'valueDate',
-                        headerName: this._translateService.instant('valueDate'),
-                    },
-                    {
-                        field: 'status',
-                        headerName: this._translateService.instant('status'),
-                    },
+        // {
+        //     name: {
+        //         single: 'UserForm',
+        //         plural: 'UserForms',
+        //     },
+        //     apiSelector: 'UserForm',
+        //     route: '/generic/UserForm',
+        //     add: true,
+        //     edit: true,
+        //     delete: true,
+        //     view: false,
+        //     upload: true,
+        //     export: true,
+        //     table: {
+        //         paginated: true,
+        //         paginationPageSize: 15,
+        //         pivotMode: false,
+        //         columnDefs: [
+        //             {
+        //                 checkboxSelection: true,
+        //                 headerCheckboxSelection: true,
+        //                 field: 'id',
+        //                 headerName: this._translateService.instant('ID'),
+        //             },
+        //             {
+        //                 field: 'user.' + [this.utils.currentLang],
+        //                 headerName: this._translateService.instant('user'),
+        //             },
+        //             {
+        //                 field: 'assignedTo',
+        //                 headerName: this._translateService.instant('assignedTo'),
+        //             },
+        //             {
+        //                 field: 'valueDate',
+        //                 headerName: this._translateService.instant('valueDate'),
+        //             },
+        //             {
+        //                 field: 'status',
+        //                 headerName: this._translateService.instant('status'),
+        //             },
                    
 
-                ]
+        //         ]
 
-            },
-            form: {
-                fields: [
-                    {
-                        type: FieldType.entity,
-                        name: 'user',
-                        label: this._translateService.instant('user'),
-                        required: true,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        cols: 6,
-                        rows: 2,
-                        selectOptions: {
-                            optionName: 'name',
-                            fromSelector: 'User',
+        //     },
+        //     form: {
+        //         fields: [
+        //             {
+        //                 type: FieldType.entity,
+        //                 name: 'user',
+        //                 label: this._translateService.instant('user'),
+        //                 required: true,
+        //                 validators: [Validators.required],
+        //                 disabled: false,
+        //                 readonly: false,
+        //                 cols: 6,
+        //                 rows: 2,
+        //                 selectOptions: {
+        //                     optionName: 'name',
+        //                     fromSelector: 'User',
 
-                            columns: [
-                                { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
-                                { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
-                            ]
-                        },
-                    },
-                    {
-                        type: FieldType.entity,
-                        name: 'assignedTo',
-                        label: this._translateService.instant('assignedTo'),
-                        required: true,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        cols: 6,
-                        rows: 2,
-                        selectOptions: {
-                            optionName: 'name',
-                            fromSelector: 'User',
+        //                     columns: [
+        //                         { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
+        //                         { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
+        //                     ]
+        //                 },
+        //             },
+        //             {
+        //                 type: FieldType.entity,
+        //                 name: 'assignedTo',
+        //                 label: this._translateService.instant('assignedTo'),
+        //                 required: true,
+        //                 validators: [Validators.required],
+        //                 disabled: false,
+        //                 readonly: false,
+        //                 cols: 6,
+        //                 rows: 2,
+        //                 selectOptions: {
+        //                     optionName: 'name',
+        //                     fromSelector: 'User',
 
-                            columns: [
-                                { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
-                                { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
-                            ]
-                        },
-                    },
-                    {
-                        type: FieldType.textLocalized,
-                        name: 'label',
-                        label: this._translateService.instant('label'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 12,
-                        rows: 2
-                    },
-                    {
-                        type: FieldType.dropdown,
-                        name: 'status',
-                        label: this._translateService.instant('status'),
-                        multiple: false,
-                        required: false,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        cols: 6,
-                        rows: 2,
-                        options: [
-                            {
-                                value: 'text',
-                                label: this._translateService.instant('text')
-                            },
-                            {
-                                value: 'checkbox',
-                                label: this._translateService.instant('checkbox')
-                            },
-                            {
-                                value: 'date',
-                                label: this._translateService.instant('date')
-                            },
+        //                     columns: [
+        //                         { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
+        //                         { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
+        //                     ]
+        //                 },
+        //             },
+        //             {
+        //                 type: FieldType.textLocalized,
+        //                 name: 'label',
+        //                 label: this._translateService.instant('label'),
+        //                 required: true,
+        //                 validators: [Validators.required, Validators.minLength(3)],
+        //                 disabled: false,
+        //                 readonly: false,
+        //                 multiline: false,
+        //                 cols: 12,
+        //                 rows: 2
+        //             },
+        //             {
+        //                 type: FieldType.dropdown,
+        //                 name: 'status',
+        //                 label: this._translateService.instant('status'),
+        //                 multiple: false,
+        //                 required: false,
+        //                 validators: [Validators.required],
+        //                 disabled: false,
+        //                 readonly: false,
+        //                 cols: 6,
+        //                 rows: 2,
+        //                 options: [
+        //                     {
+        //                         value: 'highPriority',
+        //                         label: this._translateService.instant('High Priority')
+        //                     },
+        //                     {
+        //                         value: 'design',
+        //                         label: this._translateService.instant('Design')
+        //                     },
+        //                     {
+        //                         value: 'app',
+        //                         label: this._translateService.instant('App')
+        //                     },
+        //                     {
+        //                         value: 'feature',
+        //                         label: this._translateService.instant('Feature')
+        //                     },
                             
-                        ]
-                    },
+        //                 ]
+        //             },
 
                 
 
-                ],
-                cols: 12,
-                localizedAllFields: false
-            }
-        },
+        //         ],
+        //         cols: 12,
+        //         localizedAllFields: false
+        //     }
+        // },
 
     ];
 }
