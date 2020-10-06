@@ -1,5 +1,5 @@
 {
-    "ar":"Arabic", 
+    "ar": "Arabic",
     "basicData": "Basic Data",
     "Users": "Users",
     "homePage": "Home Page",
@@ -23,7 +23,7 @@
     "City": "City",
     "ContactUs": "Contac tUs",
     "Page": "Page",
-    "controlData": "Control Data",
+    "controlData": "Forms",
     "Section": "Section",
     "Question": "Question",
     "UserAnswer": "User Answer",

@@ -36,7 +36,7 @@ export class ScrumboardBoardCardComponent implements OnInit
      */
     ngOnInit(): void
     {
-        this.board = this._activatedRoute.snapshot.data.board;
+        this.board = this._activatedRoute.snapshot.data.board;        
         this.card = this.board.cards.filter((card) => {
             return this.cardId === card.id;
         })[0];

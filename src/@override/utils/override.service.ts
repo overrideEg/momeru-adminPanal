@@ -51,7 +51,7 @@ export class OverrideService {
         this.translate.use(language);
         this.language = of(language);
         localStorage.setItem('language', language);
-        this.setTitle(key || 'Override');
+        this.setTitle(key || 'Momeru');
         this.setStyle();
       }
     } else {

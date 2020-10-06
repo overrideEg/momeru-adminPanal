@@ -14,13 +14,12 @@ import { EntityService } from '../../../../../../@override/utils/entity.service'
 import { API_URLS } from '../../../../../../assets/constants/API_URLS';
 
 @Component({
-    selector     : 'scrumboard-board-list',
-    templateUrl  : './list.component.html',
-    styleUrls    : ['./list.component.scss'],
+    selector: 'scrumboard-board-list',
+    templateUrl: './list.component.html',
+    styleUrls: ['./list.component.scss'],
     encapsulation: ViewEncapsulation.None
 })
-export class ScrumboardBoardListComponent implements OnInit, OnDestroy
-{
+export class ScrumboardBoardListComponent implements OnInit, OnDestroy {
     board: any;
     dialogRef: any;
 
@@ -47,8 +46,7 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
         private _scrumboardService: ScrumboardService,
         private _matDialog: MatDialog,
         private entity: EntityService
-    )
-    {
+    ) {
         // Set the private defaults
         this._unsubscribeAll = new Subject();
     }
@@ -60,23 +58,19 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
     /**
      * On init
      */
-    async ngOnInit(): Promise<void>
-    {
+    async ngOnInit(): Promise<void> {
         this._scrumboardService.onBoardChanged
             .pipe(takeUntil(this._unsubscribeAll))
             .subscribe(board => {
                 this.board = board;
             });
-           let forms = await this.entity.getData(API_URLS.UserForm.get);
-           console.log(forms);
-           
+
     }
 
     /**
      * On destroy
      */
-    ngOnDestroy(): void
-    {
+    ngOnDestroy(): void {
         // Unsubscribe from all subscriptions
         this._unsubscribeAll.next();
         this._unsubscribeAll.complete();
@@ -91,8 +85,7 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
      *
      * @param newListName
      */
-    onListNameChanged(newListName): void
-    {
+    onListNameChanged(newListName): void {
         this.list.name = newListName;
     }
 
@@ -101,14 +94,12 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
      *
      * @param newCardName
      */
-    onCardAdd(newCardName): void
-    {
-        if ( newCardName === '' )
-        {
+    onCardAdd(newCardName): void {
+        if (newCardName === '') {
             return;
         }
 
-        this._scrumboardService.addCard(this.list.id, new Card({name: newCardName}));
+        this._scrumboardService.addCard(this.list.id, new Card({ name: newCardName }));
 
         setTimeout(() => {
             this.listScroll.scrollToBottom(0, 400);
@@ -120,8 +111,7 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
      *
      * @param listId
      */
-    removeList(listId): void
-    {
+    removeList(listId): void {
         this.confirmDialogRef = this._matDialog.open(FuseConfirmDialogComponent, {
             disableClose: false
         });
@@ -129,8 +119,7 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
         this.confirmDialogRef.componentInstance.confirmMessage = 'Are you sure you want to delete the list and it\'s all cards?';
 
         this.confirmDialogRef.afterClosed().subscribe(result => {
-            if ( result )
-            {
+            if (result) {
                 this._scrumboardService.removeList(listId);
             }
         });
@@ -141,11 +130,10 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
      *
      * @param cardId
      */
-    openCardDialog(cardId): void
-    {
+    openCardDialog(cardId): void {
         this.dialogRef = this._matDialog.open(ScrumboardCardDialogComponent, {
             panelClass: 'scrumboard-card-dialog',
-            data      : {
+            data: {
                 cardId: cardId,
                 listId: this.list.id
             }
@@ -161,8 +149,18 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy
      *
      * @param ev
      */
-    onDrop(ev): void
-    {
+    onDrop(ev, list): void {
+
+        
+
+        this._scrumboardService.board.lists.find(l => l.id === list.id).idCards.forEach(id => {
+            let card = this._scrumboardService.boards[0].cards.find(card => card.id === id);
+            card['status'] = list.id;            
+        });
+
+        
+
+
         this._scrumboardService.updateBoard();
     }
 }
