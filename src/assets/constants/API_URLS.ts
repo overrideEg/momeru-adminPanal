@@ -2,7 +2,7 @@
 /* Follow the Naming Convention*/
 // const uri = 'http://server.overrideeg.net:3010/v1';
 const uri = 'https://server.momeru.com/v1';
-// const uri = 'http://127.0.0.1:3010/v1';
+
 // const uri = 'http://192.168.1.17:3010/v1';
 export const API_URLS = {
   auth: {
