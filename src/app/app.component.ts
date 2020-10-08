@@ -204,7 +204,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
      
-     entities = new AllEntities(this._translateService,this.utils, this.datePipe);    
+     entities = new AllEntities(this._translateService,this.utils, this.datePipe,this.override);    
     setEntities() {
         this._entities.allEntities  = this.entities.entities;
     }

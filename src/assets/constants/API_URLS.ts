@@ -1,9 +1,9 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
 // const uri = 'http://server.overrideeg.net:3010/v1';
-const uri = 'https://server.momeru.com/v1';
+// const uri = 'https://server.momeru.com/v1';
 
-// const uri = 'http://192.168.1.17:3010/v1';
+const uri = 'http://localhost:3010/v1';
 export const API_URLS = {
   auth: {
     auth: uri + '/auth/login',
@@ -29,7 +29,7 @@ export const API_URLS = {
     put: uri + '/Form/{entityId}',
     delete: uri + '/Form/{entityId}',
   },
- Question: {
+  Question: {
     post: uri + '/Question',
     get: uri + '/Question/all',
     getOne: uri + '/Question/{entityId}',
@@ -122,7 +122,7 @@ export const API_URLS = {
     put: uri + '/Label/{entityId}',
     delete: uri + '/Label/{entityId}',
   },
-  
+
   Faq: {
     post: uri + '/Faq',
     get: uri + '/Faq/all',
@@ -130,7 +130,7 @@ export const API_URLS = {
     put: uri + '/Faq/{entityId}',
     delete: uri + '/Faq/{entityId}',
   },
-   HomePage: {
+  HomePage: {
     post: uri + '/HomePage',
     get: uri + '/HomePage/all',
     getOne: uri + '/HomePage/{entityId}',
@@ -145,8 +145,17 @@ export const API_URLS = {
     put: uri + '/UserForm',
     delete: uri + '/UserForm/{entityId}',
   },
+  FirstSection: {
+    post: uri + '/FirstSection',
+    get: uri + '/FirstSection/all',
+    getOne: uri + '/FirstSection/{entityId}',
+    put: uri + '/FirstSection/{entityId}',
+    delete: uri + '/FirstSection/{entityId}',
+  },
 
 
- 
+
+
+
 
 };
