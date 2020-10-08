@@ -9,6 +9,7 @@ import { FuseUtils } from '@fuse/utils';
 
 import { ScrumboardService } from 'app/main/apps/scrumboard/scrumboard.service';
 import { takeUntil } from 'rxjs/operators';
+import { OverrideService } from '../../../../../../../@override/utils/override.service';
 
 @Component({
     selector     : 'scrumboard-board-card-dialog',
@@ -46,7 +47,8 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy
         public matDialogRef: MatDialogRef<ScrumboardCardDialogComponent>,
         @Inject(MAT_DIALOG_DATA) private _data: any,
         private _matDialog: MatDialog,
-        private _scrumboardService: ScrumboardService
+        private _scrumboardService: ScrumboardService,
+        public override:OverrideService
     )
     {
         // Set the private defaults
@@ -67,6 +69,8 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy
             .subscribe(board => {
                 this.board = board;
 
+                console.log(board);
+                
                 this.card = this.board.cards.find((_card) => {
                     return this._data.cardId === _card.id;
                 });
@@ -273,17 +277,23 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy
      */
     addNewComment(form: NgForm): void
     {
-        const newCommentText = form.value.newComment;
+        const newCommentText = form.value.text;
 
+        
         const newComment = {
-            idMember: '36027j1930450d8bf7b10158',
-            message : newCommentText,
-            time    : 'now'
+            idMember: +atob(sessionStorage.getItem(btoa('user.id'))),
+            text : newCommentText,
+            time    : new Date().toLocaleString(),
+            user:{
+                id :  +atob(sessionStorage.getItem(btoa('user.id'))),
+            }
+            
         };
+        console.log(newComment);
 
         this.card.comments.unshift(newComment);
 
-        form.setValue({newComment: ''});
+        form.setValue({text: ''});
 
         this.updateCard();
     }
@@ -314,5 +324,8 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy
     updateCard(): void
     {
         this._scrumboardService.updateCard(this.card);
+    }
+    getLabelName(labelId){        
+        return this._scrumboardService.boards[0].labels.find(label=>label.id === labelId).title[this.override.currentLang]
     }
 }

@@ -56,15 +56,7 @@ export const navigation: FuseNavigation[] = [
                 url  : '/generic/User'
         
             },
-            {
-                id       : 'UserAnswer',
-                title    : 'UserAnswer',
-                translate: 'UserAnswer',
-                type     : 'item',
-                icon     : 'question_answer',
-                url  : '/generic/UserAnswer'
         
-            },
             {
                 id       : 'Label',
                 title    : 'Label',

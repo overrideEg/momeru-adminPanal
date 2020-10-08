@@ -60,6 +60,21 @@ export class EntityService {
     }
   }
 
+  async updateOne(url: string, body: any, entityId?: any, headers?: HttpHeaders, contentType?: string) {
+     if (body) {
+      if (entityId) {
+        url = url.replace('{entityId}', entityId);
+      }
+      return await this.APIService.update(url, body, headers, contentType);
+    }
+  }
+
+  async updateArray(url: string, body: any, headers?: HttpHeaders, contentType?: string) {
+    if (body) {
+
+      return await this.APIService.update(url, body, headers, contentType);
+    }
+  }
   async delete(apiSelector: string, body?: any, entityId?: string, headers?: HttpHeaders, contentType?: string) {
     var url = API_URLS[apiSelector]['delete'];
     if (body) {

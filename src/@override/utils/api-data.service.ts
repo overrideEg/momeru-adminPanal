@@ -129,10 +129,10 @@ export class ApiDataService {
   }
   resolveNotAuthrized(error) {
     if (error.status == 401) {
-      this.showErrToast(this.translate.instant(error.error.errors), error.error.statusCode);
+      // this.showErrToast(error.error, error.error.statusCode);
       this.router.navigate(['/pages/auth/login']);
     } else {
-      this.showErrToast(this.translate.instant(error.error.errors), error.error.statusCode);
+      // this.showErrToast(error.error, error.error.statusCode);
       return error;
     }
   }
@@ -144,7 +144,7 @@ export class ApiDataService {
     });
   }
   showErrToast(message, status) {
-    this._snackBar.open(this.translate.instant(message), status, {
+    this._snackBar.open(this.translate.instant(message?message:'error'), status, {
       duration: 3000,
       horizontalPosition: 'center',
       verticalPosition: 'bottom'
