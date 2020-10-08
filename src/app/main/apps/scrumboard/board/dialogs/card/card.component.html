@@ -35,8 +35,7 @@
 
                     <mat-menu #labelsMenu="matMenu" [overlapTrigger]="false" class="scrumboard-labels-menu">
 
-                        <scrumboard-label-selector [card]="card"
-                                                   (cardLabelsChanged)="updateCard()"></scrumboard-label-selector>
+                        <scrumboard-label-selector [card]="card" (cardLabelsChanged)="updateCard()"></scrumboard-label-selector>
 
                     </mat-menu>
 
@@ -51,13 +50,10 @@
                     </button>
 
                     <mat-menu #membersMenu="matMenu" [overlapTrigger]="false">
-                        <div fxFlex fxLayout="column" class="scrumboard-members-menu"
-                             (click)="$event.stopPropagation()">
-                            <mat-checkbox class="member px-16" [checked]="card.idMembers.indexOf(member.id) > -1"
-                                          *ngFor="let member of board.members"
-                                          (change)="toggleInArray(member.id, card.idMembers);updateCard()">
+                        <div fxFlex fxLayout="column" class="scrumboard-members-menu" (click)="$event.stopPropagation()">
+                            <mat-checkbox class="member px-16" [checked]="card.idMembers.indexOf(member.id) > -1" *ngFor="let member of board.members" (change)="toggleInArray(member.id, card.idMembers);updateCard()">
                                 <div fxLayout="row" fxLayoutAlign="start center">
-                                    <img [alt]="member.name" [src]=" member.avatar" class="avatar"/>
+                                    <img [alt]="member.name" [src]="member.avatar" class="avatar" />
                                     <p class="member-name">{{ member.name }}</p>
                                 </div>
                             </mat-checkbox>
@@ -67,9 +63,9 @@
                 </div>
                 <!-- / MEMBERS -->
 
-               
 
-                
+
+
 
 
                 <!-- OPTIONS -->
@@ -113,33 +109,30 @@
         <div fxLayout="row" fxLayoutAlign="start center">
 
             <!-- NAME -->
-            <div class="card-name px-24" fxLayout="row" fxLayoutAlign="start center">
-                <mat-form-field appearance="outline" class="w-100-p">
-                    <mat-label>Title</mat-label>
-                    <input matInput [(ngModel)]="card.name" required (change)="updateCard()">
-                </mat-form-field>
-            </div>
+            <!-- <div class="card-name px-24 " fxLayoutAlign="start center" >
+              
+            </div> -->
+
             <!-- / NAME -->
 
             <!-- DUE DATE -->
-            <div *ngIf="card.due" class="due-date px-24 pl-0" fxLayout="row" fxLayoutAlign="start center">
+            <!-- <div *ngIf="card.due" class="due-date px-24 pl-0" fxLayout="row" fxLayoutAlign="start center">
                 <mat-form-field appearance="outline" class="w-100-p">
                     <mat-label>Due Date</mat-label>
                     <input matInput [matDatepicker]="picker" [(ngModel)]="card.due">
                     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                     <mat-datepicker #picker></mat-datepicker>
                 </mat-form-field>
-            </div>
+            </div> -->
             <!-- / DUE DATE -->
 
         </div>
 
         <!-- DESCRIPTION -->
-        <div class="description px-24 mb-16">
+        <div class="description px-24 mb-16" *ngFor="let item of card.userAnswers">
             <mat-form-field appearance="outline" class="w-100-p">
-                <mat-label>Description</mat-label>
-                <textarea matInput [(ngModel)]="card.description" columns="1"
-                          mat-maxlength="150" max-rows="4" (change)="updateCard()"></textarea>
+                <mat-label>{{item?.question?.label[override.currentLang]}}</mat-label>
+                <input matInput [(ngModel)]="item.answerValue" required (change)="updateCard()">
             </mat-form-field>
         </div>
         <!-- / DESCRIPTION -->
@@ -148,8 +141,7 @@
         <div class="sections">
 
             <!-- LABELS & MEMBERS SECTION -->
-            <div *ngIf="card.idLabels[0] || card.idMembers[0]" class="section"
-                 fxLayout="column" fxLayout.gt-xs="row">
+            <div *ngIf="card.idLabels[0] || card.idMembers[0]" class="section" fxLayout="column" fxLayout.gt-xs="row">
 
                 <div *ngIf="card.idLabels[0]" fxFlex class="labels">
 
@@ -160,11 +152,9 @@
 
                     <div class="section-content">
                         <mat-chip-list class="label-chips">
-                            <mat-chip class="label-chip mb-4"
-                                      *ngFor="let labelId of card.idLabels"
-                                      [ngClass]="board.labels | getById:labelId:'color'"
-                                      fxLayout="row" fxLayoutAlign="start center">
-                                <span>{{board.labels|getById:labelId:'name'}}</span>
+                            <mat-chip class="label-chip mb-4" *ngFor="let labelId of card.idLabels" [ngStyle]="{'background-color': board.labels | getById:labelId:'color'}" fxLayout="row" fxLayoutAlign="start center">
+                                <!-- <span>{{board.labels|getById:labelId:'name'}}</span> -->
+                                <span>{{getLabelName(labelId)}}</span>
                             </mat-chip>
                         </mat-chip-list>
                     </div>
@@ -180,10 +170,8 @@
 
                     <div class="section-content">
                         <div class="member-chips" fxLayout="row" fxLayoutWrap>
-                            <div class="member-chip mb-4" *ngFor="let memberId of card.idMembers"
-                                 fxLayout="row" fxLayoutAlign="start center">
-                                <img class="member-chip-avatar" [src]="board.members | getById:memberId:'avatar'"
-                                     [matTooltip]="board.members | getById:memberId:'name'">
+                            <div class="member-chip mb-4" *ngFor="let memberId of card.idMembers" fxLayout="row" fxLayoutAlign="start center">
+                                <img class="member-chip-avatar" [src]="board.members | getById:memberId:'avatar'" [matTooltip]="board.members | getById:memberId:'name'">
                             </div>
                         </div>
                     </div>
@@ -206,22 +194,18 @@
 
                     <div class="section-content">
 
-                        <form name="cardCommentForm"
-                              #newCommentForm="ngForm" (submit)="addNewComment(newCommentForm)"
-                              class="comment new-comment" fxLayout="column" fxLayoutAlign="start" no-validate>
+                        <form name="cardCommentForm" #newCommentForm="ngForm" (submit)="addNewComment(newCommentForm)" class="comment new-comment" fxLayout="column" fxLayoutAlign="start" no-validate>
 
                             <div fxLayout="row" fxLayoutAlign="center center">
 
-                                <img class="comment-member-avatar" src="assets/images/avatars/profile.jpg">
+                                <img class="comment-member-avatar" src="../../../../../../../assets/images/logos/logo.png">
 
                                 <mat-form-field class="mr-12" appearance="outline" fxFlex>
                                     <mat-label>Comment</mat-label>
-                                    <input matInput name="newComment" ngModel #newComment="ngModel" required>
+                                    <input matInput name="text" ngModel #text="ngModel" required>
                                 </mat-form-field>
 
-                                <button mat-mini-fab class="mat-accent"
-                                        [disabled]="!newCommentForm.valid || newCommentForm.pristine"
-                                        aria-label="Add">
+                                <button mat-mini-fab class="mat-accent" [disabled]="!newCommentForm.valid || newCommentForm.pristine" aria-label="Add">
                                     <mat-icon>add</mat-icon>
                                 </button>
 
@@ -229,18 +213,16 @@
 
                         </form>
 
-                        <div class="comment" fxLayout="row" fxLayoutAlign="start center"
-                             *ngFor="let comment of card.comments">
+                        <div class="comment" fxLayout="row" fxLayoutAlign="start center" *ngFor="let comment of card.comments">
 
-                            <img class="comment-member-avatar"
-                                 [src]="board.members | getById: comment.idMember:'avatar'">
+                            <img class="comment-member-avatar" src="../../../../../../../assets/images/logos/logo.png">
 
                             <div fxLayout="column">
                                 <div class="comment-member-name">
                                     {{board.members | getById: comment.idMember:'name'}}
                                 </div>
-                                <div class="comment-bubble">{{comment.message}}</div>
-                                <div class="comment-time secondary-text">{{comment.time}}</div>
+                                <div class="comment-bubble">{{comment.text}}</div>
+                                <div class="comment-time secondary-text">{{card.valueDate | date}}</div>
                             </div>
                         </div>
 
