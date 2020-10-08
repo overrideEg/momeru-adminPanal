@@ -775,7 +775,26 @@ export class AllEntities {
                             ]
                         },
                     },
+                    {
+                        type: FieldType.entity,
+                        name: 'form',
+                        label: this._translateService.instant('form'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 4,
+                        rows: 2,
+                        selectOptions: {
+                            optionName: 'name',
+                            fromSelector: 'Form',
 
+                            columns: [
+                                { field: 'id', headerName: this._translateService.instant('Id'), checkboxSelection: true },
+                                { field: 'name.' + this.utils.currentLang, headerName: this._translateService.instant('Name'), checkboxSelection: false },
+                            ]
+                        },
+                    },
                 ],
                 cols: 12,
                 localizedAllFields: false
