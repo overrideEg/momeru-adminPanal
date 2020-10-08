@@ -5,12 +5,14 @@ import { EntityData } from '@override/utils/interfaces/entityData';
 import { UtilsService } from '@override/utils/utils.service';
 import { DatePipe } from '@angular/common';
 import { UserType } from './user-type.enum';
+import { OverrideService } from '../@override/utils/override.service';
 
 export class AllEntities {
     constructor(
         private _translateService: TranslateService,
         private utils: UtilsService,
-        private datePipe: DatePipe
+        private datePipe: DatePipe,
+        private _override: OverrideService
 
     ) { }
     public entities: EntityData[] = [
@@ -154,7 +156,7 @@ export class AllEntities {
                         headerName: this._translateService.instant('ID'),
                     },
                     {
-                        field: 'name.' + [this.utils.currentLang],
+                        field: 'name.' + this.utils.currentLang,
                         headerName: this._translateService.instant('name'),
                     },
 
@@ -1939,7 +1941,111 @@ export class AllEntities {
                 localizedAllFields: false
             }
         },
+        {
+            name: {
+                single: 'First Section',
+                plural: 'First Section',
+            },
+            apiSelector: 'FirstSection',
+            route: '/generic/FirstSection',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this._translateService.instant('ID'),
+                    },
+                 
+                    {
+                        field: 'title.' + this.utils.currentLang,
+                        headerName: this._translateService.instant('title'),
+                    },
+                    {
+                        field: 'body.' + this.utils.currentLang,
+                        headerName: this._translateService.instant('body'),
+                    },
+                   
 
+
+
+
+                ]
+
+            },
+            form: {
+                fields: [
+
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'title',
+                        label: this._translateService.instant('title'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'subTitle',
+                        label: this._translateService.instant('subTitle'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+                        cols: 12,
+                        rows: 4
+                    },  
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'body',
+                        label: this._translateService.instant('body'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+                        cols: 12,
+                        rows: 4
+                    },
+                  
+                   
+                    {
+                        type: FieldType.file,
+                        name: 'image',
+                        label: this._translateService.instant('image'),
+                        required: false,
+                        // validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        multiple: false,
+                        cols: 12,
+                        rows: 2
+                    },
+
+
+
+
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        },
         // {
         //     name: {
         //         single: 'UserForm',
