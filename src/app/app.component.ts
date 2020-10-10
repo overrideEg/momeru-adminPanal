@@ -22,6 +22,7 @@ import { FieldType } from '@override/utils/interfaces/FieldType.enum';
 import { AllEntities } from './all-entities';
 import { OverrideService } from '../@override/utils/override.service';
 import { environment } from '../environments/environment.prod';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app',
@@ -60,7 +61,8 @@ export class AppComponent implements OnInit, OnDestroy {
         private _entities: EntitiesService,
         private utils: UtilsService,
         private datePipe: DatePipe,
-        private override: OverrideService
+        private override: OverrideService,
+        private router: Router
     ) {
 
         // set generic entities
@@ -204,7 +206,7 @@ export class AppComponent implements OnInit, OnDestroy {
 
 
      
-     entities = new AllEntities(this._translateService,this.utils, this.datePipe,this.override);    
+     entities = new AllEntities(this._translateService,this.utils, this.datePipe,this.override,this.router);    
     setEntities() {
         this._entities.allEntities  = this.entities.entities;
     }

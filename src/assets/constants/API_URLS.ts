@@ -152,6 +152,77 @@ export const API_URLS = {
     put: uri + '/FirstSection/{entityId}',
     delete: uri + '/FirstSection/{entityId}',
   },
+  SecondSection: {
+    post: uri + '/SecondSection',
+    get: uri + '/SecondSection/all',
+    getOne: uri + '/SecondSection/{entityId}',
+    put: uri + '/SecondSection/{entityId}',
+    delete: uri + '/SecondSection/{entityId}',
+  },
+  ProjectCategory: {
+    post: uri + '/ProjectCategory',
+    get: uri + '/ProjectCategory/all',
+    getOne: uri + '/ProjectCategory/{entityId}',
+    put: uri + '/ProjectCategory/{entityId}',
+    delete: uri + '/ProjectCategory/{entityId}',
+  },
+  Project: {
+    post: uri + '/Project',
+    get: uri + '/Project/all',
+    getOne: uri + '/Project/{entityId}',
+    put: uri + '/Project/{entityId}',
+    delete: uri + '/Project/{entityId}',
+  }, AboutUs: {
+    post: uri + '/AboutUs',
+    get: uri + '/AboutUs/all',
+    getOne: uri + '/AboutUs/{entityId}',
+    put: uri + '/AboutUs/{entityId}',
+    delete: uri + '/AboutUs/{entityId}',
+  },
+  OurValue: {
+    post: uri + '/OurValue',
+    get: uri + '/OurValue/all',
+    getOne: uri + '/OurValue/{entityId}',
+    put: uri + '/OurValue/{entityId}',
+    delete: uri + '/OurValue/{entityId}',
+  }, Principle: {
+    post: uri + '/Principle',
+    get: uri + '/Principle/all',
+    getOne: uri + '/Principle/{entityId}',
+    put: uri + '/Principle/{entityId}',
+    delete: uri + '/Principle/{entityId}',
+  }, DealCategory: {
+    post: uri + '/DealCategory',
+    get: uri + '/DealCategory/all',
+    getOne: uri + '/DealCategory/{entityId}',
+    put: uri + '/DealCategory/{entityId}',
+    delete: uri + '/DealCategory/{entityId}',
+  }, ManagerTalk: {
+    post: uri + '/ManagerTalk',
+    get: uri + '/ManagerTalk/all',
+    getOne: uri + '/ManagerTalk/{entityId}',
+    put: uri + '/ManagerTalk/{entityId}',
+    delete: uri + '/ManagerTalk/{entityId}',
+  }, Vision: {
+    post: uri + '/Vision',
+    get: uri + '/Vision/all',
+    getOne: uri + '/Vision/{entityId}',
+    put: uri + '/Vision/{entityId}',
+    delete: uri + '/Vision/{entityId}',
+  }, Mission: {
+    post: uri + '/Mission',
+    get: uri + '/Mission/all',
+    getOne: uri + '/Mission/{entityId}',
+    put: uri + '/Mission/{entityId}',
+    delete: uri + '/Mission/{entityId}',
+  },
+  Partner: {
+    post: uri + '/Partner',
+    get: uri + '/Partner/all',
+    getOne: uri + '/Partner/{entityId}',
+    put: uri + '/Partner/{entityId}',
+    delete: uri + '/Partner/{entityId}',
+  },
 
 
 

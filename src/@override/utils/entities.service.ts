@@ -55,8 +55,53 @@ export class EntitiesService {
       case FieldType.entity: {
         return this.fb.control({ value: f.initialValue || f.multiple ? [] : {}, disabled: f.disabled }, f.validators ? f.validators : []);
       }
-      case FieldType.textLocalized || FieldType.editorLocalized: {
-
+      case FieldType.textLocalized : {
+ 
+        let ctrl = {};
+        // console.log(this.isEdit);
+        
+        if (this.isEdit){
+          
+                ctrl['ar'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
+                ctrl['en'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+                ctrl['ms'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+      
+      
+      
+           
+      
+              
+        } else {
+            if (this.entityData.form.localizedAllFields === true ) {
+                
+      
+                ctrl['ar'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
+                ctrl['en'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+                ctrl['ms'] = this.fb.control(
+                  { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+      
+      
+      
+              } else {
+      
+                  ctrl['ar'] = this.fb.control(
+                      { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
+      
+      
+              }
+        }
+       
+        // console.log(ctrl,"ASdf");
+        
+        return this.fb.group(ctrl);
+      }
+      case FieldType.editorLocalized:  {
+ 
         let ctrl = {};
         // console.log(this.isEdit);
         
