@@ -25,7 +25,7 @@ export class ScrumboardService implements Resolve<any>, OnDestroy {
                     ]
                 },
                 {
-                    id: 'onProgess',
+                    id: 'onProgress',
                     name: 'On Progress',
                     idCards: [
 
@@ -161,6 +161,8 @@ export class ScrumboardService implements Resolve<any>, OnDestroy {
         this.boards[0].members.forEach(member => { member['avatar'] = '../../../../../../../assets/images/logos/logo.png' });
         this.board = this.boards[0];
         this.board.cards = await this._entity.getData(API_URLS.UserForm.get) as Array<any>;
+        console.log('this.board.cards',this.board.cards)
+        console.log('this.board',this.board)
         this.board.cards.forEach(card => {
             let list
             if (card.status === 'new') {
@@ -169,8 +171,8 @@ export class ScrumboardService implements Resolve<any>, OnDestroy {
             if (card.status === 'closed') {
                 list = this.boards[0].lists.find(list => list.id === 'closed')
             }
-            if (card.status === 'onProgess') {
-                list = this.boards[0].lists.find(list => list.id === 'onProgess')
+            if (card.status === 'onProgress') {
+                list = this.boards[0].lists.find(list => list.id === 'onProgress')
             }
             if (card.status === 'review') {
                 list = this.boards[0].lists.find(list => list.id === 'review')
@@ -183,7 +185,7 @@ export class ScrumboardService implements Resolve<any>, OnDestroy {
 
             card['idLabels'] = []
             card.labels.forEach(element => {
-                card['idLabels'] = element.id
+                card['idLabels'].push(element.id) // = element.id
             });
 
             if (card.assignedTo)
@@ -193,7 +195,8 @@ export class ScrumboardService implements Resolve<any>, OnDestroy {
                 comment['idMember'] = comment.user.id;
 
             });
-            card['idMembers'] = [card.assignedTo?.id];
+            console.log('card.assignedTo?.id',card)
+            card['idMembers']= [card.assignedTo?.id];
             card['name'] = card.user?.name;
             let date = card.valueDate;
             card['description'] = date.toLocaleString();
@@ -303,7 +306,8 @@ export class ScrumboardService implements Resolve<any>, OnDestroy {
 
         return new Promise(async (resolve, reject) => {
             this.board = this.boards[0];
-
+// console.log('this.board in update', this.board)
+// console.log('this.board.cards in update', this.board.cards)
             let updated = await this._entity.updateArray(API_URLS.UserForm.put, this.board.cards)
             this.boards[0].cards = updated.body;
             this.onBoardChanged.next(this.board);

@@ -1,4 +1,4 @@
-import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
+import { Component, Inject, OnDestroy, OnInit, Renderer2 } from '@angular/core';
 import { DatePipe, DOCUMENT } from '@angular/common';
 import { Platform } from '@angular/cdk/platform';
 import { TranslateService } from '@ngx-translate/core';
@@ -23,13 +23,15 @@ import { AllEntities } from './all-entities';
 import { OverrideService } from '../@override/utils/override.service';
 import { environment } from '../environments/environment.prod';
 import { Router } from '@angular/router';
+import { LoaderServiceService } from '../@override/utils/loader-service.service';
+import { AfterViewInit } from '@angular/core';
 
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
     fuseConfig: any;
     navigation: any;
@@ -62,7 +64,9 @@ export class AppComponent implements OnInit, OnDestroy {
         private utils: UtilsService,
         private datePipe: DatePipe,
         private override: OverrideService,
-        private router: Router
+        private router: Router,
+        private loaderService: LoaderServiceService, 
+        private renderer: Renderer2
     ) {
 
         // set generic entities
@@ -86,7 +90,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this._translateService.setDefaultLang(lang);
 
         
-
+        // console.log('lang', lang)
         this.override.switchLanguage(lang)
 
         // Set the navigation translations
@@ -135,6 +139,18 @@ export class AppComponent implements OnInit, OnDestroy {
         // Set the private defaults
         this._unsubscribeAll = new Subject();
     }
+    ngAfterViewInit(): void {
+        this.loaderService.httpProgress().subscribe((status: boolean) => {
+            if (status) {
+            //   this.renderer.addClass(document.body, 'cursor-loader');
+            //   this.renderer.setAttribute(document.body,'id', 'fuse-splash-screen');
+            } else {
+            //   this.renderer.removeAttribute(document.body,'id', 'fuse-splash-screen');
+
+            //   this.renderer.removeClass(document.body, 'cursor-loader ');
+            }
+          });
+    }
 
     // -----------------------------------------------------------------------------------------------------
     // @ Lifecycle hooks
@@ -146,11 +162,11 @@ export class AppComponent implements OnInit, OnDestroy {
     ngOnInit(): void { 
         // console.log('is auth', this.utils.isAuth())
         
-        // if (environment.production) {
-        //     if (location.protocol === 'http:') {
-        //       window.location.href = location.href.replace('http', 'https');
-        //     }
-        //   }
+        if (environment.production) {
+            if (location.protocol === 'http:') {
+              window.location.href = location.href.replace('http', 'https');
+            }
+          }
 
         // Subscribe to config changes
         this._fuseConfigService.config

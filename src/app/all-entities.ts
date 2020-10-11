@@ -243,20 +243,7 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                    // {
-                    //                         type: FieldType.file,
-                    //                         name: 'image',
-                    //                         label: this._translateService.instant('image'),
-                    //                         required: true,
-                    //                         validators: [Validators.required, Validators.minLength(3)],
-                    //                         disabled: false,
-                    //                         readonly: false,
-                    //                         multiline: true,
-                    //                         view:'image',
-
-                    //                         cols: 12,
-                    //                         rows: 2
-                    //                     },
+                   
 
                 ],
                 cols: 12,
@@ -2302,7 +2289,7 @@ export class AllEntities {
                         readonly: false,
                         multiline: true,
                         cols: 12,
-                        rows: 2
+                        rows: 3
                     },
                     {
                         type: FieldType.file,
@@ -2314,8 +2301,8 @@ export class AllEntities {
                         readonly: false,
                         multiline: false,
                         multiple: false,
-                        cols: 12,
-                        rows: 2
+                        cols: 6,
+                        rows: 4
                     },
 
                     {
@@ -2328,8 +2315,8 @@ export class AllEntities {
                         readonly: false,
                         multiline: false,
                         multiple: false,
-                        cols: 12,
-                        rows: 2
+                        cols: 6,
+                        rows: 4
                     },
 
 
@@ -2788,7 +2775,8 @@ export class AllEntities {
                 cols: 12,
                 localizedAllFields: false
             }
-        },   {
+        },  
+        {
             name: {
                 single: 'Mission',
                 plural: 'Missions',
@@ -2881,7 +2869,8 @@ export class AllEntities {
                 cols: 12,
                 localizedAllFields: false
             }
-        },  {
+        }, 
+        {
             name: {
                 single: 'Partner',
                 plural: 'Partners',
@@ -2945,6 +2934,337 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
+
+
+
+
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        },
+        {
+            name: {
+                single: 'ServiceRequest',
+                plural: 'ServiceRequest',
+            },
+            apiSelector: 'ServiceRequest',
+            route: '/generic/ServiceRequest',
+            add: false,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this.translate.instant('ID'),
+                    },
+
+                    {
+                        field: 'serviceType',
+                        headerName: this.translate.instant('serviceType'),
+                    },
+                    {
+                        field: 'typeOfService',
+                        headerName: this.translate.instant('typeOfService'),
+                    },
+                    {
+                        field: 'applicantName',
+                        headerName: this.translate.instant('applicantName'),
+                    },
+                    {
+                        field: 'email',
+                        headerName: this.translate.instant('email'),
+                    },
+                    {
+                        field: 'mobileNumber',
+                        headerName: this.translate.instant('mobileNumber'),
+                    },
+                    {
+                        field: 'address',
+                        headerName: this.translate.instant('address'),
+                    },
+                    {
+                        field: 'city',
+                        headerName: this.translate.instant('city'),
+                    },
+                    {
+                        field: 'region',
+                        headerName: this.translate.instant('region'),
+                    },
+                    {
+                        field: 'country',
+                        headerName: this.translate.instant('country'),
+                    },
+                    {
+                        field: 'companyName',
+                        headerName: this.translate.instant('companyName'),
+                    },
+                    {
+                        field: 'companyBusiness',
+                        headerName: this.translate.instant('companyBusiness'),
+                    },
+        
+                ]
+
+            },
+            form: {
+                fields: [
+                                  
+                    {
+                        type: FieldType.text,
+                        name: 'serviceType',
+                        label: this.translate.instant('serviceType'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'typeOfService',
+                        label: this.translate.instant('typeOfService'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'applicantName',
+                        label: this.translate.instant('applicantName'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'email',
+                        label: this.translate.instant('email'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'mobileNumber',
+                        label: this.translate.instant('mobileNumber'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'address',
+                        label: this.translate.instant('address'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'city',
+                        label: this.translate.instant('city'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'region',
+                        label: this.translate.instant('region'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'country',
+                        label: this.translate.instant('country'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'companyName',
+                        label: this.translate.instant('companyName'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'companyBusiness',
+                        label: this.translate.instant('companyBusiness'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'companySize',
+                        label: this.translate.instant('companySize'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'notesAndInquiries',
+                        label: this.translate.instant('notesAndInquiries'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'entrepreneurBusiness',
+                        label: this.translate.instant('entrepreneurBusiness'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'investorBusiness',
+                        label: this.translate.instant('investorBusiness'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'companyOwner',
+                        label: this.translate.instant('companyOwner'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'companySector',
+                        label: this.translate.instant('companySector'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'nationality',
+                        label: this.translate.instant('nationality'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'websiteAddress',
+                        label: this.translate.instant('websiteAddress'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.text,
+                        name: 'partnershipType',
+                        label: this.translate.instant('partnershipType'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 6,
+                        rows: 2
+                    },
+                    
+                  
+                 
+
+                   
 
 
 

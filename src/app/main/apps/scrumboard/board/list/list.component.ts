@@ -151,14 +151,30 @@ export class ScrumboardBoardListComponent implements OnInit, OnDestroy {
      */
     onDrop(ev, list): void {
 
-        
+        // console.log('list', list)
+// console.log('this._scrumboardService.board.lists', this._scrumboardService.board.lists.find(l => l.id === list.id))
+//         this._scrumboardService.board.lists.find(l => l.id === list.id).idCards.forEach(id => {
+//             let card = this._scrumboardService.boards[0].cards.find(card => card.id === id);
+//             console.log('this._scrumboardService.boards', this._scrumboardService.boards)
+//             card['status'] = list.id;            
+       
 
-        this._scrumboardService.board.lists.find(l => l.id === list.id).idCards.forEach(id => {
-            let card = this._scrumboardService.boards[0].cards.find(card => card.id === id);
-            card['status'] = list.id;            
-        });
-
+                      
+//         });
+        // let idCards = []
+        // list.idCards.forEach(re => {
+        //     idCards.push(re)
+        // })
+        // console.log(idCards);
         
+     
+        setTimeout(() => {
+            this.entity.save(API_URLS.UserForm.updateFormStatus.replace('{status}', list.id), list.idCards).then(res => {
+                // console.log(res);
+                
+            })
+        }, 100);
+      
 
 
         this._scrumboardService.updateBoard();

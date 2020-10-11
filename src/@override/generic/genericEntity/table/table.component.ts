@@ -84,7 +84,7 @@ export class TableComponent {
     // if (API_URLS[`${this.entityData.name}`]["put"]) {
 
     let updated = await this.entity.update(this.entityData.apiSelector, data, data.id)
-    this.entities.gridApi.updateRowData({ update: [updated] }).update;
+    this.entities.gridApi.applyTransaction({ update: [updated] }).update;
 
 
   }
@@ -93,7 +93,7 @@ export class TableComponent {
     if (confirm(this.translate.instant("sure?"))) {
       let deleted = await this.entity.delete(this.entityData.apiSelector, data, data.id)
       if (deleted.status == 200)
-        this.entities.gridApi.updateRowData({ remove: [data] });
+        this.entities.gridApi.applyTransaction({ remove: [data] });
     }
   }
   

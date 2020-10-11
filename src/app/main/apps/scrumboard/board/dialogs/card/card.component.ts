@@ -79,6 +79,8 @@ export class ScrumboardCardDialogComponent implements OnInit, OnDestroy
                     return this._data.listId === _list.id;
                 });
             });
+            console.log(this.card , 'card component');
+            
     }
 
     /**

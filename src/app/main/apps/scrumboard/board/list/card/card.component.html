@@ -14,14 +14,15 @@
     <!-- /CARD SORT HANDLE -->
 
     <!-- CARD LABELS -->
-    <div *ngIf="card?.idLabels?.length > 0" class="list-card-labels" fxLayout="row wrap">
+    <div *ngIf="card?.labels?.length > 0" class="list-card-labels" fxLayout="row wrap">
 
-        <span class="list-card-label" [ngStyle]="{'background-color': board.labels | getById:labelId:'color'}" *ngFor="let labelId of card?.idLabels" [matTooltip]="board.labels | getById:labelId:'name'">
+        <span class="list-card-label" [ngStyle]="{'background-color': labelId.color}" *ngFor="let labelId of card?.labels;let i = index;" [matTooltip]="board.labels | getById:labelId:'name'">
+       
         </span>
 
     </div>
     <!-- / CARD LABELS -->
-
+    <!-- {{card?.labels | json}} -->
     <!-- CARD NAME -->
     <div class="list-card-name">{{card?.user?.name}} <span class="warn">{{card?.valueDate | date:'mediumDate'}}</span>
     </div>

@@ -40,6 +40,7 @@ export class ScrumboardBoardCardComponent implements OnInit
         this.card = this.board.cards.filter((card) => {
             return this.cardId === card.id;
         })[0];
+        // console.log('this.card', this.card )
     }
 
     // -----------------------------------------------------------------------------------------------------

@@ -1,4 +1,4 @@
-import { Component, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { EntitiesService } from '../utils/entities.service';
 import { Router, ActivationEnd } from '@angular/router';
 import { EntityData } from '../utils/interfaces/entityData';
@@ -13,9 +13,12 @@ import { CsvExportParams } from 'ag-grid-community';
   templateUrl: './generic.component.html',
   styleUrls: ['./generic.component.scss']
 })
-export class GenericComponent implements OnChanges {
+export class GenericComponent implements  OnInit, OnChanges {
 
   entityData: EntityData;
+  submitForm: boolean = false;
+    uploadfile: boolean = false;
+    exportfile: boolean = false;
   constructor(
     private router: Router,
     public entities: EntitiesService,
@@ -32,7 +35,13 @@ export class GenericComponent implements OnChanges {
         this.entityData = entity;        
       }
     });
+      
   }
+    ngOnInit(): void {
+        this.submitForm = false;
+        this.uploadfile = false;
+        this.exportfile = false;
+    }
 
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,9 +49,10 @@ export class GenericComponent implements OnChanges {
 
   }
 
+  
 
   submit() {
-    
+    this.submitForm = true;
     this.entityData.form.fields.forEach((field) => {
       if (field.type === FieldType.number)
         this.entities.form.get(field.name).setValue(+this.entities.form.get(field.name).value);
@@ -67,26 +77,31 @@ export class GenericComponent implements OnChanges {
     let saved = await this.dataService.save(this.entityData.apiSelector, value) 
     if (saved.status === 200 || saved.status === 201) {
       this.entities.form.patchValue(saved);
+      this.submitForm = false
       setTimeout(() => this.router.navigate([this.entityData.route]), 1000);
     }
 
   }
 
   async update(value: any) {
+    this.submitForm = true
     let saved = await this.dataService.update(this.entityData.apiSelector, value, this.entities.entityId);
     if (saved.status === 200 || saved.status === 201) {
       this.entities.form.patchValue(saved);
+      this.submitForm = false
       setTimeout(() => this.router.navigate([this.entityData.route]), 1000);
     }
 
 
   }
   openBottomSheet() {
+      this.uploadfile = true;
     this._bottomSheet.open(UploadComponent);
   }
 
   // export to CSV
   export() {
+      this.exportfile = true;
     var params: CsvExportParams = {
       fileName: this.entityData.name.plural + "_" + new Date().toLocaleString(),
       allColumns: true,
