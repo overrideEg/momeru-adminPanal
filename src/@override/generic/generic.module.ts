@@ -44,9 +44,11 @@ import { DateComponent } from './genericEntity/form/atoms/date/date.component';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatListModule } from '@angular/material/list';
 import { AutoCompleteComponent } from './genericEntity/form/atoms/auto-complete/auto-complete.component';
-import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } from '@angular-material-components/color-picker';
 import { ColorPickerComponent } from './genericEntity/form/atoms/color-picker/color-picker.component';
+import { EditorLocalizedComponent } from './genericEntity/form/atoms/editor-localized/editor-localized.component';
+import { AngularEditorModule } from '@kolkov/angular-editor';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -65,9 +67,9 @@ const matModules = [
   MatBottomSheetModule,
   MatExpansionModule,
   MatDatepickerModule,
-   MatListModule,
-   MatAutocompleteModule,
-   NgxMatColorPickerModule
+  MatListModule,
+  MatAutocompleteModule,
+  NgxMatColorPickerModule
 ]
 const fuseModules = [
   FuseSidebarModule,
@@ -94,7 +96,8 @@ const fuseModules = [
     GroupComponent,
     DateComponent,
     AutoCompleteComponent,
-    ColorPickerComponent
+    ColorPickerComponent,
+    EditorLocalizedComponent
 
   ],
   imports: [
@@ -105,6 +108,7 @@ const fuseModules = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
+    AngularEditorModule,
     HttpClientModule,
     AgGridModule.withComponents([]),
     ...matModules,
@@ -113,9 +117,9 @@ const fuseModules = [
   exports: [GenericComponent],
   entryComponents: [SelectComponent],
   providers: [
-      DatePipe,
-      { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS }
-],
+    DatePipe,
+    { provide: MAT_COLOR_FORMATS, useValue: NGX_MAT_COLOR_FORMATS }
+  ],
 
 })
 export class GenericModule { }

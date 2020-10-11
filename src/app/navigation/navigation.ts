@@ -201,14 +201,121 @@ export const navigation: FuseNavigation[] = [
                 url: '/generic/Section',
                 children: [
                     {
-                        id       : 'FirstSection',
-                        title    : 'First Section',
+                        id: 'FirstSection',
+                        title: 'First Section',
                         translate: 'FirstSection',
-                        type     : 'item',
-                        icon     : 'Section',
-                        url  : '/generic/FirstSection'
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/FirstSection'
+                    }, {
+                        id: 'SecondSection',
+                        title: 'Second Section',
+                        translate: 'SecondSection',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/SecondSection'
+                    }, {
+                        id: 'Projects',
+                        title: 'Projects',
+                        translate: 'Projects',
+                        type: 'group',
+                        icon: 'Section',
+                        children: [
+                            {
+                                id: 'ProjectCategory',
+                                title: 'ProjectCategory',
+                                translate: 'ProjectCategory',
+                                type: 'item',
+                                icon: 'Section',
+                                url: '/generic/ProjectCategory'
+                            }, {
+                                id: 'Project',
+                                title: 'Project',
+                                translate: 'Project',
+                                type: 'item',
+                                icon: 'Section',
+                                url: '/generic/Project'
+                            }
+                        ]
                     },
                 ]
+            },
+            {
+                id: 'about',
+                title: 'about',
+                translate: 'About',
+                type: 'group',
+                icon: 'Section',
+                children: [
+                    {
+                        id: 'AboutUs',
+                        title: 'About Us',
+                        translate: 'AboutUs',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/AboutUs'
+                    }, {
+                        id: 'OurValue',
+                        title: 'Our Value',
+                        translate: 'OurValue',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/OurValue'
+                    }, {
+                        id: 'Principle',
+                        title: 'Principle',
+                        translate: 'Principle',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/Principle'
+                    }, {
+                        id: 'DealCategory',
+                        title: 'DealCategory',
+                        translate: 'DealCategory',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/DealCategory'
+                    }, {
+                        id: 'ManagerTalk',
+                        title: 'ManagerTalk',
+                        translate: 'ManagerTalk',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/ManagerTalk'
+                    },
+                ]
+            },
+            {
+                id: 'VisionMission',
+                title: 'Vision And Mission',
+                translate: 'VisionMission',
+                type: 'group',
+                icon: 'Section',
+                children: [
+                    {
+                        id: 'Vision',
+                        title: 'Vision',
+                        translate: 'Vision',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/Vision'
+                    }, {
+                        id: 'Mission',
+                        title: 'Mission',
+                        translate: 'Mission',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/Mission'
+                    },
+                ]
+            },
+            {
+                id: 'Partner',
+                title: 'Partner',
+                translate: 'Partner',
+                type: 'item',
+                icon: 'Section',
+                url: '/generic/Partner'
             },
 
 
