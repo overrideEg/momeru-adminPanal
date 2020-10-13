@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { MatMomentDateModule } from '@angular/material-moment-adapter';
@@ -25,6 +25,7 @@ import { AdminGuard } from './guards/admin.guard';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { LoaderInterceptorService } from '../@override/utils/loader-interceptor.service';
 const appRoutes: Routes = [
     {
         path: '',
@@ -119,7 +120,14 @@ export function HttpLoaderFactory(http: HttpClient) {
     bootstrap: [
         AppComponent
     ],
-    providers: [DatePipe, MatSnackBar],
+    providers: [DatePipe, MatSnackBar,
+    
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoaderInterceptorService,
+            multi: true
+        }
+    ],
 
 })
 export class AppModule {

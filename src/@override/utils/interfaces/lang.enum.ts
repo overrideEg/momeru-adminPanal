@@ -1,3 +1,3 @@
 export enum Lang {
-  en, ar
+  en = 'en', ar = 'ar', ms= 'ms'
 }

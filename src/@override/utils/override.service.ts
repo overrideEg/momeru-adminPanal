@@ -46,8 +46,9 @@ export class OverrideService {
   }
 
   switchLanguage(language: string, key?: string) {
-    if (language in Lang) {
-      if (this.currentLang != language) {
+      if (language in Lang) {
+        //   console.log('langfs',this.currentLang  ,this.currentLang == language )
+          if (this.currentLang == language) {
         this.translate.use(language);
         this.language = of(language);
         localStorage.setItem('language', language);
@@ -72,7 +73,7 @@ export class OverrideService {
 
   // Style
   setStyle() {
-    const keyLang = this.currentLang || this.translate.getDefaultLang();
+    const keyLang = localStorage.getItem('language') || this.currentLang || this.translate.getDefaultLang();
     const styleFiles = Styles[keyLang];
     const htmlElement = document.getElementsByTagName('html')[0];
     const headElements = document.getElementsByTagName('head')[0];
@@ -82,20 +83,22 @@ export class OverrideService {
     //     paras[0].parentNode.removeChild(paras[0]);
     //   }
     // }
+    // console.log('keyLang',keyLang)
+    // console.log('keyLang == ar', keyLang === 'ar' )
     htmlElement.setAttribute('lang', keyLang);
     if (keyLang === 'ar') {
       htmlElement.setAttribute('dir', 'rtl');
     } else {
       htmlElement.setAttribute('dir', 'ltr');
     }
-    for (let i = 0; i < styleFiles.length; i++) {
-      const node = document.createElement('link');
-      node.setAttribute('rel', 'stylesheet');
-      node.setAttribute('type', 'text/css');
-      node.setAttribute('href', Styles[keyLang][i]);
-      // node.setAttribute('class', keyLang);
-      headElements.appendChild(node);
-    }
+    // for (let i = 0; i < styleFiles.length; i++) {
+    //   const node = document.createElement('link');
+    //   node.setAttribute('rel', 'stylesheet');
+    //   node.setAttribute('type', 'text/css');
+    //   node.setAttribute('href', Styles[keyLang][i]);
+    //   // node.setAttribute('class', keyLang);
+    //   headElements.appendChild(node);
+    // }
   }
 
 

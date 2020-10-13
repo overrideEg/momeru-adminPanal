@@ -18,15 +18,6 @@ export const navigation: FuseNavigation[] = [
                 url: '/apps/dashboards/analytics'
 
             },
-            // {
-            //     id       : 'UserForm',
-            //     title    : 'User Form',
-            //     translate: 'UserForm',
-            //     type     : 'item',
-            //     icon     : 'Form',
-            //     url  : '/generic/UserForm'
-
-            // },
             {
                 id: 'scrumboard',
                 title: 'Applications',
@@ -50,7 +41,7 @@ export const navigation: FuseNavigation[] = [
             {
                 id: 'users',
                 title: 'Users',
-                translate: 'users',
+                translate: 'Users',
                 type: 'item',
                 icon: 'person_outline',
                 url: '/generic/User'
@@ -173,15 +164,15 @@ export const navigation: FuseNavigation[] = [
 
             },
 
-            {
-                id: 'CareerInterest',
-                title: 'CareerInterest',
-                translate: 'CareerInterest',
-                type: 'item',
-                icon: 'queue_play_next',
-                url: '/generic/CareerInterest'
+            // {
+            //     id: 'CareerInterest',
+            //     title: 'CareerInterest',
+            //     translate: 'CareerInterest',
+            //     type: 'item',
+            //     icon: 'queue_play_next',
+            //     url: '/generic/CareerInterest'
 
-            },
+            // },
         ]
     },
     {
@@ -202,14 +193,14 @@ export const navigation: FuseNavigation[] = [
                 children: [
                     {
                         id: 'FirstSection',
-                        title: 'First Section',
+                        title: 'FirstSection',
                         translate: 'FirstSection',
                         type: 'item',
                         icon: 'Section',
                         url: '/generic/FirstSection'
                     }, {
                         id: 'SecondSection',
-                        title: 'Second Section',
+                        title: 'SecondSection',
                         translate: 'SecondSection',
                         type: 'item',
                         icon: 'Section',
@@ -249,14 +240,14 @@ export const navigation: FuseNavigation[] = [
                 children: [
                     {
                         id: 'AboutUs',
-                        title: 'About Us',
+                        title: 'AboutUs',
                         translate: 'AboutUs',
                         type: 'item',
                         icon: 'Section',
                         url: '/generic/AboutUs'
                     }, {
                         id: 'OurValue',
-                        title: 'Our Value',
+                        title: 'OurValue',
                         translate: 'OurValue',
                         type: 'item',
                         icon: 'Section',
@@ -316,6 +307,14 @@ export const navigation: FuseNavigation[] = [
                 type: 'item',
                 icon: 'Section',
                 url: '/generic/Partner'
+            },
+            {
+                id: 'ServiceRequest',
+                title: 'ServiceRequest',
+                translate: 'ServiceRequest',
+                type: 'item',
+                icon: 'Section',
+                url: '/generic/ServiceRequest'
             },
 
 

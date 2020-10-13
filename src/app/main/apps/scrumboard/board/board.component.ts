@@ -96,6 +96,7 @@ export class ScrumboardBoardComponent implements OnInit, OnDestroy
      */
     onDrop(ev): void
     {
+ 
         this._scrumboardService.updateBoard();
     }
 }

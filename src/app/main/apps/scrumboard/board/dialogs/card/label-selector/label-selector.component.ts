@@ -72,6 +72,9 @@ export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy {
             .subscribe(board => {
                 this.board = board;
             });
+
+            // console.log(' this.board ',  this.board )
+            // console.log(' this.card ',  this.card )
     }
 
     /**
@@ -116,6 +119,7 @@ export class ScrumboardLabelSelectorComponent implements OnInit, OnDestroy {
     }
 
     changeLabel(label, card) {
+        // console.log('lable', label, 'card', card)
         if (!card.labels.find(l => l.id === label.id))
             card.labels.push(label)
     }

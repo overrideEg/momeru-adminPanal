@@ -1,9 +1,10 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
 // const uri = 'http://server.overrideeg.net:3010/v1';
-// const uri = 'https://server.momeru.com/v1';
+const uri = 'https://server.momeru.com/v1';
 
-const uri = 'http://localhost:3010/v1';
+// const uri = 'http://192.168.1.3:3010/v1';
+// const uri = 'http://192.168.43.188:3010/v1';
 export const API_URLS = {
   auth: {
     auth: uri + '/auth/login',
@@ -144,6 +145,8 @@ export const API_URLS = {
     putOne: uri + '/UserForm/{entityId}',
     put: uri + '/UserForm',
     delete: uri + '/UserForm/{entityId}',
+    updateFormStatus: uri +'/UserForm/updateFormStatus/{status}'   
+
   },
   FirstSection: {
     post: uri + '/FirstSection',
@@ -223,8 +226,13 @@ export const API_URLS = {
     put: uri + '/Partner/{entityId}',
     delete: uri + '/Partner/{entityId}',
   },
-
-
+  ServiceRequest: {
+    post: uri + '/ServiceRequest',
+    get: uri + '/ServiceRequest/all',
+    getOne: uri + '/ServiceRequest/{entityId}',
+    put: uri + '/ServiceRequest/{entityId}',
+    delete: uri + '/ServiceRequest/{entityId}',
+  },
 
 
 
