@@ -5,6 +5,8 @@ import { EntitiesService } from '../../../../../utils/entities.service';
 import { EntityService } from '../../../../../utils/entity.service';
 import { TranslateService } from '@ngx-translate/core';
 import { environment } from '../../../../../../environments/environment';
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { ImageViewComponent } from './image-view/image-view.component';
 // import { API_URLS } from 'assets/constants/API_URLS';
 
 
@@ -16,7 +18,8 @@ import { environment } from '../../../../../../environments/environment';
 export class FileComponent implements OnInit {
 
 
-  constructor(public entities: EntitiesService, private entity: EntityService, private translate: TranslateService
+  constructor(public entities: EntitiesService, private entity: EntityService, private translate: TranslateService,
+    private _bottomSheet: MatBottomSheet
   ) { }
 
   @Input() field: AbstractField;
@@ -35,7 +38,7 @@ export class FileComponent implements OnInit {
       const formData = new FormData();
       formData.append('file', file);
       let uploaded = await this.entity.save('File', formData, undefined, 'multipart/form-data')
-   
+
       this.form.get(this.field.name).setValue(uploaded.body.path)
     } else {
       const files = event.target.files;
@@ -51,7 +54,7 @@ export class FileComponent implements OnInit {
 
 
       let uploaded = await this.entity.save(environment.serverUrl + '/File/UploadMultiple', formData);
-      
+
       if (uploaded) {
         this.entity.showSuccessToast(this.translate.instant('Uploaded'))
       }
@@ -66,8 +69,13 @@ export class FileComponent implements OnInit {
 
   }
   async deleteFile(url: any) {
-    let deleted = await this.entity.delete('File', { path: url })
-    if (deleted.status === 200 || deleted.status === 201)
-      this.form.get(this.field.name).setValue(null);
+    this.form.get(this.field.name).setValue(null);
+  }
+  viewImage(url) {
+    const bottomSheetRef = this._bottomSheet.open(ImageViewComponent, {
+      ariaLabel: 'image',
+      data: url,
+      autoFocus: true
+    });
   }
 }

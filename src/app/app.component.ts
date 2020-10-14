@@ -162,11 +162,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     ngOnInit(): void { 
         // console.log('is auth', this.utils.isAuth())
         
-        if (environment.production) {
-            if (location.protocol === 'http:') {
-              window.location.href = location.href.replace('http', 'https');
-            }
-          }
+        // if (environment.production) {
+        //     if (location.protocol === 'http:') {
+        //       window.location.href = location.href.replace('http', 'https');
+        //     }
+        //   }
 
         // Subscribe to config changes
         this._fuseConfigService.config

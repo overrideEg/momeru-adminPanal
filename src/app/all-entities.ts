@@ -395,180 +395,182 @@ export class AllEntities {
                         cols: 12,
                         rows: 2
                     },
-                    {
-                        type: FieldType.array,
-                        name: 'questions',
-                        label: this.translate.instant('questions'),
-                        required: true,
-                        validators: [Validators.required],
-                        disabled: false,
-                        readonly: false,
-                        cols: 12,
-                        rows: 12,
-                        children: [
-                            {
-                                type: FieldType.textLocalized,
-                                name: 'label',
-                                label: this.translate.instant('label'),
-                                required: true,
-                                validators: [Validators.required, Validators.minLength(3)],
-                                disabled: false,
-                                readonly: false,
-                                multiline: false,
-                                cols: 12,
-                                rows: 2
-                            },
-                            {
-                                type: FieldType.dropdown,
-                                name: 'type',
-                                label: this.translate.instant('type'),
-                                multiple: false,
-                                required: false,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                cols: 6,
-                                rows: 2,
-                                options: [
-                                    {
-                                        value: 'text',
-                                        label: this.translate.instant('text')
-                                    },
-                                    {
-                                        value: 'checkbox',
-                                        label: this.translate.instant('checkbox')
-                                    },
-                                    {
-                                        value: 'date',
-                                        label: this.translate.instant('date')
-                                    },
-                                    {
-                                        value: 'dropdown',
-                                        label: this.translate.instant('dropdown')
-                                    },
-                                    {
-                                        value: 'email',
-                                        label: this.translate.instant('email')
-                                    },
-                                    {
-                                        value: 'file',
-                                        label: this.translate.instant('file')
-                                    },
-                                    {
-                                        value: 'number',
-                                        label: this.translate.instant('number')
-                                    },
-                                    {
-                                        value: 'slider',
-                                        label: this.translate.instant('slider')
-                                    },
-                                    {
-                                        value: 'radio',
-                                        label: this.translate.instant('radio')
-                                    },
-                                    {
-                                        value: 'phonenumber',
-                                        label: this.translate.instant('phonenumber')
-                                    },
-                                ]
-                            },
+                    // {
+                    //     type: FieldType.array,
+                    //     name: 'questions',
+                    //     arrayView:'table',
+                    //     label: this.translate.instant('questions'),
+                    //     required: true,
+                    //     validators: [Validators.required],
+                    //     disabled: false,
+                    //     readonly: false,
+                    //     cols: 12,
+                    //     rows: 12,
+                    //     children: [
+                    //         {
+                    //             type: FieldType.textLocalized,
+                    //             name: 'label',
+                    //             label: this.translate.instant('label'),
+                    //             required: true,
+                    //             validators: [Validators.required, Validators.minLength(3)],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             multiline: false,
+                    //             cols: 12,
+                    //             rows: 2
+                    //         },
+                    //         {
+                    //             type: FieldType.dropdown,
+                    //             name: 'type',
+                    //             label: this.translate.instant('type'),
+                    //             multiple: false,
+                    //             required: false,
+                    //             validators: [Validators.required],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             cols: 6,
+                    //             rows: 2,
+                    //             options: [
+                    //                 {
+                    //                     value: 'text',
+                    //                     label: this.translate.instant('text')
+                    //                 },
+                    //                 {
+                    //                     value: 'checkbox',
+                    //                     label: this.translate.instant('checkbox')
+                    //                 },
+                    //                 {
+                    //                     value: 'date',
+                    //                     label: this.translate.instant('date')
+                    //                 },
+                    //                 {
+                    //                     value: 'dropdown',
+                    //                     label: this.translate.instant('dropdown')
+                    //                 },
+                    //                 {
+                    //                     value: 'email',
+                    //                     label: this.translate.instant('email')
+                    //                 },
+                    //                 {
+                    //                     value: 'file',
+                    //                     label: this.translate.instant('file')
+                    //                 },
+                    //                 {
+                    //                     value: 'number',
+                    //                     label: this.translate.instant('number')
+                    //                 },
+                    //                 {
+                    //                     value: 'slider',
+                    //                     label: this.translate.instant('slider')
+                    //                 },
+                    //                 {
+                    //                     value: 'radio',
+                    //                     label: this.translate.instant('radio')
+                    //                 },
+                    //                 {
+                    //                     value: 'phonenumber',
+                    //                     label: this.translate.instant('phonenumber')
+                    //                 },
+                    //             ]
+                    //         },
 
-                            {
-                                type: FieldType.dropdown,
-                                name: 'required',
-                                label: this.translate.instant('required'),
-                                multiple: false,
-                                required: false,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                cols: 6,
-                                rows: 2,
-                                options: [
-                                    {
-                                        value: 'veryhigh',
-                                        label: this.translate.instant('veryhigh')
-                                    },
-                                    {
-                                        value: 'high',
-                                        label: this.translate.instant('high')
-                                    },
-                                    {
-                                        value: 'low',
-                                        label: this.translate.instant('low')
-                                    },
+                    //         {
+                    //             type: FieldType.dropdown,
+                    //             name: 'required',
+                    //             label: this.translate.instant('required'),
+                    //             multiple: false,
+                    //             required: false,
+                    //             validators: [Validators.required],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             cols: 6,
+                    //             rows: 2,
+                    //             options: [
+                    //                 {
+                    //                     value: 'veryhigh',
+                    //                     label: this.translate.instant('veryhigh')
+                    //                 },
+                    //                 {
+                    //                     value: 'high',
+                    //                     label: this.translate.instant('high')
+                    //                 },
+                    //                 {
+                    //                     value: 'low',
+                    //                     label: this.translate.instant('low')
+                    //                 },
 
 
-                                ]
-                            },
-                            {
-                                type: FieldType.checkbox,
-                                name: 'multiline',
-                                label: this.translate.instant('multiline'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                cols: 3,
-                                rows: 2,
-                            },
-                            {
-                                type: FieldType.checkbox,
-                                name: 'multipleAnswers',
-                                label: this.translate.instant('multipleAnswers'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                cols: 3,
-                                rows: 2,
-                            },
-                            {
-                                type: FieldType.entity,
-                                name: 'category',
-                                label: this.translate.instant('category'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                cols: 4,
-                                rows: 2,
-                                selectOptions: {
-                                    optionName: 'name',
-                                    fromSelector: 'Category',
-                                    columns: [
-                                        { field: 'id', headerName: this.translate.instant('Id'), checkboxSelection: true },
-                                        { field: 'name.' + this.utils.currentLang, headerName: this.translate.instant('Name'), checkboxSelection: false },
-                                    ]
-                                },
-                            },
-                            {
-                                type: FieldType.array,
-                                name: 'options',
-                                label: this.translate.instant('options'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: false,
-                                cols: 12,
-                                rows: 10,
-                                children: [
-                                    {
-                                        type: FieldType.textLocalized,
-                                        name: 'text',
-                                        label: this.translate.instant('text'),
-                                        required: true,
-                                        validators: [Validators.required, Validators.minLength(3)],
-                                        disabled: false,
-                                        readonly: false,
-                                        cols: 12,
-                                        rows: 2
-                                    },
-                                ]
-                            }
+                    //             ]
+                    //         },
+                    //         {
+                    //             type: FieldType.checkbox,
+                    //             name: 'multiline',
+                    //             label: this.translate.instant('multiline'),
+                    //             required: true,
+                    //             validators: [Validators.required],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             cols: 3,
+                    //             rows: 2,
+                    //         },
+                    //         {
+                    //             type: FieldType.checkbox,
+                    //             name: 'multipleAnswers',
+                    //             label: this.translate.instant('multipleAnswers'),
+                    //             required: true,
+                    //             validators: [Validators.required],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             cols: 3,
+                    //             rows: 2,
+                    //         },
+                    //         {
+                    //             type: FieldType.entity,
+                    //             name: 'category',
+                    //             label: this.translate.instant('category'),
+                    //             required: true,
+                    //             validators: [Validators.required],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             cols: 4,
+                    //             rows: 2,
+                    //             selectOptions: {
+                    //                 optionName: 'name',
+                    //                 fromSelector: 'Category',
+                    //                 columns: [
+                    //                     { field: 'id', headerName: this.translate.instant('Id'), checkboxSelection: true },
+                    //                     { field: 'name.' + this.utils.currentLang, headerName: this.translate.instant('Name'), checkboxSelection: false },
+                    //                 ]
+                    //             },
+                    //         },
+                    //         {
+                    //             type: FieldType.chip,
+                    //             name: 'options',
+                    //             label: this.translate.instant('options'),
+                    //             required: true,
+                    //             arrayAddRow:true,
+                    //             validators: [Validators.required],
+                    //             disabled: false,
+                    //             readonly: false,
+                    //             cols: 12,
+                    //             rows: 10,
+                    //             children: [
+                    //                 {
+                    //                     type: FieldType.textLocalized,
+                    //                     name: 'text',
+                    //                     label: this.translate.instant('text'),
+                    //                     required: true,
+                    //                     validators: [Validators.required, Validators.minLength(3)],
+                    //                     disabled: false,
+                    //                     readonly: false,
+                    //                     cols: 12,
+                    //                     rows: 2
+                    //                 },
+                    //             ]
+                    //         }
 
-                        ]
-                    },
+                    //     ]
+                    // },
 
                 ],
                 cols: 12,

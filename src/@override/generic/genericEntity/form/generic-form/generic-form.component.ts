@@ -3,12 +3,13 @@ import { Router, ActivatedRoute, ActivationEnd } from '@angular/router';
 import { EntitiesService } from '../../../../utils/entities.service';
 import { OverrideService } from '../../../../utils/override.service';
 import { EntityData } from '../../../../utils/interfaces/entityData';
-import { FormGroup, FormBuilder } from '@angular/forms';
+import { FormGroup, FormBuilder, FormArray } from '@angular/forms';
 import { EntityService } from '../../../../utils/entity.service';
 
 @Component({
   selector: 'app-generic-form',
-  templateUrl: './generic-form.component.html'
+  templateUrl: './generic-form.component.html',
+  styleUrls: ['./bootstrap.css']
 })
 export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
 
@@ -28,10 +29,10 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
       if (val instanceof ActivationEnd) {
         nav = ActivationEnd
         let route = val.snapshot.params.route
-        
-        let entity = this.entities.allEntities.find(entity => 
-        entity.route.substr(entity.route.indexOf("/",2)+1) === route        )
-        
+
+        let entity = this.entities.allEntities.find(entity =>
+          entity.route.substr(entity.route.indexOf("/", 2) + 1) === route)
+
         this.entityData = entity;
 
 
@@ -47,11 +48,9 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
     this.entities.form = this.form
   }
   ngOnInit(): void {
-    this.createForm();   
-
+    this.createForm();
     this.entities.saved = false;
     // create form group
-
 
   }
 
@@ -65,16 +64,18 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
     this.entities.entityId = this.route.snapshot.paramMap.get('entityId');
     if (this.entities.entityId) {
       this.entities.isEditMode = true;
-      this.getFormData() ;
+      this.getFormData();
     }
-    
+
   }
 
   async getFormData() {
-      let record = await this.dataService.getOne(this.entityData.apiSelector, this.entities.entityId)
-      this.entities.i = 1
-      this.form.patchValue(record);
+    console.log('get ');
     
+    let record = await this.dataService.getOne(this.entityData.apiSelector, this.entities.entityId);
+    this.entities.record = record
+
+    this.form.patchValue(record);
   }
 
 }
