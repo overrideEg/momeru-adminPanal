@@ -14,6 +14,7 @@ export interface AbstractField {
     initialValue?: string | boolean | LocalizedText;
     validators?: any[];
     view?: 'image';
+    arrayView?: 'table' | 'accordion' | 'chip';
     multiple?: boolean
     displayIf?: Function;
     options?: { value: any, label: string }[];
@@ -32,7 +33,7 @@ export interface AbstractField {
     min?: number;
     max?: number;
     cols: number;
-    rows: number,
+    rows?: number,
     color?: string
     accept?: string
     arrayAddRow?:boolean

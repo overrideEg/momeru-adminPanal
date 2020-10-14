@@ -2,7 +2,7 @@
     <mat-form-field class="example-full-width" appearance="outline">
         <mat-label>{{field.label || field.name | translate}}</mat-label>
         <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
-        <input autocomplete="false" matInput *ngIf="!field.multiline" [attr.readonly]="field.readonly" [attr.disabled]="field.disabled" [attr.type]="field.type" [min]="field.min" [min]="field.max" [name]="isArray?field.name+date:field.name" [id]="isArray?field.name+date:field.name"
+        <input size="small" autocomplete="false" matInput *ngIf="!field.multiline" [attr.readonly]="field.readonly" [attr.disabled]="field.disabled" [attr.type]="field.type" [min]="field.min" [min]="field.max" [name]="isArray?field.name+date:field.name" [id]="isArray?field.name+date:field.name"
             (change)="entities.form = form" [formControlName]="field.name" [errorStateMatcher]="matcher" placeholder="{{ field.label?field.label:field.name | translate}}">
         <textarea autocomplete="false" matInput [attr.readonly]="field.readonly" [attr.disabled]="field.disabled" *ngIf="field.multiline" [attr.type]="field.type" lines="3" [name]="isArray?field.name+date:field.name" [id]="isArray?field.name+date:field.name"
             (change)="entities.form = form" [formControlName]="field.name" [errorStateMatcher]="matcher" placeholder="{{ field.label?field.label:field.name | translate}}"></textarea>

@@ -26,6 +26,7 @@ import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { LoaderInterceptorService } from '../@override/utils/loader-interceptor.service';
+
 const appRoutes: Routes = [
     {
         path: '',
@@ -73,6 +74,7 @@ export function HttpLoaderFactory(http: HttpClient) {
 @NgModule({
     declarations: [
         AppComponent,
+    
         ],
     imports: [
         // GenericModule,

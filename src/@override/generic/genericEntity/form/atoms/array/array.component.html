@@ -1,10 +1,9 @@
-<h1 class="accent-color">{{field.label || field.name | translate}} <strong class="warn-color"
-        *ngIf="field.required">*</strong></h1>
+<h4 class="accent-color">{{field.label || field.name | translate}} <strong class="warn-color" *ngIf="field.required">*</strong></h4>
 <button mat-button color="warn" (click)="addRow()" *ngIf="!field.arrayAddRow">
     {{'Add' |translate}} - {{field.label | translate}}
 </button>
-<mat-accordion class="example-headers-align" [displayMode]="'flat'">
-    <mat-expansion-panel *ngFor="let item of Forms.controls; let i=index;" [expanded]="i === 0">
+<mat-accordion class="example-headers-align" [displayMode]="'flat'" *ngIf="field.arrayView === 'accordion'">
+    <mat-expansion-panel *ngFor="let item of Forms.controls; let i=index;" [expanded]="true">
         <mat-expansion-panel-header>
             <mat-panel-title>
                 <h5 class="warn-color mat-subheading-1"> {{field.label}} : {{i+1}}</h5>
@@ -18,15 +17,47 @@
                 </button>
             </mat-panel-description>
         </mat-expansion-panel-header>
-        <mat-grid-list [cols]="entityData.form.cols" rowHeight="4rem">
-            <mat-grid-tile *ngFor="let f of field.children" [colspan]="f.cols" [rowspan]="f.rows"
-                [style.background]="f.color" [formGroup]="item">
-                <!-- {{f | json}} -->
+        <!-- <mat-grid-list [cols]="entityData.form.cols" rowHeight="4rem">
+            <mat-grid-tile *ngFor="let f of field.children" [colspan]="f.cols" [rowspan]="f.rows" [style.background]="f.color" [formGroup]="item">
                 <field-builder style="width: 90% " [field]="f" [form]="item"></field-builder>
             </mat-grid-tile>
-        </mat-grid-list>
-
+        </mat-grid-list> -->
+        <form id="print-section" autocomplete="off">
+            <div class="row">
+                <div *ngFor="let f of field.children" [ngClass]="'col-md-'+f.cols">
+                    <!-- {{field.rows * form.get(field.name).value | json}} -->
+                    <field-builder style="width: 99% " [field]="f" [form]="item"></field-builder>
+                </div>
+            </div>
+        </form>
     </mat-expansion-panel>
 
 
 </mat-accordion>
+<table class="table table-responsive" *ngIf="field.arrayView === 'table'">
+    <thead>
+        <tr>
+            <th class="text-light" *ngFor="let f of field.children" scope="col">{{f.label}} <strong class="text-danger" *ngIf="f.required">*</strong> </th>
+            <th class="text-light" scope="col" *ngIf="field.add==true? true:false">{{'Add' | translate}}</th>
+            <th class="text-light" scope="col" *ngIf="field.remove==true? true:false">{{'Remove' | translate}}</th>
+
+        </tr>
+    </thead>
+    <tbody *ngFor="let item of Forms.controls; let i=index;">
+        <tr>
+            <td *ngFor="let f of field.children">
+                <field-builder style="width: 99% " [field]="f" [form]="item" [isArray]="true"></field-builder>
+            </td>
+            <td>
+                <button mat-icon-button color="warn" (click)="removeRow(i)">
+                    <mat-icon>delete</mat-icon>
+                </button>
+            </td>
+            <td>
+                <button mat-icon-button color="primary" *ngIf="i+1===Forms.controls.length" (click)="addRow()">
+                    <mat-icon>plus_one</mat-icon>
+                </button>
+            </td>
+        </tr>
+    </tbody>
+</table>

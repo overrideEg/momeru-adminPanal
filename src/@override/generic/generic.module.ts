@@ -49,6 +49,11 @@ import { MAT_COLOR_FORMATS, NgxMatColorPickerModule, NGX_MAT_COLOR_FORMATS } fro
 import { ColorPickerComponent } from './genericEntity/form/atoms/color-picker/color-picker.component';
 import { EditorLocalizedComponent } from './genericEntity/form/atoms/editor-localized/editor-localized.component';
 import { AngularEditorModule } from '@kolkov/angular-editor';
+import { ImageViewComponent } from './genericEntity/form/atoms/file/image-view/image-view.component';
+import {MatTreeModule} from '@angular/material/tree';
+import { MatTableModule } from '@angular/material/table';
+import {MatChipsModule} from '@angular/material/chips';
+import { ChipComponent } from './genericEntity/form/atoms/chip/chip.component';
 
 export function HttpLoaderFactory(http: HttpClient) {
   return new TranslateHttpLoader(http);
@@ -68,6 +73,9 @@ const matModules = [
   MatExpansionModule,
   MatDatepickerModule,
   MatListModule,
+  MatTreeModule,
+  MatTableModule,
+  MatChipsModule,
   MatAutocompleteModule,
   NgxMatColorPickerModule
 ]
@@ -97,7 +105,9 @@ const fuseModules = [
     DateComponent,
     AutoCompleteComponent,
     ColorPickerComponent,
-    EditorLocalizedComponent
+    EditorLocalizedComponent,
+    ImageViewComponent,
+    ChipComponent
 
   ],
   imports: [

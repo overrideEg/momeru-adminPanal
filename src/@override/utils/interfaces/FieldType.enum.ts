@@ -17,6 +17,7 @@ export enum FieldType {
     entity = 'entity',
     group = 'group',
     array = 'array',
+    chip = 'chip',
     autoComplete = 'autoComplete',
     color = 'color',
     colorPicker = 'colorPicker',

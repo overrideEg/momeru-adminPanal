@@ -8,6 +8,7 @@ import { GridApi } from 'ag-grid-community';
 import { AbstractField } from './interfaces/field';
 import { Lang } from './interfaces/lang.enum';
 import { DatePipe } from '@angular/common';
+import { ArrayComponent } from '../generic/genericEntity/form/atoms/array/array.component';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +16,8 @@ import { DatePipe } from '@angular/common';
 export class EntitiesService {
   entityData: EntityData;
 
+  public arrayComponent: ArrayComponent
+  record: any;
   constructor(
     private translate: TranslateService,
     private router: Router,
@@ -48,12 +51,12 @@ export class EntitiesService {
 
   gridApi: GridApi;
 
-  DetectField(f: AbstractField) {
+  DetectField(f: AbstractField,value?:any) {
     // console.log('fields',f)
     switch (f.type) {
 
       case FieldType.entity: {
-        return this.fb.control({ value: f.initialValue || f.multiple ? [] : {}, disabled: f.disabled }, f.validators ? f.validators : []);
+        return this.fb.control({ value: value? value : f.initialValue || f.multiple ? [] : {}, disabled: f.disabled }, f.validators ? f.validators : []);
       }
       case FieldType.textLocalized : {
  
@@ -145,7 +148,7 @@ export class EntitiesService {
         
         return this.fb.group(ctrl);
       }
-      case FieldType.array: {
+      case FieldType.array || FieldType.chip: {
         let childs = {};
         f.children.forEach(
           (child) => {
@@ -162,7 +165,8 @@ export class EntitiesService {
           f.validators ? f.validators : []
         );
         let fg = this.fb.group(childs);
-        return f.arrayAddRow? this.fb.array([fg]):this.fb.array([]);
+        
+        return this.fb.array([fg]);
       }
       case FieldType.checkbox: {
         return this.fb.control(

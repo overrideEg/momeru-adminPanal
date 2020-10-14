@@ -9,7 +9,7 @@ import { MyErrorStateMatcher } from '@override/utils/my-error-state-matcher';
 @Component({
   selector: 'textLocalized',
   templateUrl: './text-localized.component.html',
-  styleUrls: ['./text-localized.component.scss']
+  styleUrls: ['./text-localized.component.scss','../../generic-form/bootstrap.css']
 })
 export class TextLocalizedComponent implements OnInit {
 

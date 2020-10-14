@@ -12,16 +12,16 @@ import { MatAccordion } from '@angular/material/expansion';
 @Component({
   selector: 'array',
   templateUrl: './array.component.html',
-  styleUrls: ['./array.component.scss']
+  styleUrls: ['./array.component.scss','../../generic-form/bootstrap.css']
 })
-export class ArrayComponent implements DoCheck, OnInit {
+export class ArrayComponent implements  OnInit {
 
   constructor(
     public entities: EntitiesService,
     private fb: FormBuilder,
     private translate :TranslateService,
-    private router: Router) { }
-
+    private router: Router) {  }
+  
 
   @Input() field: AbstractField;
   @Input() form: FormGroup;
@@ -36,43 +36,73 @@ export class ArrayComponent implements DoCheck, OnInit {
     const url = this.router.url;
     let entity = this.entities.allEntities.find(entity => url.startsWith(entity.route))
     this.entityData = entity;
-  }
-  ngDoCheck(): void {
-    if (
-      this.entities.isEditMode &&
-      this.form.value[this.field.name].length > 1 &&
-      this.i === 0
-    ) {
-      let newValues = this.form.value[this.field.name] as any[];
+    setTimeout(() => {
+     if (this.entities.record){
+       
+       const record = this.entities.record;
+       console.log('record,',record);
 
-      if (this.Forms.length < newValues.length) {
-        newValues.forEach((element) => {
-          const fieldsCtrls = {};
-          for (const key in element) {
-            if (element.hasOwnProperty(key)) {
-              for (let f of this.field.children) {
-
-                if (f.name == key) {
-                  fieldsCtrls[f.name] =    this.entities.DetectField(f)
-                            }
+      for (const key in record) {
+        if (Object.prototype.hasOwnProperty.call(record, key)) {
+          const recordInDB = record[key];
+          if (Array.isArray(recordInDB)) {
+            // console.log('f', f, formArray);
+            if (this.Forms.length < recordInDB.length) {
+              for (let i = 0; i < recordInDB.length; i++) {
+                this.addRow()
+              //   const record = recordInDB[i];
+                // let fg = this.fb.group(childs);
+                // this.Forms.push(fg);
               }
             }
-
+            this.Forms.patchValue(recordInDB)
+  
           }
-          const newGroup = this.fb.group(fieldsCtrls);
-          this.Forms.push(newGroup);
-
-        });
+  
+        }
       }
-      if (this.Forms.length > newValues.length) {
-        let val = this.Forms.value as [];
-        const index = val.findIndex((value) => !newValues.includes(value));
-        this.Forms.removeAt(index);
-        this.Forms.removeAt(0);
-      }
-      this.i++;
-    }
+     } 
+    },500);
   }
+  // ngDoCheck(): void {
+    
+  //   if (
+  //     this.entities.isEditMode &&
+  //     this.form.value[this.field.name].length > 1  &&
+  //     this.i === 0
+  //   ) {
+  //     let newValues = this.form.value[this.field.name] as any[];
+
+  //     console.log(newValues);
+  //     if (this.Forms.length < newValues.length) {
+  //       newValues.forEach((element) => {
+          
+  //         const fieldsCtrls = {};
+  //         for (const key in element) {
+  //           if (element.hasOwnProperty(key)) {
+  //             for (let f of this.field.children) {
+
+  //               if (f.name == key) {
+  //                 fieldsCtrls[f.name] =    this.entities.DetectField(f)
+  //                           }
+  //             }
+  //           }
+
+  //         }
+  //         const newGroup = this.fb.group(fieldsCtrls);
+  //         this.Forms.push(newGroup);
+
+  //       });
+  //     }
+  //     if (this.Forms.length > newValues.length) {
+  //       let val = this.Forms.value as [];
+  //       const index = val.findIndex((value) => !newValues.includes(value));
+  //       this.Forms.removeAt(index);
+  //       this.Forms.removeAt(0);
+  //     }
+  //     this.i++;
+  //   }
+  // }
   get Forms() {
     return this.form.controls[this.field.name] as FormArray;
   }

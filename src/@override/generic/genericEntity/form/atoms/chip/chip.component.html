@@ -1,0 +1,15 @@
+<!-- <h4 class="accent-color">{{field.label || field.name | translate}} <strong class="warn-color" *ngIf="field.required">*</strong></h4> -->
+<!-- <button mat-button color="warn" (click)="addRow()" *ngIf="!field.arrayAddRow">
+    {{'Add' |translate}} - {{field.label | translate}}
+</button> -->
+<!-- <h1>asfasdfasdf</h1> -->
+<mat-form-field class="example-chip-list">
+    <mat-chip-list #chipList aria-label="Fruit selection">
+        <mat-chip *ngFor="let item of form.get(field.name).value" [selectable]="selectable" [removable]="removable" (removed)="remove(item)">
+            {{item.text.ar}}
+            <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+        </mat-chip>
+        <input placeholder="{{field.label || field.name | translate}}" #fruitInput [formControl]="fruitCtrl" [matChipInputFor]="chipList" [matChipInputSeparatorKeyCodes]="separatorKeysCodes" (matChipInputTokenEnd)="add($event)">
+    </mat-chip-list>
+
+</mat-form-field>
