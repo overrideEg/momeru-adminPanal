@@ -9,7 +9,8 @@ export const environment = {
     // serverUrl: 'http://localhost:3001/v1',
     // serverUrl: 'http://server.overrideeg.net:3010/v1',
     // serverUrl: 'http://192.168.1.17:3010/v1',
-    serverUrl: 'https://server.momeru.com/v1',
+    // serverUrl: 'https://server.momeru.com/v1',
+    serverUrl: 'http://192.168.1.8:3010/v1',
     
 };
 

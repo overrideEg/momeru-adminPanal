@@ -107,6 +107,15 @@ export const navigation: FuseNavigation[] = [
                 url: '/generic/Question'
 
             },
+            {
+                id: 'Options',
+                title: 'Options',
+                translate: 'Options',
+                type: 'item',
+                icon: 'Options',
+                url: '/generic/Options'
+
+            },
         ]
     },
     {
@@ -183,6 +192,32 @@ export const navigation: FuseNavigation[] = [
         icon: 'web',
         children: [
 
+            {
+                id: 'Blog',
+                title: 'Blog',
+                translate: 'Blog',
+                type: 'group',
+                icon: 'Section',
+                url: '/generic/Section',
+                children: [
+                    {
+                        id: 'BlogCategory',
+                        title: 'BlogCategory',
+                        translate: 'BlogCategory',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/BlogCategory'
+                    }, {
+                        id: 'Blog',
+                        title: 'Blog',
+                        translate: 'Blog',
+                        type: 'item',
+                        icon: 'Section',
+                        url: '/generic/Blog'
+                    },
+                    
+                ]
+            },
             {
                 id: 'homePage',
                 title: 'homePage',

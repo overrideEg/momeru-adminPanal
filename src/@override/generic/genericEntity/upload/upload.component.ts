@@ -25,18 +25,24 @@ export class UploadComponent implements OnInit {
     const url = this.router.url;
     let entity = this.entities.allEntities.find(entity => url.startsWith(entity.route))
     this.entityData = entity;
+
+    console.log(url);
+    console.log(entity);
+  
   }
 
 
   async uploadFile(event) {
     var array: any[];
     this.fileName = event.target.files[0].name;
+    console.log(this.fileName);
+
     await this.excel.fromExcelToJson(event);
     setTimeout(async () => {
       this._bottomSheetRef.dismiss()
       array = this.excel.json;
       let saved = await this.dataService.upload(this.entityData.apiSelector, array)
-      this.entities.gridApi.updateRowData({ add: saved });
+      this.entities.gridApi.applyTransaction({ add: saved });
 
     })
 

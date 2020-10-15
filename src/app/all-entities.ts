@@ -793,7 +793,80 @@ export class AllEntities {
                 localizedAllFields: false
             }
         },
+        {
+            name: {
+                single: 'Option',
+                plural: 'Options',
+            },
+            apiSelector: 'QuestionOptions',
+            route: '/generic/Options',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this.translate.instant('ID'),
+                    },
+                    {
+                        field: 'text.' + [this.utils.currentLang],
+                        headerName: this.translate.instant('text'),
+                    },
+                   
 
+                ]
+
+            },
+            form: {
+                fields: [
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'text',
+                        label: this.translate.instant('text'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+                        rows: 2
+                    },
+                   
+                    {
+                        type: FieldType.entity,
+                        name: 'question',
+                        label: this.translate.instant('Question'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 4,
+                        rows: 2,
+                        selectOptions: {
+                            optionName: 'label',
+                            fromSelector: 'Question',
+
+                            columns: [
+                                { field: 'id', headerName: this.translate.instant('Id'), checkboxSelection: true },
+                                { field: 'label.' + this.utils.currentLang, headerName: this.translate.instant('label'), checkboxSelection: false },
+                            ]
+                        },
+                    },
+                   
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        },
         {
             name: {
                 single: 'UserAnswer',
@@ -1276,8 +1349,8 @@ export class AllEntities {
                         type: FieldType.textLocalized,
                         name: 'name',
                         label: this.translate.instant('name'),
-                        required: false,
-                        // validators: [Validators.required, Validators.minLength(3)],
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
                         multiline: false,
@@ -1288,8 +1361,8 @@ export class AllEntities {
                         type: FieldType.textLocalized,
                         name: 'description',
                         label: this.translate.instant('description'),
-                        required: false,
-                        // validators: [Validators.required, Validators.minLength(3)],
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
                         multiline: true,
@@ -1358,7 +1431,7 @@ export class AllEntities {
                         name: 'employmentType',
                         label: this.translate.instant('Employment Type'),
                         multiple: false,
-                        required: false,
+                        required: true,
                         validators: [Validators.required],
                         disabled: false,
                         readonly: false,
@@ -3271,6 +3344,170 @@ export class AllEntities {
 
 
 
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        },
+
+        {
+            name: {
+                single: 'BlogCategory',
+                plural: 'BlogCategories',
+            },
+            apiSelector: 'BlogCategory',
+            route: '/generic/BlogCategory',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: false,
+            export: false,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this.translate.instant('ID'),
+                    },
+                    {
+                        field: 'name.' + this.utils.currentLang,
+                        headerName: this.translate.instant('name'),
+                    },
+
+
+                ]
+
+            },
+            form: {
+                fields: [
+
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'name',
+                        label: this.translate.instant('name'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+                        rows: 2
+                    },
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            }
+        },
+        {
+            name: {
+                single: 'Blog',
+                plural: 'Blogs',
+            },
+            apiSelector: 'Blog',
+            route: '/generic/Blog',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        field: 'id',
+                        headerName: this.translate.instant('ID'),
+                    },
+                    {
+                        field: 'title.' + this.utils.currentLang,
+                        headerName: this.translate.instant('title'),
+                    },
+
+
+                ]
+
+            },
+            form: {
+                fields: [
+
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'title',
+                        label: this.translate.instant('title'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: true,
+                        multiline: false,
+                        cols: 12,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'subTitle',
+                        label: this.translate.instant('subTitle'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: true,
+                        multiline: false,
+                        cols: 12,
+                        rows: 2
+                    },
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'body',
+                        label: this.translate.instant('body'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: true,
+                        multiline: true,
+                        cols: 12,
+                        rows: 4
+                    },
+                    {
+                        type: FieldType.file,
+                        name: 'image',
+                        label: this.translate.instant('image'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: true,
+                        multiline: false,
+                        cols: 6,
+                        rows: 4
+                    },
+                    {
+                        type: FieldType.entity,
+                        name: 'BlogCategory',
+                        label: this.translate.instant('BlogCategory'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 6,
+                        rows: 2,
+                        selectOptions: {
+                            optionName: 'name',
+                            fromSelector: 'BlogCategory',
+                            columns: [
+                                { field: 'id', headerName: this.translate.instant('Id'), checkboxSelection: true },
+                                { field: 'name.' + this.utils.currentLang, headerName: this.translate.instant('Name'), checkboxSelection: false },
+                            ]
+                        },
+                    },
 
                 ],
                 cols: 12,
