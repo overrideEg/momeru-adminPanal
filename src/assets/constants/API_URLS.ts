@@ -3,7 +3,7 @@
 // const uri = 'http://server.overrideeg.net:3010/v1';
 // const uri = 'https://server.momeru.com/v1';
 
-const uri = 'http://localhost:3010/v1';
+const uri = 'http://192.168.1.8:3010/v1';
 // const uri = 'http://192.168.43.188:3010/v1';
 export const API_URLS = {
   auth: {
@@ -36,6 +36,13 @@ export const API_URLS = {
     getOne: uri + '/Question/{entityId}',
     put: uri + '/Question/{entityId}',
     delete: uri + '/Question/{entityId}',
+  },
+  QuestionOptions: {
+    post: uri + '/option',
+    get: uri + '/Question/options',
+    getOne: uri + '/Options/{entityId}',
+    put: uri + '/Options/{entityId}',
+    delete: uri + '/Options/{entityId}',
   },
   User: {
     post: uri + '/User',
@@ -232,6 +239,20 @@ export const API_URLS = {
     getOne: uri + '/ServiceRequest/{entityId}',
     put: uri + '/ServiceRequest/{entityId}',
     delete: uri + '/ServiceRequest/{entityId}',
+  },
+  BlogCategory: {
+    post: uri + '/BlogCategory',
+    get: uri + '/BlogCategory/all',
+    getOne: uri + '/BlogCategory/{entityId}',
+    put: uri + '/BlogCategory/{entityId}',
+    delete: uri + '/BlogCategory/{entityId}',
+  },
+  Blog: {
+    post: uri + '/Blog',
+    get: uri + '/Blog/all',
+    getOne: uri + '/Blog/{entityId}',
+    put: uri + '/Blog/{entityId}',
+    delete: uri + '/Blog/{entityId}',
   },
 
 

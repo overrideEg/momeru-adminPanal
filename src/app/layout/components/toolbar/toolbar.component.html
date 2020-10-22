@@ -59,8 +59,8 @@
 
             <button mat-button fxHide fxShow.gt-xs class="language-button" [matMenuTriggerFor]="languageMenu">
                 <div fxLayout="row" fxLayoutAlign="center center">
-                    <!-- <img class="flag mr-8" [src]="'assets/icons/flags/'+selectedLanguage.flag+'.png'">
-                    <span class="iso text-uppercase">{{selectedLanguage.id}}</span> -->
+                    <img class="flag mr-8" [src]="'assets/icons/flags/'+selectedLanguage.flag+'.png'">
+                    <span class="iso text-uppercase">{{selectedLanguage.id}}</span>
                 </div>
             </button>
 
@@ -76,7 +76,7 @@
 
             </mat-menu>
 
-             <div class="toolbar-separator" fxHide fxShow.gt-xs></div>
+            <div class="toolbar-separator" fxHide fxShow.gt-xs></div>
 
             <!-- <button mat-icon-button fxHide.gt-md class="chat-panel-toggle-button" (click)="toggleSidebarOpen('chatPanel')" aria-label="Toggle chat panel">
                 <mat-icon class="secondary-text">chat</mat-icon>
@@ -88,7 +88,7 @@
                 <mat-icon class="secondary-text">format_list_bulleted</mat-icon>
             </button>
 
-          <!--  <div class="toolbar-separator" *ngIf="!hiddenNavbar && rightNavbar" fxHide fxShow.gt-xs></div>
+            <!--  <div class="toolbar-separator" *ngIf="!hiddenNavbar && rightNavbar" fxHide fxShow.gt-xs></div>
 
             <button mat-icon-button class="navbar-toggle-button" *ngIf="!hiddenNavbar && rightNavbar" (click)="toggleSidebarOpen('navbar')" fxHide.gt-md>
                 <mat-icon class="secondary-text">menu</mat-icon>
