@@ -1,0 +1,7 @@
+<h5 class="warn-color mat-subheading-1">{{field.label || field.name | translate}} <strong class="warn-color mat-subheading-1" *ngIf="field.required">*</strong></h5>
+
+<div class="row">
+    <div *ngFor="let f of field.children" [ngClass]="'col-md-'+f.cols" [formGroup]="form">
+        <field-builder style="width: 90%" [field]="f" [form]="outputForm"></field-builder>
+    </div>
+</div>

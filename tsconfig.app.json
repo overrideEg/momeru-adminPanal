@@ -1,0 +1,23 @@
+{
+    "extends": "./tsconfig.base.json",
+    "compilerOptions": {
+        "outDir": "./out-tsc/app",
+        "types": [
+            "node"
+        ],
+        "allowJs": true
+    },
+    "files": [
+        "src/main.ts",
+        "src/polyfills.ts",
+    ],
+    "include": [
+        "src/**/*.d.ts",
+        "src/**/*.ts",
+        "src/@override/**/*.ts", "src/@override/generic/genericEntity/form/atoms/editor/ckeditor.js"
+    ],
+    "exclude": [
+        "**/*.spec.ts"
+    ]
+    
+}

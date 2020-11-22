@@ -1,0 +1,22 @@
+<form class="example-form" [formGroup]="emailForm">
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'To' |translate}}</mat-label>
+        <input appearance="outline" matInput placeholder="{{'To Email' |translate}}" formControlName="to">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'cc' |translate}}</mat-label>
+        <input appearance="outline" matInput placeholder="{{'cc Email' |translate}}" formControlName="cc">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'message Ttile' |translate}}</mat-label>
+        <input appearance="outline" matInput placeholder="{{'message Ttile' |translate}}" formControlName="messageTtile">
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+        <mat-label>{{'message Body' |translate}}</mat-label>
+        <textarea appearance="outline" matInput placeholder="{{'message Body' |translate}}" formControlName="messageBody"></textarea>
+    </mat-form-field>
+
+
+</form>
+
+<button mat-stroked-button color="warn" (click)="send()">{{'Send' |translate}}</button>

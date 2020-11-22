@@ -1,0 +1,18 @@
+<!-- <form id="print-section" [formGroup]="form" autocomplete="off">
+    <mat-grid-list [cols]="entityData.form.cols" rowHeight="5rem">
+        <mat-grid-tile *ngFor="let field of entityData.form.fields" [colspan]="field.cols" [rowspan]="field.type === 'array' ? field.rows + form.get(field.name).value.length :   field.rows" [style.background]="field.color">
+            <field-builder style="width: 99% " [field]="field" [form]="form"></field-builder>
+        </mat-grid-tile>
+    </mat-grid-list>
+</form> -->
+<div class="container-fluid bg-light">
+    <form id="print-section" [formGroup]="form" autocomplete="off">
+        <div class="row">
+            <div *ngFor="let field of entityData.form.fields" [ngClass]="'col-md-'+field.cols" [style.background]="field.color">
+                <!-- {{field.rows * form.get(field.name).value | json}} -->
+                <field-builder style="width: 99% " [field]="field" [form]="form"></field-builder>
+            </div>
+        </div>
+    </form>
+
+</div>

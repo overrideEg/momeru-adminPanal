@@ -1,0 +1,41 @@
+<div [formGroup]="form">
+    <mat-label>{{field.label || field.name | translate}}</mat-label>
+    <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
+
+    <div class="row">
+        <div class="col-md-10  text-center">
+            <!-- <input type="file" (change)="uploadFile($event)" nbButton fullWidth hero [shape]="'round'" [fieldSize]="'medium'" nbInput /> -->
+            <p *ngIf="! form.get(this.field.name).value">
+                <label class="upload-button">
+                    <input type="file" accept="field.view+'/'" [multiple]='field.multiple' (change)="uploadFile($event)"
+                        [accept]="field.accept" formenctype="multipart/form-data">
+                    {{'Select File'|translate}}
+                </label> {{'to upload' |translate}}.
+                <!-- <nb-progress-bar [value]="percentage | async" [size]='"tiny"' [status]='"primary"'></nb-progress-bar> -->
+            </p>
+            <p *ngIf="form.get(this.field.name).value">
+                {{'Delete Current File To Upload Other One' |translate}}.
+            </p>
+        </div>
+        <div class="col-md-2">
+            <button mat-icon-button color="primary" (click)="deleteFile(form.value[field.name])">
+                <mat-icon>delete</mat-icon>
+            </button>
+        </div>
+        <!-- <div class="col-2">
+            <a mat-icon-button color="primary" (click)="viewImage(form.value[field.name])">
+                <mat-icon>remove_red_eye </mat-icon>
+            </a>
+        </div> -->
+    </div>
+
+    <div class="row" *ngIf="form.value[field.name] && ! field.multiple">
+
+        <div style="display: flex; justify-content: center;">
+            <img [src]="form.value[field.name]" style="max-width: 50vw; max-height: 200px;">
+            <!-- <a [href]="form.value[field.name]" target="_blank">{{'Click To Download'}}</a> -->
+        </div>
+
+    </div>
+
+</div>

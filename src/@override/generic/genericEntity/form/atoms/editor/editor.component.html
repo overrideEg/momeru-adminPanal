@@ -1,0 +1,20 @@
+<div [formGroup]="form">
+    <!-- <div [formGroupName]='field.name'> -->
+
+    <mat-label>{{field.label || field.name | translate}} </mat-label>
+    <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
+
+    <ckeditor [config]="config" [disabled]="field.disabled" [formControlName]="field.name" (ready)="onReady($event)"></ckeditor>
+    <!-- <ckeditor></ckeditor> -->
+
+    <!-- [config]="{
+            buttons: 'bold,strikethrough,underline,italic'
+            buttonsMD: 'bold,strikethrough,underline,italic'
+            buttonsSM: 'bold,strikethrough,underline,italic'
+            buttonsXS: 'bold,strikethrough,underline,italic'
+            };" -->
+    <!-- </div> -->
+
+
+
+</div>

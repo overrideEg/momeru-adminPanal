@@ -1,0 +1,14 @@
+<h1 class="accent">
+    {{'Select Board To Transfer To It' |translate}}
+
+</h1>
+
+<mat-form-field appearance="fill" class="fullWidth">
+    <mat-label> {{'Select Board To Transfer To It' |translate}}</mat-label>
+    <mat-select [(value)]="selectedValue">
+        <mat-option *ngFor="let board of boards" [value]="board">{{board.name}}</mat-option>
+    </mat-select>
+</mat-form-field>
+
+
+<button class="fullWidth" mat-raised-button color="warn" (click)="transfer()" [disabled]="!selectedValue">{{'Transfer' |translate}}</button>
