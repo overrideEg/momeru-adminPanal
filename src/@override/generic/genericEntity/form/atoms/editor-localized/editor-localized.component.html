@@ -1,21 +1,13 @@
 <div [formGroup]="form">
     <div [formGroupName]='field.name'>
-<!-- {{field.name |json}} -->
-        <mat-grid-list [cols]="entityData.form.cols" rowHeight="4em" *ngIf="entityData.form.localizedAllFields || entities.isEditMode">
+ 
+        <!-- <mat-grid-list [cols]="entityData.form.cols" rowHeight="4em" *ngIf="entityData.form.localizedAllFields || entities.isEditMode">
             <mat-grid-tile [colspan]="field.cols/Langs.length" [rowspan]="field.rows * 2" *ngFor="let lang of Langs">
                  
                 <div class="example-full-width" appearance="outline">
                     <mat-label>{{field.label || field.name | translate}} {{'in ' + lang | translate}}</mat-label>
                     <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
-                    <!-- <input autocomplete="false" matInput [readonly]="(lang ==='en' || lang ==='ms') && !entities.isEditMode" *ngIf="!field.multiline" [attr.type]="field.type" [min]="field.min" [min]="field.max" [name]="isArray?field.name+date:field.name" [id]="isArray?field.name+date:field.name"
-                        (change)="entities.form = form" [formControlName]="lang" [errorStateMatcher]="matcher" placeholder="{{ field.label?field.label:field.name | translate}} {{'in ' + lang | translate}}">
-                    <textarea autocomplete="false" matInput *ngIf="field.multiline" [attr.type]="field.type" lines="3" [name]="isArray?field.name+date:field.name" [id]="isArray?field.name+date:field.name" (change)="entities.form = form" [formControlName]="lang" [errorStateMatcher]="matcher"
-                        placeholder="{{ field.label?field.label:field.name | translate}} {{'in ' + lang | translate}}"></textarea> -->
-                    <!-- <angular-editor placeholder="{{ field.label?field.label:field.name | translate}} {{'in ' + lang | translate}}" [formControlName]="lang"></angular-editor> -->
                     <ckeditor [editor]="Editor" [disabled]="field.disabled" [formControlName]="lang" ></ckeditor>
-
-                    <!-- <mat-hint class="warn-color mat-subheading-1">{{field.details }}</mat-hint> -->
-
                     <mat-error *ngIf="!isValid">
                         {{'Please enter a valid' |translate}} {{field.label |translate}}
                     </mat-error>
@@ -24,8 +16,25 @@
                     </mat-error>
                 </div>
             </mat-grid-tile>
-        </mat-grid-list>
+        </mat-grid-list> -->
 
+        <div class="example-full-width" appearance="outline" *ngIf="entityData.form.localizedAllFields || entities.isEditMode">
+            <div class="col-md-12" *ngFor="let lang of Langs">
+                <mat-label>{{field.label || field.name | translate}} {{'in ' + lang | translate}}</mat-label>
+                <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
+                <ckeditor [editor]="Editor" [disabled]="field.disabled" [formControlName]="lang" ></ckeditor>
+                <mat-error *ngIf="!isValid">
+                    {{'Please enter a valid' |translate}} {{field.label |translate}}
+                </mat-error>
+                <mat-error *ngIf="isDirty">
+                    {{field.label |translate}} {{'is' |translate}} <strong>{{'required' |translate}}</strong>
+                </mat-error>
+            </div>
+         
+            <!-- <mat-hint class="warn-color mat-subheading-1">{{field.details }}</mat-hint> -->
+
+
+        </div>
         <div class="example-full-width" appearance="outline" *ngIf="!entityData.form.localizedAllFields && ! entities.isEditMode">
             <mat-label>{{field.label || field.name | translate}} {{'in '+override.currentLang | translate}}
             </mat-label>
@@ -41,3 +50,18 @@
 
 
 </div>
+<!-- <div [formGroup]="form">
+    <div [formGroupName]='field.name'>
+
+        <div class="row" *ngIf="entityData.form.localizedAllFields || entities.isEditMode">
+            <div [ngClass]=" isArray? 'col-auto': 'row'" *ngFor="let lang of Langs">
+                <ckeditor [editor]="Editor" [disabled]="field.disabled" [formControlName]="lang" ></ckeditor>
+            </div>
+        </div>
+
+        <ckeditor [editor]="Editor" [disabled]="field.disabled" [formControlName]="lang" ></ckeditor>
+    </div>
+
+
+
+</div> -->

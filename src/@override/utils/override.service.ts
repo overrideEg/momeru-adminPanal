@@ -54,7 +54,7 @@ export class OverrideService {
   switchLanguage(language: string, key?: string) {
     
     if (language in Lang) {
-      if (this.currentLang == language) {
+    //   if (this.currentLang == language) {
         this.translate.use(language);
         this.translate.setTranslation(language,locale.data)
         
@@ -62,7 +62,7 @@ export class OverrideService {
         // localStorage.setItem('language', language);
         // this.setTitle(key || 'Momeru Admin Panel');
         // this.setStyle();
-      }
+    //   }
     } else {
       this.translate.use('en');
     } 
