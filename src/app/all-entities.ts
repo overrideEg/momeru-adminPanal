@@ -1211,13 +1211,13 @@ export class AllEntities {
 
                     },
                     {
-                        type: FieldType.editor,
+                        type: FieldType.editorLocalized,
                         name: 'body',
                         label: this.translate.instant('Message'),
                         required: true,
                         validators: [Validators.required],
                         disabled: false,
-                        readonly: true,
+                        readonly: false,
                         multiline: false,
                         cols: 12,
 

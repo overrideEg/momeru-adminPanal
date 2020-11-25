@@ -1,8 +1,9 @@
 <div [formGroup]="form">
     <div [formGroupName]='field.name'>
-
+<!-- {{field.name |json}} -->
         <mat-grid-list [cols]="entityData.form.cols" rowHeight="4em" *ngIf="entityData.form.localizedAllFields || entities.isEditMode">
-            <mat-grid-tile [colspan]="field.cols/Lang.length" [rowspan]="field.rows * 2" *ngFor="let lang of Lang">
+            <mat-grid-tile [colspan]="field.cols/Langs.length" [rowspan]="field.rows * 2" *ngFor="let lang of Langs">
+                 
                 <div class="example-full-width" appearance="outline">
                     <mat-label>{{field.label || field.name | translate}} {{'in ' + lang | translate}}</mat-label>
                     <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
@@ -11,7 +12,7 @@
                     <textarea autocomplete="false" matInput *ngIf="field.multiline" [attr.type]="field.type" lines="3" [name]="isArray?field.name+date:field.name" [id]="isArray?field.name+date:field.name" (change)="entities.form = form" [formControlName]="lang" [errorStateMatcher]="matcher"
                         placeholder="{{ field.label?field.label:field.name | translate}} {{'in ' + lang | translate}}"></textarea> -->
                     <!-- <angular-editor placeholder="{{ field.label?field.label:field.name | translate}} {{'in ' + lang | translate}}" [formControlName]="lang"></angular-editor> -->
-                    <ckeditor [editor]="Editor" [disabled]="field.disabled" [formControlName]="lang" (ready)="onReady($event)"></ckeditor>
+                    <ckeditor [editor]="Editor" [disabled]="field.disabled" [formControlName]="lang" ></ckeditor>
 
                     <!-- <mat-hint class="warn-color mat-subheading-1">{{field.details }}</mat-hint> -->
 
@@ -29,7 +30,7 @@
             <mat-label>{{field.label || field.name | translate}} {{'in '+override.currentLang | translate}}
             </mat-label>
             <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
-            <ckeditor [editor]="Editor" [disabled]="field.disabled" formControlName="{{override.currentLang}}" (ready)="onReady($event)"></ckeditor>
+            <ckeditor [editor]="Editor" [disabled]="field.disabled" formControlName="{{override.currentLang}}" ></ckeditor>
 
             <!-- <mat-hint class="warn-color mat-subheading-1">{{field.details }}</mat-hint> -->
 
