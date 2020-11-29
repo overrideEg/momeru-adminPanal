@@ -2,6 +2,7 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
 const uri = 'https://server.momeru.com/v1';
+// const uri = 'http://localhost:3010/v1';
 // const uri = 'https://edupromise.remabackend.com/v1';
 // const uri = 'https://server.momeru.com/v1';
 export const API_URLS = {
@@ -164,6 +165,27 @@ export const API_URLS = {
     getOne: uri + '/Openion/{entityId}',
     put: uri + '/Openion/{entityId}',
     delete: uri + '/Openion/{entityId}',
+  },
+  Vission: {
+    post: uri + '/Vission',
+    get: uri + '/Vission/all',
+    getOne: uri + '/Vission/{entityId}',
+    put: uri + '/Vission/{entityId}',
+    delete: uri + '/Vission/{entityId}',
+  },
+  Mission: {
+    post: uri + '/Mission',
+    get: uri + '/Mission/all',
+    getOne: uri + '/Mission/{entityId}',
+    put: uri + '/Mission/{entityId}',
+    delete: uri + '/Mission/{entityId}',
+  },
+  Services: {
+    post: uri + '/Services',
+    get: uri + '/Services/all',
+    getOne: uri + '/Services/{entityId}',
+    put: uri + '/Services/{entityId}',
+    delete: uri + '/Services/{entityId}',
   },
 
 };

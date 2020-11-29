@@ -1615,6 +1615,196 @@ export class AllEntities {
 
         {
             name: {
+                single: 'Vission',
+                plural: 'Vissions',
+            },
+            apiSelector: 'Vission',
+            route: '/generic/Vission',
+            add: true,
+            edit: true,
+            delete: true,
+    
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 100,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        headerName: '#',
+                        valueGetter: "node.rowIndex + 1"
+                    },
+                    {
+                        field: 'body.'+this.override.currentLang,
+                        headerName: this.translate.instant('Vission'),
+
+                    },
+                 
+
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    
+                    {
+                        type: FieldType.editorLocalized,
+                        name: 'body',
+                        label: this.translate.instant('Vission'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+                        cols: 12,
+
+                    },
+              
+
+                ],
+                cols: 12,
+                localizedAllFields: true
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
+            }
+        },
+        {
+            name: {
+                single: 'Mission',
+                plural: 'Missions',
+            },
+            apiSelector: 'Mission',
+            route: '/generic/Mission',
+            add: true,
+            edit: true,
+            delete: true,
+    
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 100,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        headerName: '#',
+                        valueGetter: "node.rowIndex + 1"
+                    },
+                    {
+                        field: 'body.'+this.override.currentLang,
+                        headerName: this.translate.instant('Mission'),
+
+                    },
+                 
+
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    
+                    {
+                        type: FieldType.editorLocalized,
+                        name: 'body',
+                        label: this.translate.instant('Mission'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+                        cols: 12,
+
+                    },
+              
+
+                ],
+                cols: 12,
+                localizedAllFields: true
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
+            }
+        },
+        {
+            name: {
+                single: 'Service',
+                plural: 'Services',
+            },
+            apiSelector: 'Services',
+            route: '/generic/Services',
+            add: true,
+            edit: true,
+            delete: true,
+    
+            view: false,
+            upload: true,
+            export: true,
+            table: {
+                paginated: true,
+                paginationPageSize: 100,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        headerName: '#',
+                        valueGetter: "node.rowIndex + 1"
+                    },
+                    {
+                        field: 'body.'+this.override.currentLang,
+                        headerName: this.translate.instant('Mission'),
+
+                    },
+                 
+
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    
+                    {
+                        type: FieldType.editorLocalized,
+                        name: 'body',
+                        label: this.translate.instant('Mission'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+                        cols: 12,
+
+                    },
+              
+
+                ],
+                cols: 12,
+                localizedAllFields: true    
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
+            }
+        },
+
+        {
+            name: {
                 single: 'Card',
                 plural: 'Cards',
             },
