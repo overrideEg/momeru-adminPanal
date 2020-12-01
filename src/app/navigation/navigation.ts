@@ -203,5 +203,41 @@ export const navigation: FuseNavigation[] = [
         ]
     },
    
+    {
+        id       : 'Mission&Vission',
+        title    : 'Mission&Vission',
+        translate: 'Mission&Vission',
+        type     : 'group',
+        icon     : 'tab_unselected',
+        children:[
+            {
+                id       : 'Mission',
+                title    : 'Mission',
+                translate: 'Mission',
+                type     : 'item',
+                url  : '/generic/Mission'
+        
+            },
+            {
+                id       : 'Vission',
+                title    : 'Vission',
+                translate: 'Vission',
+                type     : 'item',
+                url  : '/generic/Vission'
+        
+            },
+            {
+                id       : 'Services',
+                title    : 'Services',
+                translate: 'Services',
+                type     : 'item',
+                url  : '/generic/Services'
+        
+            },
+           
+            
+        ]
+    },
+   
    
 ];

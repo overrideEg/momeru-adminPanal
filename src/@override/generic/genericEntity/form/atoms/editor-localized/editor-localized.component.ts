@@ -19,7 +19,7 @@ export class EditorLocalizedComponent implements OnInit {
 
   public Editor = ClassicEditor
 
-    Lang = ['en','ar'];
+    public Langs = ['en','ar', 'ms'];
     @Input() field: AbstractField;
     @Input() form: FormGroup;
     @Input() isArray: boolean;
@@ -35,6 +35,7 @@ export class EditorLocalizedComponent implements OnInit {
       const url = this.router.url;
       let entity = this.entities.allEntities.find(entity => url.startsWith(entity.route))
       this.entityData = entity
+      console.log('form', this.entityData, this.form)
     }
     date = Date.now()
 
@@ -87,10 +88,10 @@ export class EditorLocalizedComponent implements OnInit {
   
 
   };
-  onReady(eventData) {
-    eventData.plugins.get('FileRepository').createUploadAdapter = function (loader) {
-      return new UploadAdapter(loader);
-    };
-  }
+//   onReady(eventData) {
+//     eventData.plugins.get('FileRepository').createUploadAdapter = function (loader) {
+//       return new UploadAdapter(loader);
+//     };
+//   }
   
 }

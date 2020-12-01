@@ -107,6 +107,8 @@ export class EntitiesService {
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
           ctrl['en'] = this.fb.control(
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+          ctrl['ms'] = this.fb.control(
+            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
   
 
      
@@ -119,6 +121,9 @@ export class EntitiesService {
           ctrl['ar'] = this.fb.control(
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
           ctrl['en'] = this.fb.control(
+            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+   
+          ctrl['ms'] = this.fb.control(
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
    
 
