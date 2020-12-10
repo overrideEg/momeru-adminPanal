@@ -26,6 +26,7 @@ export class FuseNavVerticalCollapsableComponent implements OnInit, OnDestroy
 
     // Private
     private _unsubscribeAll: Subject<any>;
+    userTypeStored: string;
 
     /**
      * Constructor
@@ -53,6 +54,7 @@ export class FuseNavVerticalCollapsableComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
+        this.userTypeStored  = atob(sessionStorage.getItem(btoa('userType')))
         // Listen for router events
         this._router.events
             .pipe(

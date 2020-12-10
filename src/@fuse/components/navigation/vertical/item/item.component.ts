@@ -20,6 +20,7 @@ export class FuseNavVerticalItemComponent implements OnInit, OnDestroy
 
     // Private
     private _unsubscribeAll: Subject<any>;
+    userTypeStored: string;
 
     /**
      * Constructor
@@ -48,6 +49,7 @@ export class FuseNavVerticalItemComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
+        this.userTypeStored  = atob(sessionStorage.getItem(btoa('userType')))
         // Subscribe to navigation item
         merge(
             this._fuseNavigationService.onNavigationItemAdded,
