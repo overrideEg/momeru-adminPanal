@@ -572,15 +572,15 @@ export class AllEntities {
                         valueGetter: "node.rowIndex + 1"
                     },
                     {
-                        field: 'jobTitle',
+                        field: 'jobTitle.'+this.override.currentLang,
                         headerName: this.translate.instant('job Title'),
                     },
                     {
-                        field: 'jobCategory',
+                        field: 'jobCategory.'+this.override.currentLang,
                         headerName: this.translate.instant('job Category'),
                     },
                     {
-                        field: 'jobType',
+                        field: 'jobType.'+this.override.currentLang,
                         headerName: this.translate.instant('job Type'),
                     },
 
@@ -589,11 +589,15 @@ export class AllEntities {
                         headerName: this.translate.instant('Company'),
                     },
                     {
-                        field: 'salary',
-                        headerName: this.translate.instant('salary'),
+                        field: 'salaryFrom',
+                        headerName: this.translate.instant('salary From'),
                     },
                     {
-                        field: 'location',
+                        field: 'salaryTo',
+                        headerName: this.translate.instant('salary To'),
+                    },
+                    {
+                        field: 'location.'+this.override.currentLang,
                         headerName: this.translate.instant('location'),
                     }
 
@@ -610,7 +614,7 @@ export class AllEntities {
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
-                        cols: 3,
+                        cols: 6,
                         selectOptions: {
                             fromSelector: 'Company',
                             columns: [
@@ -628,17 +632,6 @@ export class AllEntities {
 
                     },
                     {
-                        type: FieldType.text,
-                        name: 'jobTitle',
-                        label: this.translate.instant('jobTitle'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        cols: 3
-
-                    },
-                    {
                         type: FieldType.dropdown,
                         name: 'jobType',
                         label: this.translate.instant('jobType'),
@@ -647,29 +640,93 @@ export class AllEntities {
                         disabled: false,
                         readonly: false,
                         options: [
-                            { value: 'Full Time', label: 'Full Time' },
-                            { value: 'Part Time', label: 'Part Time' },
-                            { value: 'Freelancing', label: 'Freelancing' },
-                            { value: 'Remote', label: 'Remote' },
+                            { value: 'fullTime', label: 'Full Time' },
+                            { value: 'partTime', label: 'Part Time' },
+                            { value: 'freelancing', label: 'Freelancing' },
+                            { value: 'remote', label: 'Remote' },
                         ],
-                        cols: 3
+                        cols: 6
 
                     },
-
                     {
-                        type: FieldType.text,
-                        name: 'jobCategory',
-                        label: this.translate.instant('jobCategory'),
+                        type: FieldType.textLocalized,
+                        name: 'jobTitle',
+                        label: this.translate.instant('jobTitle'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        cols: 12
+
+                    },
+                   
+
+                   
+                  
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'jobDescription',
+                        label: this.translate.instant('jobDescription'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: true,
+                        cols: 12,
+
+                    },
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'certificate',
+                        label: this.translate.instant('certificate'),
                         required: true,
                         validators: [Validators.required, Validators.minLength(3)],
                         disabled: false,
                         readonly: false,
                         multiline: false,
-                        cols: 3
+                        cols: 12,
+
+                    },
+
+                   
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'location',
+                        label: this.translate.instant('location'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
 
                     },
                     {
-                        type: FieldType.text,
+                        type: FieldType.textLocalized,
+                        name: 'experience',
+                        label: this.translate.instant('experience'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+
+                    },
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'industry',
+                        label: this.translate.instant('industry'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+
+                    },
+                    {
+                        type: FieldType.textLocalized,
                         name: 'jobResponsibilities',
                         label: this.translate.instant('jobResponsibilities'),
                         required: true,
@@ -681,67 +738,28 @@ export class AllEntities {
 
                     },
                     {
-                        type: FieldType.text,
-                        name: 'jobDescription',
-                        label: this.translate.instant('jobDescription'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: true,
-                        cols: 12,
-
-                    },
-
-                    {
                         type: FieldType.number,
-                        name: 'salary',
-                        label: this.translate.instant('salary'),
+                        name: 'salaryFrom',
+                        label: this.translate.instant('salary From'),
                         required: true,
                         validators: [Validators.required, Validators.min(0)],
                         disabled: false,
                         readonly: false,
                         multiline: false,
-                        cols: 4,
+                        cols: 6,
                     },
                     {
-                        type: FieldType.text,
-                        name: 'location',
-                        label: this.translate.instant('location'),
+                        type: FieldType.number,
+                        name: 'salaryTo',
+                        label: this.translate.instant('salary To'),
                         required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
+                        validators: [Validators.required, Validators.min(0)],
                         disabled: false,
                         readonly: false,
                         multiline: false,
-                        cols: 4,
-
+                        cols: 6,
                     },
-                    {
-                        type: FieldType.text,
-                        name: 'experience',
-                        label: this.translate.instant('experience'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 4,
-
-                    },
-                    {
-                        type: FieldType.text,
-                        name: 'industry',
-                        label: this.translate.instant('industry'),
-                        required: true,
-                        validators: [Validators.required, Validators.minLength(3)],
-                        disabled: false,
-                        readonly: false,
-                        multiline: false,
-                        cols: 4,
-
-                    },
-
-
+                  
                 ],
                 cols: 12,
                 localizedAllFields: false
