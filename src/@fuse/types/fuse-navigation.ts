@@ -18,6 +18,7 @@ export interface FuseNavigationItem
         bg?: string;
         fg?: string;
     };
+    permission?: string | string[];
     children?: FuseNavigationItem[];
 }
 

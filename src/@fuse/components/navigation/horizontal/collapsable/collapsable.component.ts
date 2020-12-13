@@ -24,6 +24,7 @@ export class FuseNavHorizontalCollapsableComponent implements OnInit, OnDestroy
 
     // Private
     private _unsubscribeAll: Subject<any>;
+    userTypeStored: string;
 
     constructor(
         private _fuseConfigService: FuseConfigService
@@ -42,6 +43,7 @@ export class FuseNavHorizontalCollapsableComponent implements OnInit, OnDestroy
      */
     ngOnInit(): void
     {
+        this.userTypeStored  = atob(sessionStorage.getItem(btoa('userType')))
         // Subscribe to config changes
         this._fuseConfigService.config
             .pipe(takeUntil(this._unsubscribeAll))

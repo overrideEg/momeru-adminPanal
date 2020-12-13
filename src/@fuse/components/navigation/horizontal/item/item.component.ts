@@ -12,12 +12,13 @@ export class FuseNavHorizontalItemComponent
 
     @Input()
     item: any;
+    userTypeStored: string;
 
     /**
      * Constructor
      */
     constructor()
     {
-
+        this.userTypeStored  = atob(sessionStorage.getItem(btoa('userType')))
     }
 }

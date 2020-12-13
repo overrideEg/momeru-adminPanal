@@ -28,7 +28,7 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'apps/dashboards/analytics',
+        redirectTo: 'apps/dashboards/project',
         pathMatch: 'full',
     },
     {
