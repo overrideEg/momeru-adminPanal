@@ -153,10 +153,12 @@ export class SelectComponent implements OnInit, OnDestroy {
 
   rowSelected(event) {
     this.selectedRow = event.data;
+  
   }
 
-  selectRow() {
 
+  selectRow() {
+    
     var selectedRow;
     // this.form.removeControl(this.field.name);
     if (!this.field.multiple) selectedRow = this.gridApi.getSelectedRows()[0];

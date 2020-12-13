@@ -14,19 +14,19 @@ export const fuseConfig: FuseConfig = {
     colorTheme      : 'theme-default',
     customScrollbars: true,
     layout          : {
-        style    : 'horizontal-layout-1',
+        style    : 'vertical-layout-1',
         width    : 'fullwidth',
         navbar   : {
             primaryBackground  : 'fuse-navy-900',
             secondaryBackground: 'fuse-navy-900',
-            folded             : false,
+            folded             : true,
             hidden             : false,
             position           : 'left',
             variant            : 'vertical-style-1'
         },
         toolbar  : {
-            customBackgroundColor: false,
-            background           : 'fuse-white-500',
+            customBackgroundColor: true,
+            background           : 'fuse-navy-900',
             hidden               : false,
             position             : 'above'
         },

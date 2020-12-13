@@ -7,6 +7,7 @@ import { DatePipe } from '@angular/common';
 import { UserType } from './user-type.enum';
 import { OverrideService } from '../@override/utils/override.service';
 import { API_URLS } from '../assets/constants/API_URLS';
+import { EntitiesService } from '../@override/utils/entities.service';
 
 export class AllEntities {
     constructor(
@@ -14,6 +15,7 @@ export class AllEntities {
         private override: OverrideService,
         private datePipe: DatePipe,
         private translate: TranslateService,
+        private _entities: EntitiesService
     ) { }
     public entities: EntityData[] = [
         {
@@ -572,15 +574,15 @@ export class AllEntities {
                         valueGetter: "node.rowIndex + 1"
                     },
                     {
-                        field: 'jobTitle.'+this.override.currentLang,
+                        field: 'jobTitle.' + this.override.currentLang,
                         headerName: this.translate.instant('job Title'),
                     },
                     {
-                        field: 'jobCategory.'+this.override.currentLang,
+                        field: 'jobCategory.' + this.override.currentLang,
                         headerName: this.translate.instant('job Category'),
                     },
                     {
-                        field: 'jobType.'+this.override.currentLang,
+                        field: 'jobType.' + this.override.currentLang,
                         headerName: this.translate.instant('job Type'),
                     },
 
@@ -597,7 +599,7 @@ export class AllEntities {
                         headerName: this.translate.instant('salary To'),
                     },
                     {
-                        field: 'location.'+this.override.currentLang,
+                        field: 'location.' + this.override.currentLang,
                         headerName: this.translate.instant('location'),
                     }
 
@@ -623,11 +625,11 @@ export class AllEntities {
                                     field: 'name'
                                 },
                                 {
-                                   
-                                    field: 'email' 
+
+                                    field: 'email'
                                 }
                             ],
-                            options:['name']
+                            options: ['name']
                         }
 
                     },
@@ -659,10 +661,10 @@ export class AllEntities {
                         cols: 12
 
                     },
-                   
 
-                   
-                  
+
+
+
                     {
                         type: FieldType.textLocalized,
                         name: 'jobDescription',
@@ -688,7 +690,7 @@ export class AllEntities {
 
                     },
 
-                   
+
                     {
                         type: FieldType.textLocalized,
                         name: 'location',
@@ -759,7 +761,7 @@ export class AllEntities {
                         multiline: false,
                         cols: 6,
                     },
-                  
+
                 ],
                 cols: 12,
                 localizedAllFields: false
@@ -1641,7 +1643,7 @@ export class AllEntities {
             add: true,
             edit: true,
             delete: true,
-    
+
             view: false,
             upload: true,
             export: true,
@@ -1657,11 +1659,11 @@ export class AllEntities {
                         valueGetter: "node.rowIndex + 1"
                     },
                     {
-                        field: 'body.'+this.override.currentLang,
+                        field: 'body.' + this.override.currentLang,
                         headerName: this.translate.instant('Vission'),
 
                     },
-                 
+
 
 
                 ]
@@ -1669,7 +1671,7 @@ export class AllEntities {
             },
             form: {
                 fields: [
-                    
+
                     {
                         type: FieldType.editorLocalized,
                         name: 'body',
@@ -1682,7 +1684,7 @@ export class AllEntities {
                         cols: 12,
 
                     },
-              
+
 
                 ],
                 cols: 12,
@@ -1704,7 +1706,7 @@ export class AllEntities {
             add: true,
             edit: true,
             delete: true,
-    
+
             view: false,
             upload: true,
             export: true,
@@ -1720,11 +1722,11 @@ export class AllEntities {
                         valueGetter: "node.rowIndex + 1"
                     },
                     {
-                        field: 'body.'+this.override.currentLang,
+                        field: 'body.' + this.override.currentLang,
                         headerName: this.translate.instant('Mission'),
 
                     },
-                 
+
 
 
                 ]
@@ -1732,7 +1734,7 @@ export class AllEntities {
             },
             form: {
                 fields: [
-                    
+
                     {
                         type: FieldType.editorLocalized,
                         name: 'body',
@@ -1745,7 +1747,7 @@ export class AllEntities {
                         cols: 12,
 
                     },
-              
+
 
                 ],
                 cols: 12,
@@ -1767,7 +1769,7 @@ export class AllEntities {
             add: true,
             edit: true,
             delete: true,
-    
+
             view: false,
             upload: true,
             export: true,
@@ -1783,11 +1785,11 @@ export class AllEntities {
                         valueGetter: "node.rowIndex + 1"
                     },
                     {
-                        field: 'body.'+this.override.currentLang,
+                        field: 'body.' + this.override.currentLang,
                         headerName: this.translate.instant('Mission'),
 
                     },
-                 
+
 
 
                 ]
@@ -1795,7 +1797,7 @@ export class AllEntities {
             },
             form: {
                 fields: [
-                    
+
                     {
                         type: FieldType.editorLocalized,
                         name: 'body',
@@ -1808,11 +1810,11 @@ export class AllEntities {
                         cols: 12,
 
                     },
-              
+
 
                 ],
                 cols: 12,
-                localizedAllFields: true    
+                localizedAllFields: true
             },
             permissions: {
                 add: [UserType.admin],
@@ -1821,19 +1823,20 @@ export class AllEntities {
             }
         },
 
+    
         {
             name: {
-                single: 'Card',
-                plural: 'Cards',
+                single: 'Question Category',
+                plural: 'Question Categories',
             },
-            apiSelector: 'Card',
-            route: '/generic/Card',
+            apiSelector: 'QuestionCategory',
+            route: '/generic/QuestionCategory',
             add: true,
             edit: true,
             delete: true,
             view: false,
             upload: false,
-            export: true,
+            export: false,
             table: {
                 paginated: true,
                 paginationPageSize: 15,
@@ -1846,1670 +1849,330 @@ export class AllEntities {
                         valueGetter: "node.rowIndex + 1"
                     },
                     {
-                        field: 'form.name.' + this.utils.currentLang,
-                        headerName: this.translate.instant('form name'),
+                        field: 'name.' + this.utils.currentLang,
+                        headerName: this.translate.instant('Group Name'),
                     },
-
-
 
                 ]
 
             },
             form: {
                 fields: [
-
                     {
-                        type: FieldType.group,
-                        name: 'applyForm',
+                        type: FieldType.textLocalized,
+                        name: 'name',
+                        label: this.translate.instant('name'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
                         cols: 12,
-                        label: this.translate.instant('Application'),
-                        children: [
-                            {
-                                type: FieldType.group,
-                                name: 'personal',
-                                label: this.translate.instant('personal'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-                                    {
-                                        type: FieldType.text,
-                                        name: 'fullName',
-                                        label: this.translate.instant('fullName'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'gender',
-                                        label: this.translate.instant('gender'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'dateOfBirth',
-                                        label: this.translate.instant('dateOfBirth'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'placeOfBirth',
-                                        label: this.translate.instant('placeOfBirth'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'state',
-                                        label: this.translate.instant('state'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'city',
-                                        label: this.translate.instant('city'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'country',
-                                        label: this.translate.instant('country'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'height',
-                                        label: this.translate.instant('height'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'weight',
-                                        label: this.translate.instant('weight'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'healthStatus',
-                                        label: this.translate.instant('healthStatus'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'diseases',
-                                        label: this.translate.instant('diseases'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'desiredPreferredJob',
-                                        label: this.translate.instant('desiredPreferredJob'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.file,
-                                        name: 'image',
-                                        label: this.translate.instant('image'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                ]
-
-                            },
-                            {
-                                type: FieldType.group,
-                                name: 'official',
-                                label: this.translate.instant('official'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-                                    {
-                                        type: FieldType.text,
-                                        name: 'passportNumber',
-                                        label: this.translate.instant('passportNumber'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'civilNumber',
-                                        label: this.translate.instant('civilNumber'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'passportImg',
-                                        label: this.translate.instant('passportImg'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'permanentResidenceAddress',
-                                        label: this.translate.instant('permanentResidenceAddress'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'state',
-                                        label: this.translate.instant('state'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'city',
-                                        label: this.translate.instant('city'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'country',
-                                        label: this.translate.instant('country'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'bankName',
-                                        label: this.translate.instant('bankName'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'bankCountry',
-                                        label: this.translate.instant('bankCountry'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'bankAccountNumber',
-                                        label: this.translate.instant('bankAccountNumber'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                ]
-
-                            },
-
-                            {
-                                type: FieldType.group,
-                                name: 'family',
-                                label: this.translate.instant('family'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-                                    {
-                                        type: FieldType.checkbox,
-                                        name: 'fatherPresent',
-                                        label: this.translate.instant('fatherPresent'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'fatherAge',
-                                        label: this.translate.instant('fatherAge'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'fatherYearOfBirth',
-                                        label: this.translate.instant('fatherYearOfBirth'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'fatherheadquarters',
-                                        label: this.translate.instant('fatherheadquarters'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'fatherempolyername',
-                                        label: this.translate.instant('fatherempolyername'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'fatherCountry',
-                                        label: this.translate.instant('fatherCountry'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'fatherOccupation',
-                                        label: this.translate.instant('fatherOccupation'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.checkbox,
-                                        name: 'motherPresent',
-                                        label: this.translate.instant('motherPresent'),
-                                        required: true,
-                                        validators: [Validators.required],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'motherAge',
-                                        label: this.translate.instant('motherAge'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'motherYearOfBirth',
-                                        label: this.translate.instant('motherYearOfBirth'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'motherHeadquarters',
-                                        label: this.translate.instant('motherHeadquarters'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'motherEmpolyerName',
-                                        label: this.translate.instant('motherEmpolyerName'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'motherCountry',
-                                        label: this.translate.instant('motherCountry'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'motherOccupation',
-                                        label: this.translate.instant('motherOccupation'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'familyBrotherSisters',
-                                        label: this.translate.instant('familyBrotherSisters'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'numberOfBrothers',
-                                        label: this.translate.instant('numberOfBrothers'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'numberOfsisters',
-                                        label: this.translate.instant('numberOfsisters'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'arrangementInFamily',
-                                        label: this.translate.instant('arrangementInFamily'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'applicantMartialStatus',
-                                        label: this.translate.instant('applicantMartialStatus'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'husbandName',
-                                        label: this.translate.instant('husbandName'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'husbandGender',
-                                        label: this.translate.instant('husbandGender'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'husbandDateOfBirth',
-                                        label: this.translate.instant('husbandDateOfBirth'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'employmentStatus',
-                                        label: this.translate.instant('employmentStatus'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'headquartersOfTheOrganization',
-                                        label: this.translate.instant('headquartersOfTheOrganization'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'organizationCountry',
-                                        label: this.translate.instant('organizationCountry'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'organizationOccupation',
-                                        label: this.translate.instant('organizationOccupation'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'numberOfChildren',
-                                        label: this.translate.instant('numberOfChildren'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'numberOfGirls',
-                                        label: this.translate.instant('numberOfGirls'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.chips,
-                                        name: 'babyNames',
-                                        label: this.translate.instant('babyNames'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-                                        arrayView: 'chip',
-
-                                    },
-
-
-                                ]
-
-                            },
-
-
-                            {
-                                type: FieldType.group,
-                                name: 'qualifications',
-                                label: this.translate.instant('qualifications'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-                                    {
-                                        type: FieldType.text,
-                                        name: 'name',
-                                        label: this.translate.instant('name'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'specialization',
-                                        label: this.translate.instant('specialization'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'instituteName',
-                                        label: this.translate.instant('instituteName'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'durationStudy',
-                                        label: this.translate.instant('durationStudy'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'numberOfMonths',
-                                        label: this.translate.instant('numberOfMonths'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'numberOfYears',
-                                        label: this.translate.instant('numberOfYears'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'graduationYear',
-                                        label: this.translate.instant('graduationYear'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'country',
-                                        label: this.translate.instant('country'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'city',
-                                        label: this.translate.instant('city'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'levelOfQualification',
-                                        label: this.translate.instant('levelOfQualification'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-
-
-
-
-
-                                ]
-
-                            },
-
-                            {
-                                type: FieldType.group,
-                                name: 'experiences',
-                                label: this.translate.instant('experiences'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-                                    {
-                                        type: FieldType.text,
-                                        name: 'job',
-                                        label: this.translate.instant('job'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'nameOfInstitute',
-                                        label: this.translate.instant('nameOfInstitute'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'department',
-                                        label: this.translate.instant('department'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'from',
-                                        label: this.translate.instant('from'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'to',
-                                        label: this.translate.instant('to'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'destinationArea',
-                                        label: this.translate.instant('destinationArea'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'country',
-                                        label: this.translate.instant('country'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'baseSalary',
-                                        label: this.translate.instant('baseSalary'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'totalSalary',
-                                        label: this.translate.instant('totalSalary'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'mainFunctions',
-                                        label: this.translate.instant('mainFunctions'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-
-
-
-
-
-                                ]
-
-                            },
-
-                            {
-                                type: FieldType.group,
-                                name: 'ambition',
-                                label: this.translate.instant('ambition'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-                                    {
-                                        type: FieldType.text,
-                                        name: 'lessThanYear',
-                                        label: this.translate.instant('lessThanYear'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'within3Years',
-                                        label: this.translate.instant('within3Years'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'educationalAspect',
-                                        label: this.translate.instant('educationalAspect'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'educationalAspect3Years',
-                                        label: this.translate.instant('educationalAspect3Years'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'financialAspect',
-                                        label: this.translate.instant('financialAspect'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'financialAspect3Years',
-                                        label: this.translate.instant('financialAspect3Years'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'financialSocialSide',
-                                        label: this.translate.instant('financialSocialSide'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-
-
-
-
-
-
-                                ]
-
-                            },
-
-
-                            {
-                                type: FieldType.group,
-                                name: 'communicate',
-                                label: this.translate.instant('communicate'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-                                    {
-                                        type: FieldType.text,
-                                        name: 'number1',
-                                        label: this.translate.instant('number1'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'number2',
-                                        label: this.translate.instant('number2'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'email',
-                                        label: this.translate.instant('email'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'facebook',
-                                        label: this.translate.instant('facebook'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'instagram',
-                                        label: this.translate.instant('instagram'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'experiences',
-                                        label: this.translate.instant('experiences'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'contactNumber',
-                                        label: this.translate.instant('contactNumber'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'name',
-                                        label: this.translate.instant('name'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-
-
-
-
-
-
-                                ]
-
-                            },
-
-                            {
-                                type: FieldType.group,
-                                name: 'importantQuestions',
-                                label: this.translate.instant('importantQuestions'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-                                    {
-                                        type: FieldType.text,
-                                        name: 'preferedJob',
-                                        label: this.translate.instant('The job you prefer'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'WorkedInMicroSystem',
-                                        label: this.translate.instant('Do you want to work in the micro system?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'WorkedWithFerryEagle',
-                                        label: this.translate.instant('Do you want to work with the Ferry Eagle?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'workedOutsideCountry',
-                                        label: this.translate.instant('Do you want to work outside your country?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'countryPrefairWork',
-                                        label: this.translate.instant('What countries would you like to travel to and work in, if any?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'acceptToStartInvestingPartner',
-                                        label: this.translate.instant('Do you accept to start your own project with an investing partner from the beginning?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'profitsAfterSeveralMonthsOrAyear',
-                                        label: this.translate.instant('Are you ready to partner with a project and receive returns and profits after several months or a year?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'selfEmployedOwnBusiness',
-                                        label: this.translate.instant('Do you want to be self-employed and have your own business?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'startYourOwnBusiness',
-                                        label: this.translate.instant('Do you want to start your own business on your own as a first step?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'immigrateToAcountry',
-                                        label: this.translate.instant('Do you want to immigrate to a country? Or a number of countries?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'countriesDoYouWishToImmigrate',
-                                        label: this.translate.instant('What countries do you wish to immigrate to, if any?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'takeAcharacterAnalysisQuiz',
-                                        label: this.translate.instant('Did you take a character analysis quiz?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'analysisTest',
-                                        label: this.translate.instant('What is the name of the analysis test that you did?Did you take a character analysis quiz?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'whatPersonalityType',
-                                        label: this.translate.instant('What is your personality type in your analysis?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'takeIntelligenceTest',
-                                        label: this.translate.instant('Did you take an intelligence test or measure habits?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'nameOfTheIQTest',
-                                        label: this.translate.instant('What is the name of the IQ test that you did?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'youScoreOnAnIQIest',
-                                        label: this.translate.instant('How did you score on an IQ test?'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 6,
-
-                                    },
-
-
-
-
-
-
-                                ]
-
-                            },
-
-                            {
-                                type: FieldType.group,
-                                name: 'skills',
-                                label: this.translate.instant('skills'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-                                    {
-                                        type: FieldType.chips,
-                                        name: 'spokenLanguages',
-                                        label: this.translate.instant('spokenLanguages'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-                                        arrayView: 'chip'
-
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'writingAR',
-                                        label: this.translate.instant('writing Arabic'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'readingAR',
-                                        label: this.translate.instant('reading Arabic'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'speakingAR',
-                                        label: this.translate.instant('speaking Arabic'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'writingEN',
-                                        label: this.translate.instant('writing English'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'readingEN',
-                                        label: this.translate.instant('reading English'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'speakingEN',
-                                        label: this.translate.instant('speaking English'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'writingMS',
-                                        label: this.translate.instant('writing Ms'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'readingMS',
-                                        label: this.translate.instant('reading Ms'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'speakingMS',
-                                        label: this.translate.instant('speaking Ms'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'writingAnother',
-                                        label: this.translate.instant('writing Another'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'readingAnother',
-                                        label: this.translate.instant('reading Another'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.number,
-                                        name: 'speakingAnother',
-                                        label: this.translate.instant('speaking Another'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-                                    {
-                                        type: FieldType.text,
-                                        name: 'hobbies',
-                                        label: this.translate.instant('hobbies'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-
-
-
-
-
-
-                                ]
-
-                            },
-                            {
-                                type: FieldType.group,
-                                name: 'workData',
-                                label: this.translate.instant('workData'),
-                                required: true,
-                                validators: [Validators.required],
-                                disabled: false,
-                                readonly: true,
-                                multiline: false,
-                                cols: 12,
-                                children: [
-
-
-                                    {
-                                        type: FieldType.text,
-                                        name: 'question',
-                                        label: this.translate.instant('question'),
-                                        required: false,
-                                        validators: [],
-                                        disabled: false,
-                                        readonly: true,
-                                        multiline: false,
-                                        cols: 4,
-
-                                    },
-
-
-
-
-
-
-                                ]
-
-                            },
-                        ]
 
                     }
-
-
-
 
 
 
                 ],
                 cols: 12,
                 localizedAllFields: false
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
             }
         },
+        {
+            name: {
+                single: 'Question',
+                plural: 'Questions',
+            },
+            apiSelector: 'Question',
+            route: '/generic/Question',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: false,
+            export: false,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        headerName: '#',
+                        valueGetter: "node.rowIndex + 1"
+                    },
+                    {
+                        field: 'label.' + this.utils.currentLang,
+                        headerName: this.translate.instant('Question Label'),
+                    },
+                    {
+                        field: 'required',
+                        headerName: this.translate.instant('Required Status'),
+                    },
+                    {
+                        field: 'multiline',
+                        headerName: this.translate.instant('Multiple Lines'),
+                        cellRenderer: (param) => {
+                            switch (param.value) {
+                                case true:
+                                    return 'Yes';
+                                default:
+                                    return 'No'
+                            }
+                        }
+                    },
+                    {
+                        field: 'multipleAnswers',
+                        headerName: this.translate.instant('Multiple Answers'),
+                        cellRenderer: (param) => {
+                            switch (param.value) {
+                                case true:
+                                    return 'Yes';
+                                default:
+                                    return 'No'
+                            }
+                        }
+                    },
+                    {
+                        field: 'category.name.' + this.utils.currentLang,
+                        headerName: this.translate.instant('Category')
+                    }
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    {
+                        type: FieldType.textLocalized,
+                        name: 'label',
+                        label: this.translate.instant('Question Label'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 12,
+                        details: this.translate.instant('Enter Question Label in arabic And Its Automaticallly Translattes Into 3 languages')
+
+                    },
+                    {
+                        type: FieldType.dropdown,
+                        name: 'type',
+                        label: this.translate.instant('Question Type'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 6,
+                        options: [
+                            {
+                                value: 'text',
+                                label: this.translate.instant('Text')
+                            },
+                            {
+                                value: 'checkbox',
+                                label: this.translate.instant('Check Box')
+                            },
+                            {
+                                value: 'date',
+                                label: this.translate.instant('Date')
+                            },
+                            {
+                                value: 'dropdown',
+                                label: this.translate.instant('Drop Down')
+                            },
+                            {
+                                value: 'email',
+                                label: this.translate.instant('Email')
+                            },
+                            {
+                                value: 'file',
+                                label: this.translate.instant('File')
+                            },
+                            {
+                                value: 'number',
+                                label: this.translate.instant('Number')
+                            },
+                            {
+                                value: 'onlyNumber',
+                                label: this.translate.instant('Text With Only Numbers')
+                            },
+                            {
+                                value: 'phoneNumber',
+                                label: this.translate.instant('Phone Number')
+                            },
+                            {
+                                value: 'slider',
+                                label: this.translate.instant('Slider')
+                            },
+                            {
+                                value: 'url',
+                                label: this.translate.instant('URL')
+                            },
+                            {
+                                value: 'radio',
+                                label: this.translate.instant('Radio Buttons')
+                            },
+                        ]
+
+                    },
+                    {
+                        type: FieldType.dropdown,
+                        name: 'required',
+                        label: this.translate.instant('Required Level'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        cols: 6,
+                        options: [
+                            {
+                                value: 'veryhigh',
+                                label: this.translate.instant('Very High')
+                            },
+                            {
+                                value: 'high',
+                                label: this.translate.instant('High')
+                            },
+                            {
+                                value: 'medium',
+                                label: this.translate.instant('Medium')
+                            },
+                            {
+                                value: 'low',
+                                label: this.translate.instant('Low')
+                            },
+
+                        ]
+
+                    },
+                    {
+                        type: FieldType.checkbox,
+                        name: 'multiline',
+                        label: this.translate.instant('Multiple Lines'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        initialValue: false,
+                        cols: 6,
+                        displayIf: () => { return this._entities.form?.get('type')?.value === 'text' }
+                    },
+                    {
+                        type: FieldType.checkbox,
+                        name: 'multipleAnswers',
+                        label: this.translate.instant('Multiple Answers'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        initialValue: false,
+                        cols: 6,
+                        displayIf: () => { return this._entities.form?.get('type')?.value === 'dropdown' || this._entities.form?.get('type')?.value === 'radio' }
+                    },
+                    {
+                        type: FieldType.entity,
+                        name: 'forms',
+                        label: this.translate.instant('Forms'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        multiple: true,
+                        initialValue: false,
+                        cols: 6,
+                        selectOptions: {
+                            fromSelector: 'Form',
+                            optionName: 'title',
+                            
+                            columns: [
+                                {
+                                    checkboxSelection: true,
+                                    headerCheckboxSelection: true,
+                                    headerName: '#',
+                                    valueGetter: "node.rowIndex + 1"
+                                },
+                                {
+
+                                    headerName: this.translate.instant('Title'),
+                                    field: 'title.' + this.utils.currentLang
+                                }
+
+                            ]
+                        }
+                    },
+                    {
+                        type: FieldType.entity,
+                        name: 'category',
+                        label: this.translate.instant('Category'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: false,
+                        initialValue: false,
+                        cols: 6,
+                        selectOptions: {
+                            fromSelector: 'QuestionCategory',
+                            optionName: 'name',
+                            columns: [
+                                {
+                                    checkboxSelection: true,
+                                    headerCheckboxSelection: true,
+                                    headerName: '#',
+                                    valueGetter: "node.rowIndex + 1"
+                                },
+                                {
+
+                                    headerName: this.translate.instant('name'),
+                                    field: 'name.' + this.utils.currentLang
+                                }
+
+                            ]
+                        }
+                    },
+                    {
+                        type: FieldType.array,
+                        name: 'options',
+                        label: this.translate.instant('Options'),
+                        required: true,
+                        validators: [],
+                        disabled: false,
+                        readonly: false,
+                        initialValue: false,
+                        arrayView: 'table',
+                        arrayAddRow: true,
+                        cols: 12,
+                        displayIf: () => { return this._entities.form?.get('type')?.value === 'dropdown' || this._entities.form?.get('type')?.value === 'radio' },
+                        children: [
+                            {
+                                type: FieldType.textLocalized,
+                                name: 'text',
+                                label: this.translate.instant('Option Text'),
+                                required: true,
+                                validators: [],
+                                disabled: false,
+                                readonly: false,
+                                cols: 12,
+        
+                            }
+                        ]
+                    }
 
 
-
+                ],
+                cols: 12,
+                localizedAllFields: false
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
+            }
+        },
     ];
 }

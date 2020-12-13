@@ -15,12 +15,16 @@ import { OverrideService } from './override.service';
 })
 export class EntitiesService {
   entityData: EntityData;
+  record: any;
 
   constructor(
-    private override: OverrideService,
+    private translate: TranslateService,
     private router: Router,
     private fb: FormBuilder,
-    private datepipe: DatePipe) { }
+    private datepipe: DatePipe,
+    private override: OverrideService) {
+        // console.log('reouter', router)
+     }
 
 
   public get isAdd(): boolean {
@@ -35,6 +39,18 @@ export class EntitiesService {
   public get isView(): boolean {
     return this.router.url.includes('view');
   }
+
+  public get canEdit(): boolean {
+    let arry = this.router.url.split('/')
+    let fill = arry.filter(a=>a === 'edit')
+    return fill.includes('edit');
+  }
+  public get canAdd(): boolean {
+    let arry = this.router.url.split('/')
+    let fill = arry.filter(a=> a === 'add')
+    return fill.includes('add');
+  }
+
 
   entityId: string;
   isEditMode: boolean;
@@ -56,44 +72,37 @@ export class EntitiesService {
       case FieldType.entity: {
         return this.fb.control({ value: f.initialValue || f.multiple ? [] : {}, disabled: f.disabled }, f.validators ? f.validators : []);
       }
-      case FieldType.textLocalized : {
+      case FieldType.textLocalized || FieldType.editorLocalized: {
 
         let ctrl = {};
-        
-        if (this.isEdit){
-          
+        if (this.entityData.form.localizedAllFields === true || this.isEdit) {
+          // tslint:disable-next-line: forin
+          // for (const lang in Lang) {
+
+          // }
+
           ctrl['ar'] = this.fb.control(
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
           ctrl['en'] = this.fb.control(
-            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
+            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
           ctrl['ms'] = this.fb.control(
-            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
-  
+            { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
 
+
+
+        } else {
+
+          ctrl['ar'] = this.fb.control(
+            {
+              value: f.initialValue ? f.initialValue : '' || '',
+              disabled: f.disabled,
+            },
+            f.validators ? f.validators : []
+          );
+
+
+        }
         
-  } else {
-    ctrl['ar'] = this.fb.control(
-      { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
-      // if (this.entityData.form.localizedAllFields === true ) {
-          
-
-      //     ctrl['en'] = this.fb.control(
-      //       { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
-  
-      //     ctrl['ms'] = this.fb.control(
-      //       { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
-   
-
-
-      //   } else {
-
-      //       ctrl[this.override.currentLang] = this.fb.control(
-      //           { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
-
-
-      //   }
-  }
-    
         
         return this.fb.group(ctrl);
       }
@@ -122,7 +131,6 @@ export class EntitiesService {
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
           ctrl['en'] = this.fb.control(
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
-   
           ctrl['ms'] = this.fb.control(
             { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, []);
    
@@ -130,13 +138,15 @@ export class EntitiesService {
 
         } else {
 
-            ctrl[this.override.currentLang] = this.fb.control(
+            ctrl['ar'] = this.fb.control(
                 { value: f.initialValue ? f.initialValue : '' || '', disabled: f.disabled }, f.validators ? f.validators : []);
 
 
         }
   }
     
+  console.log(ctrl);
+  
         
         return this.fb.group(ctrl);
       }
@@ -146,22 +156,16 @@ export class EntitiesService {
           (child) => {
             childs[child.name] = this.DetectField(child);
           
-            // this.fb.control(
-            //   {
-            //     value: child.initialValue || '',
-            //     disabled: child.disabled,
-            //   },
-            //   child.validators ? child.validators : []
-            // );
+  
           },
           f.validators ? f.validators : []
         );
         let fg = this.fb.group(childs);
-        return f.arrayAddRow? this.fb.array([fg]):this.fb.array([]);
+        return this.fb.array([fg]);
       }
       case FieldType.checkbox: {
         return this.fb.control(
-          { value: f.initialValue || false, disabled: f.disabled, }, f.validators ? f.validators : []
+          { value:  false, disabled: f.disabled, }, f.validators ? f.validators : []
         );
       }
       case FieldType.dropdown: {
@@ -197,35 +201,15 @@ export class EntitiesService {
       case FieldType.group: {
         let childs = {};
 
-        // f.children.forEach((child) => {
-
-        //   childs[child.name] = this.DetectField(child)
-          
-        //   // this.fb.control(
-        //   //   {
-        //     //     value: child.initialValue || '',
-        //   //     disabled: child.disabled,
-        //   //   },
-        //   //   child.validators ? child.validators : []
-        //   // );
-        // });
-        // console.log('f',f);
-        
-        f.children.forEach(
-          (child) => {
-            childs[child.name] = this.DetectField(child);
-          
-            // this.fb.control(
-            //   {
-            //     value: child.initialValue || '',
-            //     disabled: child.disabled,
-            //   },
-            //   child.validators ? child.validators : []
-            // );
-          },
-          f.validators ? f.validators : []
-        );
-        // console.log(childs);
+        f.children.forEach((child) => {
+          childs[child.name] = this.fb.control(
+            {
+              value: child.initialValue || '',
+              disabled: child.disabled,
+            },
+            child.validators ? child.validators : []
+          );
+        });
         return this.fb.group(
           childs,
           f.validators ? f.validators : []

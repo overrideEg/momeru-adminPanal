@@ -154,10 +154,38 @@ export const navigation: FuseNavigation[] = [
         id       : 'Forms',
         title    : 'Forms',
         translate: 'Forms',
-        type     : 'item',
+        type     : 'group',
         url  : '/generic/Form',
         permission : ['admin','employee' ],
-
+        children:[
+            {
+                id       : 'Form',
+                title    : 'Form',
+                translate: 'Form',
+                type     : 'item',
+                url  : '/generic/Form',
+                permission : ['admin','employee' ],
+        
+            },
+            {
+                id       : 'Question Category',
+                title    : 'Question Category',
+                translate: 'Question Category',
+                type     : 'item',
+                url  : '/generic/QuestionCategory',
+                permission : ['admin','employee' ],
+        
+            },
+            {
+                id       : 'Questions',
+                title    : 'Questions',
+                translate: 'Questions',
+                type     : 'item',
+                url  : '/generic/Question',
+                permission : ['admin','employee' ],
+        
+            },
+        ]
     },
     {
         id       : 'Contact Us',

@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './field-builder.component.html',
   styleUrls: ['./field-builder.component.scss']
 })
-export class FieldBuilderComponent  {
+export class FieldBuilderComponent {
   @Input() field: AbstractField;
   @Input() isArray: boolean;
   @Input() form: FormGroup
@@ -18,7 +18,12 @@ export class FieldBuilderComponent  {
     public entities: EntitiesService,
     public override: OverrideService) { }
 
-  
 
- 
+  public get displayIf(): boolean {
+    return this.field.displayIf ? this.field.displayIf() : true
+  }
+
+
+
+
 }

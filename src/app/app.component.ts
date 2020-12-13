@@ -203,7 +203,7 @@ export class AppComponent implements OnInit, OnDestroy {
         this._fuseSidebarService.getSidebar(key).toggleOpen();
     } 
 
-    entities = new AllEntities( this.utils,this.override, this.datePipe,this._translateService);
+    entities = new AllEntities( this.utils,this.override, this.datePipe,this._translateService,this._entities);
     setEntities() {
         this._entities.allEntities = this.entities.entities;
     }
