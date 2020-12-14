@@ -230,7 +230,7 @@
 
                 </div>
 
-                <div *ngIf="card.idMembers[0]" fxFlex class="members">
+                <!-- <div *ngIf="card.idMembers[0]" fxFlex class="members">
 
                     <div class="section-header" fxLayout="row" fxLayoutAlign="start center">
                         <mat-icon class="mr-8">supervisor_account</mat-icon>
@@ -241,12 +241,12 @@
                         <div class="member-chips" fxLayout="row" fxLayoutWrap>
                             <div class="member-chip mb-4" *ngFor="let memberId of card.idMembers" fxLayout="row" fxLayoutAlign="start center">
                                 {{memberId}}
-                                <!-- <img class="member-chip-avatar" [src]="board.members | getById:memberId:'avatar'" [matTooltip]="board.members | getById:memberId:'name'"> -->
+                                <img class="member-chip-avatar" [src]="board.members | getById:memberId:'avatar'" [matTooltip]="board.members | getById:memberId:'name'">
                             </div>
                         </div>
                     </div>
 
-                </div>
+                </div> -->
 
             </div>
             <!-- / LABELS & MEMBERS SECTION -->

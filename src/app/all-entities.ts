@@ -705,6 +705,18 @@ export class AllEntities {
                     },
                     {
                         type: FieldType.textLocalized,
+                        name: 'jobCategory',
+                        label: this.translate.instant('Category'),
+                        required: true,
+                        validators: [Validators.required, Validators.minLength(3)],
+                        disabled: false,
+                        readonly: false,
+                        multiline: false,
+                        cols: 12,
+
+                    },
+                    {
+                        type: FieldType.textLocalized,
                         name: 'experience',
                         label: this.translate.instant('experience'),
                         required: true,
@@ -1334,8 +1346,151 @@ export class AllEntities {
                 view: [UserType.admin]
             }
         },
+        {
+            name: {
+                single: 'Agent',
+                plural: 'Agents',
+            },
+            apiSelector: 'Agent',
+            route: '/generic/Agent',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: false,
+            export: false,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        headerName: '#',
+                        valueGetter: "node.rowIndex + 1"
+                    },
 
 
+                    {
+                        field: 'name' ,
+                        headerName: this.translate.instant('Name'),
+                    }
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    {
+                        type: FieldType.text,
+                        name: 'name',
+                        label: this.translate.instant('Name'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: true,
+                        cols: 12,
+
+                    },
+
+                    {
+                        type: FieldType.file,
+                        name: 'image',
+                        label: this.translate.instant('Image'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: true,
+                        multiline: false,
+                        cols: 6,
+
+                    }
+
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
+            }
+        },
+
+        {
+            name: {
+                single: 'Partner',
+                plural: 'Partners',
+            },
+            apiSelector: 'Partner',
+            route: '/generic/Partner',
+            add: true,
+            edit: true,
+            delete: true,
+            view: false,
+            upload: false,
+            export: false,
+            table: {
+                paginated: true,
+                paginationPageSize: 15,
+                pivotMode: false,
+                columnDefs: [
+                    {
+                        checkboxSelection: true,
+                        headerCheckboxSelection: true,
+                        headerName: '#',
+                        valueGetter: "node.rowIndex + 1"
+                    },
+
+
+                    {
+                        field: 'name' ,
+                        headerName: this.translate.instant('Name'),
+                    }
+
+                ]
+
+            },
+            form: {
+                fields: [
+                    {
+                        type: FieldType.text,
+                        name: 'name',
+                        label: this.translate.instant('Name'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: true,
+                        cols: 12,
+
+                    },
+
+                    {
+                        type: FieldType.file,
+                        name: 'image',
+                        label: this.translate.instant('Image'),
+                        required: true,
+                        validators: [Validators.required],
+                        disabled: false,
+                        readonly: true,
+                        multiline: false,
+                        cols: 6,
+
+                    }
+
+
+                ],
+                cols: 12,
+                localizedAllFields: false
+            },
+            permissions: {
+                add: [UserType.admin],
+                edit: [UserType.admin],
+                view: [UserType.admin]
+            }
+        },
         {
             name: {
                 single: 'Article',

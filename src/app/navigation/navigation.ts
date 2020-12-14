@@ -29,17 +29,7 @@ export const navigation: FuseNavigation[] = [
                 permission : ['admin',  'employee'],
         
         
-            },
-            {
-                id       : 'Applications List',
-                title    : 'Applications List',
-                translate: 'Applications List',
-                type     : 'item',
-                icon     : 'Tag',
-                url  : '/generic/Card',
-                permission : ['admin' ,'employee'],
-        
-            },
+            }
          
 
         ]
@@ -114,7 +104,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'Jobs',
         type     : 'group',
         icon     : 'tab_unselected',
-        permission : ['admin', 'company','employee'],
+        permission : ['admin'],
         children : [
             {
                 id       : 'Job',
@@ -123,7 +113,7 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'person_outline',
                 url  : '/generic/Job',
-                permission : ['admin', 'company','employee'],
+                permission : ['admin'],
         
             },
             {
@@ -133,7 +123,7 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'person_outline',
                 url  : '/generic/JobApp',
-                permission : ['admin', 'company','employee'],
+                permission : ['admin'],
         
             },
             {
@@ -143,7 +133,7 @@ export const navigation: FuseNavigation[] = [
                 type     : 'item',
                 icon     : 'Tag',
                 url  : '/generic/Company',
-                permission : ['admin',  ],
+                permission : ['admin'  ],
         
             },
          
@@ -156,7 +146,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'Forms',
         type     : 'group',
         url  : '/generic/Form',
-        permission : ['admin','employee' ],
+        permission : ['admin' ],
         children:[
             {
                 id       : 'Form',
@@ -164,7 +154,7 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Form',
                 type     : 'item',
                 url  : '/generic/Form',
-                permission : ['admin','employee' ],
+                permission : ['admin' ],
         
             },
             {
@@ -173,7 +163,7 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Question Category',
                 type     : 'item',
                 url  : '/generic/QuestionCategory',
-                permission : ['admin','employee' ],
+                permission : ['admin' ],
         
             },
             {
@@ -182,7 +172,7 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Questions',
                 type     : 'item',
                 url  : '/generic/Question',
-                permission : ['admin','employee' ],
+                permission : ['admin' ],
         
             },
         ]
@@ -193,7 +183,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'Contact Us',
         type     : 'item',
         url  : '/generic/ContactUs',
-        permission : ['admin', ],
+        permission : ['admin' ],
 
     },
  
@@ -203,7 +193,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'CEO Talk',
         type     : 'item',
         url  : '/generic/CeoTalk',
-        permission : ['admin', ],
+        permission : ['admin'],
 
     },
  
@@ -213,7 +203,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'FAQs',
         type     : 'item',
         url  : '/generic/Faq',
-        permission : ['admin', ],
+        permission : ['admin' ],
 
     },
  
@@ -281,6 +271,24 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Services',
                 type     : 'item',
                 url  : '/generic/Services',
+                permission : ['admin',  ],
+        
+            },
+            {
+                id       : 'Agents',
+                title    : 'Agents',
+                translate: 'Agents',
+                type     : 'item',
+                url  : '/generic/Agent',
+                permission : ['admin',  ],
+        
+            },
+            {
+                id       : 'Partner',   
+                title    : 'Partner',
+                translate: 'Partner',
+                type     : 'item',
+                url  : '/generic/Partner',
                 permission : ['admin',  ],
         
             },

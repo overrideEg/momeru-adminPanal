@@ -2,7 +2,7 @@
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
 // const uri = 'https://server.momeru.com/v1';
-const uri = 'http://localhost:3010/v1';
+const uri = 'http://server.overrideeg.net:3010/v1';
 // const uri = 'https://edupromise.remabackend.com/v1';
 // const uri = 'https://server.momeru.com/v1';
 export const API_URLS = {
@@ -13,8 +13,8 @@ export const API_URLS = {
     register: uri + '/register',
   },
   File: {
-    upload: 'https://file.remabackend.com/File/upload?project=momeru',
-    UploadMultiple:  'https://file.remabackend.com/File/uploadMultiple?project=momeru',
+    upload: 'http://server.overrideeg.net:3000/File/upload?project=momeru',
+    UploadMultiple:  'http://server.overrideeg.net:3000/File/uploadMultiple?project=momeru',
     delete: uri + '/File',
   },
 
@@ -38,6 +38,20 @@ export const API_URLS = {
     getOne: uri + '/Question/{entityId}',
     put: uri + '/Question/{entityId}',
     delete: uri + '/Question/{entityId}',
+  },
+  Agent: {
+    post: uri + '/Agent',
+    get: uri + '/Agent/all',
+    getOne: uri + '/Agent/{entityId}',
+    put: uri + '/Agent/{entityId}',
+    delete: uri + '/Agent/{entityId}',
+  },
+  Partner: {
+    post: uri + '/Partner',
+    get: uri + '/Partner/all',
+    getOne: uri + '/Partner/{entityId}',
+    put: uri + '/Partner/{entityId}',
+    delete: uri + '/Partner/{entityId}',
   },
   ProjectCategory: {
     post: uri + '/ProjectCategory',
