@@ -1,8 +1,8 @@
 
 /* This file should contain All EndPoint Routes Across all the application*/
 /* Follow the Naming Convention*/
-// const uri = 'https://server.momeru.com/v1';
-const uri = 'http://server.overrideeg.net:3010/v1';
+const uri = 'https://server.momeru.com/v1';
+// const uri = 'http://server.overrideeg.net:3010/v1';
 // const uri = 'https://edupromise.remabackend.com/v1';
 // const uri = 'https://server.momeru.com/v1';
 export const API_URLS = {
