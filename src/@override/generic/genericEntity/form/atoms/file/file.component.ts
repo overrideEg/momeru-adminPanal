@@ -47,7 +47,7 @@ export class FileComponent implements OnInit,OnDestroy {
       const file = event.target.files[0];
       const formData = new FormData();
       formData.append('file', file);
-      this.uploadSubscription =   this.entity.save(API_URLS.File.upload, formData, this.override.FilesAuthHeaders, 'multipart/form-data').subscribe((res:any)=>{
+      this.uploadSubscription =   this.entity.save(API_URLS.File.upload, formData, this.override.AuthHeaders, 'multipart/form-data').subscribe((res:any)=>{
         console.log(res);
         
         this.form.get(this.field.name).setValue(res.body?.path)
@@ -66,7 +66,7 @@ export class FileComponent implements OnInit,OnDestroy {
 
 
 
-      this.uploadSubscription =  this.entity.save(API_URLS.File.UploadMultiple, formData,this.override.FilesAuthHeaders).subscribe((res:any)=>{
+      this.uploadSubscription =  this.entity.save(API_URLS.File.UploadMultiple, formData,this.override.AuthHeaders).subscribe((res:any)=>{
 
         if (res) {
           this.entity.showSuccessToast(this.translate.instant('Uploaded'))

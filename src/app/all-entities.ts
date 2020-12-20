@@ -2154,6 +2154,10 @@ export class AllEntities {
                                 label: this.translate.instant('Number')
                             },
                             {
+                                value: 'country',
+                                label: this.translate.instant('Country')
+                            },
+                            {
                                 value: 'onlyNumber',
                                 label: this.translate.instant('Text With Only Numbers')
                             },
