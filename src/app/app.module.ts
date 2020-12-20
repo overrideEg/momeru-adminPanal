@@ -25,16 +25,25 @@ import { AdminGuard } from './guards/admin.guard';
 import { DatePipe } from '@angular/common';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { ApplicationCardComponent } from './application-card/application-card.component';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatStepperModule } from '@angular/material/stepper';
 const appRoutes: Routes = [
     {
         path: '',
-        redirectTo: 'apps/dashboards/analytics',
+        redirectTo: 'apps/dashboards/project',
         pathMatch: 'full',
     },
     {
         path: 'apps',
         loadChildren: () => import('./main/apps/apps.module').then(m => m.AppsModule),
         canActivate: [AdminGuard]
+    },
+    {
+        path: 'card/:entityId',
+        component: ApplicationCardComponent
     },
     {
         path: 'pages',
@@ -70,9 +79,10 @@ export function HttpLoaderFactory(http: HttpClient) {
 }
 @NgModule({
     declarations: [
-        AppComponent,    
-      
-        ],
+        AppComponent,
+        ApplicationCardComponent,
+
+    ],
     imports: [
         // GenericModule,
         BrowserModule,
@@ -107,7 +117,14 @@ export function HttpLoaderFactory(http: HttpClient) {
         FuseSharedModule,
         FuseSidebarModule,
         FuseThemeOptionsModule,
+        MatButtonModule,
+        MatFormFieldModule,
+        MatIconModule,
+        MatInputModule,
+        MatSelectModule,
+        MatStepperModule,
 
+        FuseSharedModule,
         // App modules
         LayoutModule,
         AppStoreModule

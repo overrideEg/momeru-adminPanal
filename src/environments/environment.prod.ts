@@ -7,5 +7,5 @@ export const environment = {
     // serverUrl: 'http://localhost:3001/v1',
     fileAuth:'bmV0Lm92ZXJyaWRlZWcuc2VydmljZXMuZmlsZVVwbG9hZA==',
 
-    serverUrl: 'https://serve.edu-promise.com/v1',
+    serverUrl: 'http://server.overrideeg.net:3000/v1',
 };

@@ -41,7 +41,9 @@ export class TableComponent implements OnDestroy {
       if (val instanceof ActivationEnd) {
         nav = ActivationEnd
         let route = val.snapshot.params.route
-        let entity = this.entities.allEntities.find(entity => entity.route.substr(entity.route.indexOf('/', 2) + 1) === route)
+        let entity = this.entities.allEntities.find(entity => entity.route.substr(entity.route.indexOf('/', 2) + 1) === route);
+        console.log(entity);
+        
         this.entityData = entity;
       }
     });
@@ -107,7 +109,7 @@ export class TableComponent implements OnDestroy {
   }
   onDeleteClick(event) {
     const data = event.rowData.data;
-    if (confirm(this.translate.instant("sure?"))) {      
+    if (confirm(this.translate.instant("sure?")) && this.entityData) {      
       console.log('this',this.entityData);
       
       this.subscriotion = this.entity.delete(this.entityData.apiSelector, data, data._id).subscribe(res => {

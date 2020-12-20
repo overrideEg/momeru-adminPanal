@@ -8,8 +8,8 @@ export const navigation: FuseNavigation[] = [
         translate: 'homePage',
         type     : 'item',
         icon     : 'tab_unselected',
-        url      : '/apps/dashboards/project'
-       
+        url      : '/apps/dashboards/project',
+        permission : ['admin', 'company','employee'],
     },  
     {
         id       : 'Applications',
@@ -17,6 +17,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'Applications',
         type     : 'group',
         icon     : 'tab_unselected',
+        permission : ['admin',  'employee'],
         children : [
             {
                 id       : 'Board',
@@ -24,19 +25,11 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Board',
                 type     : 'item',
                 icon     : 'assessment',
-                url      : '/apps/scrumboard/boards'
+                url      : '/apps/scrumboard/boards',
+                permission : ['admin',  'employee'],
         
         
-            },
-            {
-                id       : 'Applications List',
-                title    : 'Applications List',
-                translate: 'Applications List',
-                type     : 'item',
-                icon     : 'Tag',
-                url  : '/generic/Card'
-        
-            },
+            }
          
 
         ]
@@ -48,6 +41,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'basicData',
         type     : 'group',
         icon     : 'tab_unselected',
+        permission : ['admin' ],
         children : [
             {
                 id       : 'users',
@@ -55,8 +49,8 @@ export const navigation: FuseNavigation[] = [
                 translate: 'users',
                 type     : 'item',
                 icon     : 'person_outline',
-                url  : '/generic/User'
-        
+                url  : '/generic/User',
+                permission : ['admin' ],
             },
             // {
             //     id       : 'SeoOptions',
@@ -77,6 +71,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'Blog',
         type     : 'group',
         icon     : 'tab_unselected',
+        permission : ['admin',],
         children:[
             {
                 id       : 'Article Category',
@@ -84,7 +79,8 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Article Category',
                 type     : 'item',
                 icon     : 'Tag',
-                url  : '/generic/ArticleCategory'
+                url  : '/generic/ArticleCategory',
+                permission : ['admin', ],
         
             },
             {
@@ -93,7 +89,8 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Article',
                 type     : 'item',
                 icon     : 'Article',
-                url  : '/generic/Article'
+                url  : '/generic/Article',
+                permission : ['admin', ],
         
             },
            
@@ -107,6 +104,7 @@ export const navigation: FuseNavigation[] = [
         translate: 'Jobs',
         type     : 'group',
         icon     : 'tab_unselected',
+        permission : ['admin'],
         children : [
             {
                 id       : 'Job',
@@ -114,7 +112,8 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Job',
                 type     : 'item',
                 icon     : 'person_outline',
-                url  : '/generic/Job'
+                url  : '/generic/Job',
+                permission : ['admin'],
         
             },
             {
@@ -123,7 +122,8 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Job Applications',
                 type     : 'item',
                 icon     : 'person_outline',
-                url  : '/generic/JobApp'
+                url  : '/generic/JobApp',
+                permission : ['admin'],
         
             },
             {
@@ -132,7 +132,8 @@ export const navigation: FuseNavigation[] = [
                 translate: 'Company',
                 type     : 'item',
                 icon     : 'Tag',
-                url  : '/generic/Company'
+                url  : '/generic/Company',
+                permission : ['admin'  ],
         
             },
          
@@ -143,16 +144,46 @@ export const navigation: FuseNavigation[] = [
         id       : 'Forms',
         title    : 'Forms',
         translate: 'Forms',
-        type     : 'item',
-        url  : '/generic/Form'
-
+        type     : 'group',
+        url  : '/generic/Form',
+        permission : ['admin' ],
+        children:[
+            {
+                id       : 'Form',
+                title    : 'Form',
+                translate: 'Form',
+                type     : 'item',
+                url  : '/generic/Form',
+                permission : ['admin' ],
+        
+            },
+            {
+                id       : 'Question Category',
+                title    : 'Question Category',
+                translate: 'Question Category',
+                type     : 'item',
+                url  : '/generic/QuestionCategory',
+                permission : ['admin' ],
+        
+            },
+            {
+                id       : 'Questions',
+                title    : 'Questions',
+                translate: 'Questions',
+                type     : 'item',
+                url  : '/generic/Question',
+                permission : ['admin' ],
+        
+            },
+        ]
     },
     {
         id       : 'Contact Us',
         title    : 'Contact Us',
         translate: 'Contact Us',
         type     : 'item',
-        url  : '/generic/ContactUs'
+        url  : '/generic/ContactUs',
+        permission : ['admin' ],
 
     },
  
@@ -161,7 +192,8 @@ export const navigation: FuseNavigation[] = [
         title    : 'CEO Talk',
         translate: 'CEO Talk',
         type     : 'item',
-        url  : '/generic/CeoTalk'
+        url  : '/generic/CeoTalk',
+        permission : ['admin'],
 
     },
  
@@ -170,7 +202,8 @@ export const navigation: FuseNavigation[] = [
         title    : 'FAQs',
         translate: 'FAQs',
         type     : 'item',
-        url  : '/generic/Faq'
+        url  : '/generic/Faq',
+        permission : ['admin' ],
 
     },
  
@@ -181,13 +214,15 @@ export const navigation: FuseNavigation[] = [
         translate: 'Project',
         type     : 'group',
         icon     : 'tab_unselected',
+        permission : ['admin', ],
         children:[
             {
                 id       : 'ProjectCategory',
                 title    : 'Project Categories',
                 translate: 'Project Categories',
                 type     : 'item',
-                url  : '/generic/ProjectCategory'
+                url  : '/generic/ProjectCategory',
+                permission : ['admin', ],
         
             },
             {
@@ -195,7 +230,8 @@ export const navigation: FuseNavigation[] = [
                 title    : 'Projects',
                 translate: 'Projects',
                 type     : 'item',
-                url  : '/generic/Project'
+                url  : '/generic/Project',
+                permission : ['admin', ],
         
             },
            
@@ -209,13 +245,15 @@ export const navigation: FuseNavigation[] = [
         translate: 'Mission&Vission',
         type     : 'group',
         icon     : 'tab_unselected',
+        permission : ['admin', ],
         children:[
             {
                 id       : 'Mission',
                 title    : 'Mission',
                 translate: 'Mission',
                 type     : 'item',
-                url  : '/generic/Mission'
+                url  : '/generic/Mission',
+                permission : ['admin', ],
         
             },
             {
@@ -223,7 +261,8 @@ export const navigation: FuseNavigation[] = [
                 title    : 'Vission',
                 translate: 'Vission',
                 type     : 'item',
-                url  : '/generic/Vission'
+                url  : '/generic/Vission',
+                permission : ['admin',  ],
         
             },
             {
@@ -231,7 +270,26 @@ export const navigation: FuseNavigation[] = [
                 title    : 'Services',
                 translate: 'Services',
                 type     : 'item',
-                url  : '/generic/Services'
+                url  : '/generic/Services',
+                permission : ['admin',  ],
+        
+            },
+            {
+                id       : 'Agents',
+                title    : 'Agents',
+                translate: 'Agents',
+                type     : 'item',
+                url  : '/generic/Agent',
+                permission : ['admin',  ],
+        
+            },
+            {
+                id       : 'Partner',   
+                title    : 'Partner',
+                translate: 'Partner',
+                type     : 'item',
+                url  : '/generic/Partner',
+                permission : ['admin',  ],
         
             },
            

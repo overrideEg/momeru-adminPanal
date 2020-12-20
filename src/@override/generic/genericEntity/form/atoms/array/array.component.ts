@@ -14,13 +14,61 @@ import { MatAccordion } from '@angular/material/expansion';
   templateUrl: './array.component.html',
   styleUrls: ['./array.component.scss','../../generic-form/bootstrap.css']
 })
-export class ArrayComponent implements DoCheck, OnInit {
+export class ArrayComponent implements  OnInit {
 
   constructor(
     public entities: EntitiesService,
     private fb: FormBuilder,
-    private translate :TranslateService,
-    private router: Router) { }
+    private translate: TranslateService,
+    private router: Router) {
+    const url = this.router.url;
+    let entity = this.entities.allEntities.find(entity => url.startsWith(entity.route))
+    this.entityData = entity;
+    setTimeout(() => {
+     
+      if (this.entities.record) {
+
+        const record = this.entities.record;
+        console.log(record);
+        
+
+        this.addRows(record)
+      }
+    }, 1000);
+  }
+  addRows(record: any) {
+    for (const key in record) {
+      if (Object.prototype.hasOwnProperty.call(record, key)) {
+        const recordInDB = record[key];
+        console.log(recordInDB);
+
+        if (Array.isArray(recordInDB) && this.field.name === key) {
+          // console.log('f',  recordInDB,this.Forms.length);
+          if (this.Forms.length < recordInDB.length) {
+            for (let i = 0; i < recordInDB.length; i++) {
+              
+              this.addRow()
+              //   const record = recordInDB[i];
+              // let fg = this.fb.group(childs);
+              // this.Forms.push(fg);
+              // for (const keyB in record) {
+              //   if (Object.prototype.hasOwnProperty.call(record, keyB)) {
+              //     const element = record[keyB];
+              //     if (isArray(element) && this.field.name === keyB){
+              //       this.addRows(element)
+              //     }
+              //   }
+              // }
+
+              this.Forms.patchValue(recordInDB)
+            }
+          }
+          
+        }
+
+      }
+    }
+  }
 
 
   @Input() field: AbstractField;
@@ -33,48 +81,49 @@ export class ArrayComponent implements DoCheck, OnInit {
   entityData: EntityData;
 
   ngOnInit(): void {
-    const url = this.router.url;
-    let entity = this.entities.allEntities.find(entity => url.startsWith(entity.route))
-    this.entityData = entity;
+
   }
-  ngDoCheck(): void {
-    if (
-      this.entities.isEditMode &&
-      this.form.value[this.field.name].length > 1 &&
-      this.i === 0
-    ) {
-      let newValues = this.form.value[this.field.name] as any[];
+  // ngDoCheck(): void {
 
-      if (this.Forms.length < newValues.length) {
-        newValues.forEach((element) => {
-          const fieldsCtrls = {};
-          for (const key in element) {
-            if (element.hasOwnProperty(key)) {
-              for (let f of this.field.children) {
+  //   if (
+  //     this.entities.isEditMode &&
+  //     this.form.value[this.field.name].length > 1  &&
+  //     this.i === 0
+  //   ) {
+  //     let newValues = this.form.value[this.field.name] as any[];
 
-                if (f.name == key) {
-                  fieldsCtrls[f.name] =    this.entities.DetectField(f)
-                            }
-              }
-            }
+  //     console.log(newValues);
+  //     if (this.Forms.length < newValues.length) {
+  //       newValues.forEach((element) => {
 
-          }
-          const newGroup = this.fb.group(fieldsCtrls);
-          this.Forms.push(newGroup);
+  //         const fieldsCtrls = {};
+  //         for (const key in element) {
+  //           if (element.hasOwnProperty(key)) {
+  //             for (let f of this.field.children) {
 
-        });
-      }
-      if (this.Forms.length > newValues.length) {
-        let val = this.Forms.value as [];
-        const index = val.findIndex((value) => !newValues.includes(value));
-        this.Forms.removeAt(index);
-        this.Forms.removeAt(0);
-      }
-      this.i++;
-    }
-  }
+  //               if (f.name == key) {
+  //                 fieldsCtrls[f.name] =    this.entities.DetectField(f)
+  //                           }
+  //             }
+  //           }
+
+  //         }
+  //         const newGroup = this.fb.group(fieldsCtrls);
+  //         this.Forms.push(newGroup);
+
+  //       });
+  //     }
+  //     if (this.Forms.length > newValues.length) {
+  //       let val = this.Forms.value as [];
+  //       const index = val.findIndex((value) => !newValues.includes(value));
+  //       this.Forms.removeAt(index);
+  //       this.Forms.removeAt(0);
+  //     }
+  //     this.i++;
+  //   }
+  // }
   get Forms() {
-    return this.form.controls[this.field.name] as FormArray;
+    return this.form.get(this.field.name) as FormArray;
   }
 
 
@@ -90,12 +139,17 @@ export class ArrayComponent implements DoCheck, OnInit {
 
   }
   removeRow(i) {
-      if (confirm(this.translate.instant('Are You Sure ?'))){
-        this.Forms.removeAt(i);
-        // if (this.Forms.length === 0)
-        // this.addRow()
-      }
- 
+    //   console.log('this.Forms',this.Forms)
+    if (confirm(this.translate.instant('Are You Sure ?'))) {
+        let dates = this.form.value.locations;
+        // console.log('dates',dates)
+        let getValue = dates[i]
+      this.Forms.removeAt(i);
+      // if (this.Forms.length === 0)
+      // this.addRow()
+    //   console.log('after',getValue)
+    }
+
 
   }
 

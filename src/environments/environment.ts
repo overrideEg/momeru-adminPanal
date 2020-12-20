@@ -8,7 +8,7 @@ export const environment = {
     clientId: '+2bhZa9iJzbgIqIZMNQQtLBpddwkvdv0+DXn0SckutQ=' ,
     fileAuth:'bmV0Lm92ZXJyaWRlZWcuc2VydmljZXMuZmlsZVVwbG9hZA==',
     // serverUrl: 'http://localhost:3050/v1',
-    serverUrl:'https://serve.edu-promise.com/v1',
+    serverUrl:'http://server.overrideeg.net:3000/v1',
 };
 
 /*

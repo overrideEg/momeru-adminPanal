@@ -85,22 +85,19 @@ export class GenericFormComponent implements OnInit, DoCheck, OnDestroy {
     
   }
 
-   getFormData() {
-    if (this.entities.i === 1 ) {
-      this.subscription =  this.dataService.getOne(this.entityData.apiSelector, this.entities.entityId).subscribe(res=>{
+  async getFormData() {
 
-          
-          this.form.patchValue(res['body']);
-          this.entities.i ++
-      })
-        //   this.form.patchValue(record); if (record) {
-        //     this.dataLoaded = true;
-        //     this.entities.i++;
-        //     this.checkFields(record)
-        //     this.form.patchValue(record);
-          }    
-        //   }
-    }
+     this.dataService.getOne(this.entityData.apiSelector, this.entities.entityId).subscribe(res=>{
+       
+      this.entities.record = res['body']
+
+      setTimeout(() => {
+        this.form.patchValue(res['body']);
+  
+      });
+    });
+
+  }
 //   checkFields(record: any) {
 //     for (const key in record) {
 //       if (Object.prototype.hasOwnProperty.call(record, key)) {

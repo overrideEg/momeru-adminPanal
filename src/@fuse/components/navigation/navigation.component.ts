@@ -21,6 +21,7 @@ export class FuseNavigationComponent implements OnInit
 
     // Private
     private _unsubscribeAll: Subject<any>;
+    userTypeStored: string;
 
     /**
      *
@@ -47,7 +48,7 @@ export class FuseNavigationComponent implements OnInit
     {
         // Load the navigation either from the input or from the service
         this.navigation = this.navigation || this._fuseNavigationService.getCurrentNavigation();
-
+        this.userTypeStored  = atob(sessionStorage.getItem(btoa('userType')))
         // Subscribe to the current navigation changes
         this._fuseNavigationService.onNavigationChanged
             .pipe(takeUntil(this._unsubscribeAll))

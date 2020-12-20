@@ -23,7 +23,10 @@
     <!-- / CARD LABELS -->
 
     <!-- CARD NAME -->
-    <div class="list-card-name">{{card.name}} </div>
+    <div class="list-card-name">{{card?.applyForm[0]?.question}} </div>
+    <div class="list-card-name">{{card?.applyForm[0]?.answer}} </div>
+    <div class="list-card-name">{{card?.applyForm[1]?.question}} </div>
+    <div class="list-card-name">{{card?.applyForm[1]?.answer}} </div>
     <!-- <div class="list-card-name">{{card.email}} - {{card.mobile}}</div> -->
     <!-- / CARD NAME -->
 
@@ -51,11 +54,11 @@
     <!-- CARD MEMBERS -->
     <div *ngIf="card.idMembers.length > 0" class="list-card-members" fxLayout="row">
 
-        <div class="list-card-member" *ngFor="let memberId of card.idMembers">
+        <!-- <div class="list-card-member" *ngFor="let memberId of card.idMembers">
 
             {{memberId}}
-            <!-- <img class="list-card-member-avatar" [src]="board.members | getById:memberId:'avatar'" [matTooltip]="board.members | getById:memberId:'name'"> -->
-        </div>
+            <img class="list-card-member-avatar" [src]="board.members | getById:memberId:'avatar'" [matTooltip]="board.members | getById:memberId:'name'">
+        </div> -->
 
     </div>
     <!-- / CARD MEMBERS -->

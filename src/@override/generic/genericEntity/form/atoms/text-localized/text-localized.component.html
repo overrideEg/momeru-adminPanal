@@ -2,7 +2,7 @@
     <div [formGroupName]='field.name'>
 
         <div class="row" *ngIf="entityData.form.localizedAllFields || entities.isEditMode">
-            <div [ngClass]=" isArray? 'col-auto': 'row'" *ngFor="let lang of Lang">
+            <div [ngClass]=" isArray? 'col-md-4': 'col-md-4'" *ngFor="let lang of Lang">
                 <mat-form-field class="example-full-width" appearance="outline">
                     <mat-label>{{field.label || field.name | translate}} {{'in ' + lang | translate}}</mat-label>
                     <mat-label class="warn-color mat-subheading-1" *ngIf="field.required">*</mat-label>
