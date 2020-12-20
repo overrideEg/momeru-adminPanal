@@ -4,7 +4,8 @@
 
         <div fxFlex="1 0 auto" fxLayout="row" fxLayoutAlign="start center">
 
-            <button mat-icon-button class="navbar-toggle-button" *ngIf="!hiddenNavbar && !rightNavbar" (click)="toggleSidebarOpen('navbar')" fxHide.gt-md>
+            <button mat-icon-button class="navbar-toggle-button" *ngIf="!hiddenNavbar && !rightNavbar"
+                (click)="toggleSidebarOpen('navbar')" fxHide.gt-md>
                 <mat-icon class="secondary-text">menu</mat-icon>
             </button>
 
@@ -44,7 +45,12 @@
                     <span>Inbox</span>
                 </button> -->
 
-                <button mat-menu-item class="" [routerLink]="['/pages/auth/login']" routerLinkActive="router-link-active">
+                <button mat-menu-item class="" [routerLink]="['/pages/auth/reset-password-2']"
+                    routerLinkActive="router-link-active">
+                    <mat-icon>exit_to_app</mat-icon>
+                    <span>change Password</span>
+                </button><button mat-menu-item class="" [routerLink]="['/pages/auth/login']"
+                    routerLinkActive="router-link-active">
                     <mat-icon>exit_to_app</mat-icon>
                     <span>Logout</span>
                 </button>
