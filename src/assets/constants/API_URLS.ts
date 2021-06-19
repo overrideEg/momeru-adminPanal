@@ -10,7 +10,7 @@ export const API_URLS = {
     changePassword: uri + "/auth/changePassword",
     resetPassword: uri + "/auth/resetPassword/{email}",
     resetPasswordbyCode: uri + "/auth/changePassword/{code}",
-    register: uri + "/register",
+    register: uri + "/register", 
   },
   File: {
     upload: uri + "/File/upload",
