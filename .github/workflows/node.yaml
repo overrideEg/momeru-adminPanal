@@ -45,11 +45,4 @@ jobs:
           TARGET: /home/momeru/public_html/panel
           EXCLUDE: "/dist/, /node_modules/"
      
-      - name: change permissions
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.HAWZEN_HOST }}
-          username: ${{ secrets.HAWZEN_USERNAME }}
-          password: ${{ secrets.PASSWORD }}
-          port: ${{ secrets.PORT }}
-          script: chown -v momeru:momeru /home/momeru/public_html && chown -v momeru:momeru /home/momeru/public_html/panel
+    
