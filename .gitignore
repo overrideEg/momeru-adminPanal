@@ -3,6 +3,7 @@
 # compiled output
 /dist
 /tmp
+/momeru-adminPanal
 /out-tsc
 
 # dependencies
