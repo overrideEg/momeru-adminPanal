@@ -12,8 +12,8 @@
 
     "SCRUMBOARD": "Scrumboard",
     "category": "التصنيفات",
-    "Team":"الفريق",
-    "Openion":"آراء",
+    "Team": "الفريق",
+    "Openion": "آراء",
     "Comment": "التعليقات",
     "Company": "شركة",
     "Country": "بلد",
@@ -54,6 +54,7 @@
     "in en": "بالانجليزية",
     "delete": "حذف",
     "ar": "العربية",
-    "en": "الإنجليزية"
+    "en": "الإنجليزية",
+    "Service Name": "اسم الخدمة"
 
 }

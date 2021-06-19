@@ -191,7 +191,7 @@ export class AllEntities {
                     },
                 ],
                 cols: 12,
-                localizedAllFields: true
+                localizedAllFields: false
             },
             permissions: {
                 add: [UserType.admin],
@@ -1832,7 +1832,7 @@ export class AllEntities {
                         name: 'body',
                         label: this.translate.instant('Vission'),
                         required: true,
-                        validators: [Validators.required],
+                        // validators: [Validators.required],
                         disabled: false,
                         readonly: false,
                         multiline: true,
@@ -1843,7 +1843,7 @@ export class AllEntities {
 
                 ],
                 cols: 12,
-                localizedAllFields: true
+                localizedAllFields: false
             },
             permissions: {
                 add: [UserType.admin],
@@ -1895,7 +1895,7 @@ export class AllEntities {
                         name: 'body',
                         label: this.translate.instant('Mission'),
                         required: true,
-                        validators: [Validators.required],
+                        // validators: [Validators.required],
                         disabled: false,
                         readonly: false,
                         multiline: true,
@@ -1906,7 +1906,7 @@ export class AllEntities {
 
                 ],
                 cols: 12,
-                localizedAllFields: true
+                localizedAllFields: false
             },
             permissions: {
                 add: [UserType.admin],
@@ -1941,7 +1941,7 @@ export class AllEntities {
                     },
                     {
                         field: 'body.' + this.override.currentLang,
-                        headerName: this.translate.instant('Mission'),
+                        headerName: this.translate.instant('Service Name'),
 
                     },
 
@@ -1956,7 +1956,7 @@ export class AllEntities {
                     {
                         type: FieldType.editorLocalized,
                         name: 'body',
-                        label: this.translate.instant('Mission'),
+                        label: this.translate.instant('Service Name'),
                         required: true,
                         validators: [Validators.required],
                         disabled: false,
@@ -1969,7 +1969,7 @@ export class AllEntities {
 
                 ],
                 cols: 12,
-                localizedAllFields: true
+                localizedAllFields: false
             },
             permissions: {
                 add: [UserType.admin],
