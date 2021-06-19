@@ -39,7 +39,7 @@ jobs:
         env:
           SSH_PRIVATE_KEY: ${{ secrets.HAWZEN_SERVER_SSH_KEY }}
           ARGS: "-rltgoDzvO"
-          SOURCE: "/dist/"
+          SOURCE: "momeru-adminPanal/dist"
           REMOTE_HOST:  ${{ secrets.HAWZEN_HOST }}
           REMOTE_USER: ${{ secrets.HAWZEN_USERNAME }}
           TARGET: /home/momeru/public_html/panel
