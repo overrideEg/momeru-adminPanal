@@ -45,16 +45,11 @@ jobs:
           TARGET: /home/momeru/public_html/panel
           EXCLUDE: "/dist/, /node_modules/"
      
-      # - name: run oreed live
-      #   uses: appleboy/ssh-action@master
-      #   with:
-      #     host: ${{ secrets.HOST }}
-      #     username: ${{ secrets.USERNAME }}
-      #     password: ${{ secrets.PASSWORD }}
-      #     port: ${{ secrets.PORT }}
-      #     script: cd /usr/projects/oreed-cd && npm install && pm2 delete oreed && pm2 start -i max main.js --name oreed && pm2 startup && pm2 save
-
-
-          # ssh-keygen -m PEM -t rsa -b 4096
-          # cat /root/.ssh/id_rsa.pub >> root/.ssh/authorized_keys
-
+      - name: change permissions
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HAWZEN_HOST }}
+          username: ${{ secrets.HAWZEN_USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          port: ${{ secrets.PORT }}
+          script: chown -v momeru:momeru /home/momeru/public_html && chown -v momeru:momeru /home/momeru/public_html/panel
